@@ -114,6 +114,7 @@ describe('Smoke', () => {
     await SettingsPage.verifySignOutLayout();
     await SettingsPage.confirmSignOut();
     await LoginPage.open();
+    await LoginPage.settle(); // a late picker or keyboard would cover "Send OTP"
     await expect(LoginPage.sendOtpBtn).toBeDisplayed();
   });
 });

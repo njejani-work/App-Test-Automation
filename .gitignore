@@ -10,6 +10,9 @@ Claude outputs/
 # ---- Generated test output
 # dashboard runs, screenshots and page sources
 reports/
+# demo runs and the dashboard's own page tests
+reports-demo/
+.dashboard-test/
 allure-results/
 allure-report/
 # rebuilt with: npm run deliverables
@@ -27,6 +30,7 @@ tmp/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+!.vscode/mcp.json
 .idea/
 *.swp
 .DS_Store

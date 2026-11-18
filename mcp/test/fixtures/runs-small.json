@@ -1,0 +1,36 @@
+{
+  "_about": "A tiny recorded history for the tools' unit tests: two smoke runs; in the newer one SMK-02 regressed (passed on the older app build, same test code) and SMK-03 fails with the same cause (FLAKY: it passed on the same app build B2 the day before).",
+  "index": {
+    "runs": [
+      { "id": "20261116-110316", "suites": ["smoke"], "startedAt": "2026-11-16T05:33:16Z", "durationMs": 312000,
+        "summary": { "status": "failed", "total": 3, "passed": 1, "failed": 2, "skipped": 0, "crashes": 0 },
+        "problems": [ { "id": "SMK-02", "status": "failed" }, { "id": "SMK-03", "status": "failed" } ] },
+      { "id": "20261115-090000", "suites": ["smoke"], "startedAt": "2026-11-15T03:30:00Z", "durationMs": 298000,
+        "summary": { "status": "passed", "total": 3, "passed": 3, "failed": 0, "skipped": 0, "crashes": 0 }, "problems": [] }
+    ],
+    "tests": [
+      { "id": "SMK-01", "title": "SMK-01 [P0] intro and login screen", "severity": "P0", "results": [
+        { "runId": "20261116-110316", "status": "passed", "buildId": "B2", "projectCommit": "c1" },
+        { "runId": "20261115-090000", "status": "passed", "buildId": "B1", "projectCommit": "c1" } ] },
+      { "id": "SMK-02", "title": "SMK-02 [P0] login with mobile number and OTP", "severity": "P0", "results": [
+        { "runId": "20261116-110316", "status": "failed", "buildId": "B2", "projectCommit": "c1" },
+        { "runId": "20261115-090000", "status": "passed", "buildId": "B1", "projectCommit": "c1" } ] },
+      { "id": "SMK-03", "title": "SMK-03 [P1] Home loads", "severity": "P1", "results": [
+        { "runId": "20261116-110316", "status": "failed", "buildId": "B2", "projectCommit": "c1" },
+        { "runId": "20261115-090000", "status": "passed", "buildId": "B2", "projectCommit": "c1" } ] }
+    ]
+  },
+  "runs": {
+    "20261116-110316": { "tests": [
+      { "id": "SMK-01", "title": "SMK-01 [P0] intro and login screen", "status": "passed" },
+      { "id": "SMK-02", "title": "SMK-02 [P0] login with mobile number and OTP", "status": "failed", "severity": "P0", "module": "Login",
+        "error": { "message": "LoginPage did not open within 20000ms\n    at LoginPage.open (test/pageobjects/LoginPage.js:41:11)" },
+        "stepsDetail": [ { "title": "LoginPage.open", "status": "failed" } ],
+        "category": "product bug", "categoryWhy": "passed on the older app build", "sig": "login-did-not-open" },
+      { "id": "SMK-03", "title": "SMK-03 [P1] Home loads", "status": "failed", "severity": "P1", "module": "Home",
+        "error": { "message": "LoginPage did not open within 20000ms" },
+        "stepsDetail": [ { "title": "LoginPage.open", "status": "failed" } ],
+        "category": "product bug", "categoryWhy": "same cause as SMK-02", "sig": "login-did-not-open" }
+    ] }
+  }
+}

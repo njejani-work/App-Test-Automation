@@ -1,0 +1,13 @@
+{
+  "_help": [
+    "Response format rules for the APIs the app calls: the fields the app relies on, and their types. Shared through git.",
+    "Empty for now: the eGenome app does not log its API calls yet, so there is nothing to check (see the API tab). Add rules once calls appear on the dashboard (API tab, 'By API' shows each API's name).",
+    "Each rule: name; match = part of the API name or URL; status = the status these rules apply to (other statuses are not checked); fields = { 'path': 'type' }; nonEmpty = lists that must have at least one item.",
+    "Paths: a.b = field b inside a; a[] = every item of list a (the first 50 are checked); a[].b = field b in every item.",
+    "Types: string, number, boolean, object, array, any. Add ? for a field that may be missing (e.g. 'string?'); a field that is there must still have the type.",
+    "Example: { \"name\": \"Reports list\", \"match\": \"/v1/reports\", \"status\": 200, \"fields\": { \"data\": \"array\", \"data[].id\": \"string\", \"data[].status\": \"string\", \"data[].paid\": \"boolean?\" }, \"nonEmpty\": [\"data\"] }",
+    "A problem is shown on the call (API tab) as a failure with the path, what was expected and what came, and counted on the run as a warning.",
+    "Environment variable DASHBOARD_FORMATS_FILE points to another file (used by the dashboard's own tests)."
+  ],
+  "rules": []
+}

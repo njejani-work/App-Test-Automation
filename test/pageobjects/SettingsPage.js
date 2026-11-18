@@ -34,8 +34,10 @@ export const MENU = {
 class SettingsPage extends BasePage {
   get layoutSpec() { return 'Settings'; }
 
+  // Rows from the top, middle and bottom of the list: coming back from a sub-screen (e.g. Help & Support) the list
+  // stays scrolled where it was, and on a small screen (720x1280 emulator) the top rows are then off screen (17 Nov).
   get anchors() {
-    return [SEL.profileCard, SEL.appearance, SEL.menu(MENU.MANAGE_ADDRESSES)];
+    return [SEL.profileCard, SEL.appearance, SEL.menu(MENU.MANAGE_ADDRESSES), SEL.menu(MENU.SUBSCRIPTION_MANAGEMENT), SEL.menu(MENU.LOGOUT)];
   }
 
   get nav() { return BottomNav; }

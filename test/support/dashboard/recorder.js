@@ -128,6 +128,10 @@ export function init({ runId, cid, specs, device }) {
   state.shotDir = path.join(state.runDir, 'screenshots', state.cid);
   state.specs = (specs || []).map((s) => path.relative(process.cwd(), s.startsWith('file:') ? fileURLToPath(s) : s).split(path.sep).join('/'));
   state.device = device || {};
+  // A worker records one session: start empty (matters when one process records several runs, e.g. the demo data)
+  state.entries = [];
+  state.current = null;
+  state.testCounter = 0;
   fs.mkdirSync(state.shotDir, { recursive: true });
   flush();
   logLine(`worker started: ${state.specs.join(', ')}`);
@@ -170,13 +174,13 @@ export function startHook(info) {
 }
 
 /** Finish the current test/hook. */
-export async function end({ passed, error, retries, logcat } = {}) {
+export async function end({ passed, skipped, error, retries, logcat, extra } = {}) {
   const e = state.current;
   if (!state.enabled || !e) return;
   e.durationMs = now() - e.start;
-  e.status = passed ? 'passed' : 'failed';
+  e.status = skipped ? 'skipped' : passed ? 'passed' : 'failed';
   if (retries && retries.attempts) e.retries = retries.attempts;
-  if (!passed) {
+  if (!passed && !skipped) {
     e.error = serializeError(error);
     // Final state of the screen, unless the last step already captured the failure
     const last = e.steps[e.steps.length - 1];
@@ -185,10 +189,12 @@ export async function end({ passed, error, retries, logcat } = {}) {
     }
     if (logcat && logcat.length) e.logcat = logcat;
   }
+  // App log, API calls, performance, video and warnings from device-recorder.js (since 13 Nov 2026)
+  if (extra) e.extra = extra;
   // Hooks that did nothing interesting aren't worth showing
   const keep = e.type === 'test' || e.steps.length > 0 || !passed;
   if (keep) state.entries.push(e);
-  logLine(`${passed ? '✔' : '✖'} ${e.type.toUpperCase()} ${e.title} (${(e.durationMs / 1000).toFixed(1)}s)${passed ? '' : ` - ${e.error?.message?.split('\n')[0]}`}`);
+  logLine(`${skipped ? '–' : passed ? '✔' : '✖'} ${e.type.toUpperCase()} ${e.title} (${(e.durationMs / 1000).toFixed(1)}s)${passed || skipped ? (skipped ? ' - skipped' : '') : ` - ${e.error?.message?.split('\n')[0]}`}`);
   state.current = null;
   flush();
 }
@@ -205,6 +211,12 @@ export function recordSkipped(tests) {
     });
   }
   flush();
+}
+
+/** Where the last finished entry is: { file, index } (to add API calls that finish after it). */
+export function lastEntryRef() {
+  const last = state.entries[state.entries.length - 1];
+  return state.enabled && last ? { file: path.join(state.runDir, 'workers', `${state.cid}.json`), index: last.index } : null;
 }
 
 export function flush() {

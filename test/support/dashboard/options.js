@@ -3,7 +3,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+// The project whose tests are recorded. Another project can use this recorder too (the Instagram tests do): it sets
+// DASHBOARD_PROJECT_ROOT to its own folder, so its reports/ and its test/triage.json, budgets.json are used.
+const OWN_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+export const PROJECT_ROOT = process.env.DASHBOARD_PROJECT_ROOT ? path.resolve(process.env.DASHBOARD_PROJECT_ROOT) : OWN_ROOT;
+/** The Android app under test (DASHBOARD_APP_PACKAGE): its version, its log lines and its API calls are read. */
+export const APP_PACKAGE = process.env.DASHBOARD_APP_PACKAGE || 'com.egenome.app';
 
 const env = process.env;
 const num = (v, d) => (v != null && v !== '' && !Number.isNaN(Number(v)) ? Number(v) : d);
@@ -21,6 +26,14 @@ export const options = {
   get verbose() { return env.DASHBOARD_VERBOSE === 'true'; },
   /** TEST_ENV: label shown on the dashboard, e.g. "staging". */
   get environment() { return env.TEST_ENV || 'staging'; },
+  /** DASHBOARD_VIDEO: screen recording of each test - 'failed' = keep only failures (default), 'all', 'off'. */
+  get video() { return (env.DASHBOARD_VIDEO || 'failed').toLowerCase(); },
+  /** DASHBOARD_PERF=off turns off memory and frame stats (read with adb from this computer). */
+  get perf() { return (env.DASHBOARD_PERF || 'on').toLowerCase() !== 'off'; },
+  /** The device adb reads from: DEVICE_UDID (as in wdio.conf.js); empty = the only connected device. */
+  get udid() { return env.DEVICE_UDID || ''; },
   /** DASHBOARD_TITLE: name in the dashboard header. */
   get projectName() { return env.DASHBOARD_TITLE || 'eGenome.ai App Tests'; },
+  /** The shared list of apps for the switcher at the top left (DASHBOARD_APPS; default: ../Test Dashboard/apps.json). */
+  get appsFile() { return env.DASHBOARD_APPS ? path.resolve(PROJECT_ROOT, env.DASHBOARD_APPS) : path.resolve(PROJECT_ROOT, '..', 'Test Dashboard', 'apps.json'); },
 };

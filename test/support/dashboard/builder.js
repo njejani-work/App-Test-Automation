@@ -1,13 +1,17 @@
 // Turns raw run data (reports/runs/<id>/meta.json + workers/*.json) into what the dashboard reads:
-//   reports/runs/<id>/run.json      full run (also handy for CI / other tools)
-//   reports/data/runs/<id>.js       same, as a script the dashboard can load from file://
-//   reports/data/index.js           list of runs + per-test history
-//   reports/index.html              the dashboard
+//   reports/runs/<id>/run.json      eGenome's run summary: totals, every test with its steps (used by the deliverables,
+//                                   CI and other tools; same format as before 13 Nov 2026)
+//   reports/data/…, reports/index.html   the dashboard itself, written by analysis.mjs (shared with the Wikipedia project)
+import { writeUnitData } from './unit-report.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { configure, buildDashboard, printSummary } from './analysis.mjs';
+import { writeAppsData } from './lib/apps.js';
+import { options } from './options.js';
 
-const TEMPLATE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'template', 'index.html');
+export { printSummary };
+
 const ABORTED_AFTER_MS = 30 * 60 * 1000;
 
 const readJson = (f, fallback = null) => {
@@ -21,7 +25,6 @@ function writeFile(file, text) {
   fs.renameSync(tmp, file);
 }
 
-const asScript = (assign, data) => `${assign}${JSON.stringify(data)};\n`;
 
 function totalsOf(tests) {
   // warnings: tests (not hooks) with at least one warning (they also count as passed/failed);
@@ -86,7 +89,6 @@ export function buildRun(reportsDir, runId) {
     tests,
   };
   writeFile(path.join(runDir, 'run.json'), JSON.stringify(run, null, 1));
-  writeFile(path.join(reportsDir, 'data', 'runs', `${runId}.js`), asScript(`(window.DASHBOARD_RUNS=window.DASHBOARD_RUNS||{})[${JSON.stringify(runId)}]=`, run));
   return run;
 }
 
@@ -96,62 +98,55 @@ function listRunIds(reportsDir) {
   return fs.readdirSync(dir).filter((d) => fs.existsSync(path.join(dir, d, 'meta.json'))).sort().reverse();
 }
 
-/** Rebuild the run list + test history, delete runs beyond keepRuns. */
-export function buildIndex(reportsDir, { keepRuns = 30, projectName = 'App Tests', rebuildRuns = false } = {}) {
-  const ids = listRunIds(reportsDir);
-  // Retention
-  for (const old of ids.slice(keepRuns)) {
-    try {
-      fs.rmSync(path.join(reportsDir, 'runs', old), { recursive: true, force: true });
-      fs.rmSync(path.join(reportsDir, 'data', 'runs', `${old}.js`), { force: true });
-    } catch {}
+/**
+ * Rebuild the dashboard: each run's run.json (eGenome format), then the analysis and the page (analysis.mjs).
+ * Runs beyond keepRuns are deleted. rebuildRuns = rewrite every run (npm run dashboard); otherwise only runs that
+ * changed. Returns { runs: [run summaries, newest first], file } - never throws a dashboard problem at a test run.
+ */
+export function buildIndex(reportsDir, { keepRuns = 30, projectName = 'eGenome.ai App Tests', rebuildRuns = false, appsFile = options.appsFile } = {}) {
+  const ids = listRunIds(reportsDir).slice(0, keepRuns);
+  for (const id of ids) {
+    const run = rebuildRuns ? null : readJson(path.join(reportsDir, 'runs', id, 'run.json'));
+    if (!run || run.status === 'running' || !run.finishedAt) { try { buildRun(reportsDir, id); } catch {} }
   }
-  const kept = ids.slice(0, keepRuns);
-  const runs = [];
-  const history = new Map(); // key -> {suite,title,results:[]}
-  for (const id of kept) {
-    let run = rebuildRuns ? null : readJson(path.join(reportsDir, 'runs', id, 'run.json'));
-    if (!run || run.status === 'running') run = buildRun(reportsDir, id);
-    runs.push({
-      id: run.id, startedAt: run.startedAt, finishedAt: run.finishedAt, durationMs: run.durationMs, status: run.status,
-      environment: run.environment, trigger: run.trigger, host: run.host, device: run.device, specs: run.specs, totals: run.totals,
-    });
-    for (const t of run.tests.filter((x) => x.type === 'test')) {
-      const key = `${t.suite} › ${t.title}`;
-      if (!history.has(key)) history.set(key, { key, suite: t.suite, title: t.title, file: t.file, results: [] });
-      history.get(key).results.push({ runId: run.id, status: t.status, durationMs: t.durationMs, testId: t.id });
-    }
+  configure({ reportsDir, keepRuns, projectName });
+  try {
+    const { file, runs } = buildDashboard({ all: rebuildRuns });
+    try { writeUnitData(reportsDir, keepRuns); } catch (e) { console.warn(`[dashboard] unit test results not added: ${e.message}`); } // "Unit tests" tab
+    if (appsFile) { try { writeAppsData(reportsDir, appsFile); } catch (e) { console.warn(`[dashboard] app switcher not added: ${e.message}`); } } // top-left app menu
+    return { file, runs };
+  } catch (e) {
+    console.warn(`[dashboard] could not rebuild the page: ${e.message}`);
+    return { file: path.join(reportsDir, 'index.html'), runs: [] };
   }
-  const index = {
-    projectName,
-    generatedAt: Date.now(),
-    runs,
-    tests: [...history.values()].map((h) => ({ ...h, results: h.results.slice(0, 20) })),
-  };
-  writeFile(path.join(reportsDir, 'data', 'index.js'), asScript('window.DASHBOARD_INDEX=', index));
-  // Tiny file the open dashboard polls to notice a run starting / finishing (works from file://)
-  const head = runs[0] || {};
-  writeFile(path.join(reportsDir, 'data', 'latest.js'), asScript('window.DASHBOARD_LATEST=', { id: head.id || null, status: head.status || null, finishedAt: head.finishedAt || null, generatedAt: index.generatedAt }));
-  ensureTemplate(reportsDir);
-  return index;
 }
 
+/** Copy the page template into a reports folder (kept for older callers; buildIndex does it). */
 export function ensureTemplate(reportsDir) {
-  fs.mkdirSync(reportsDir, { recursive: true });
-  fs.copyFileSync(TEMPLATE, path.join(reportsDir, 'index.html'));
+  configure({ reportsDir });
+  return buildIndex(reportsDir, {});
 }
 
 /** Copy the dashboard with only the newest `count` runs into another folder (used for deliverables). */
 export function exportSnapshot(reportsDir, outDir, { count = 5, projectName } = {}) {
   const ids = listRunIds(reportsDir).slice(0, count);
+  // the newest unit test runs too ("Unit tests" tab)
+  const unitDir = path.join(reportsDir, 'unit');
+  if (fs.existsSync(unitDir)) {
+    fs.mkdirSync(path.join(outDir, 'unit'), { recursive: true });
+    for (const f of fs.readdirSync(unitDir).filter((x) => /^\d{8}-\d{6}\.json$/.test(x)).sort().reverse().slice(0, count)) fs.copyFileSync(path.join(unitDir, f), path.join(outDir, 'unit', f));
+  }
   for (const id of ids) {
     const src = path.join(reportsDir, 'runs', id);
     const dst = path.join(outDir, 'runs', id);
     fs.mkdirSync(dst, { recursive: true });
-    for (const f of ['meta.json', 'run.json', 'run.log']) if (fs.existsSync(path.join(src, f))) fs.copyFileSync(path.join(src, f), path.join(dst, f));
-    if (fs.existsSync(path.join(src, 'workers'))) fs.cpSync(path.join(src, 'workers'), path.join(dst, 'workers'), { recursive: true });
-    if (fs.existsSync(path.join(src, 'screenshots'))) fs.cpSync(path.join(src, 'screenshots'), path.join(dst, 'screenshots'), { recursive: true });
+    for (const f of ['meta.json', 'run.json', 'run.log', 'api-log.txt']) if (fs.existsSync(path.join(src, f))) fs.copyFileSync(path.join(src, f), path.join(dst, f));
+    // steps and layout screenshots, the app's Android log, API response bodies, videos of failed tests
+    for (const d of ['workers', 'screenshots', 'layout', 'logcat', 'network', 'videos']) {
+      if (fs.existsSync(path.join(src, d))) fs.cpSync(path.join(src, d), path.join(dst, d), { recursive: true });
+    }
   }
-  buildIndex(outDir, { keepRuns: count, projectName, rebuildRuns: true });
+  buildIndex(outDir, { keepRuns: count, projectName, rebuildRuns: true, appsFile: null }); // a snapshot stands alone: no app menu
+  configure({ reportsDir }); // back to the real reports folder for anything that runs after
   return ids;
 }

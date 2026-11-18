@@ -25,13 +25,15 @@ End-to-end tests for the eGenome Android app (`com.egenome.app`, React Native). 
 7. [Configuration (`.env`)](#configuration-env)
 8. [Page objects and locators](#page-objects-and-locators)
 9. [Writing a new test](#writing-a-new-test)
-10. [Layout checks](#layout-checks)
-11. [Dashboard](#dashboard)
-12. [Capturing locators](#capturing-locators)
-13. [Deliverables for testers](#deliverables-for-testers)
-14. [Project structure](#project-structure)
-15. [Troubleshooting](#troubleshooting)
-16. [Known gaps](#known-gaps)
+10. [Unit tests](#unit-tests)
+11. [Layout checks](#layout-checks)
+12. [Dashboard](#dashboard)
+13. [MCP server (AI assistant access)](#mcp-server-ai-assistant-access)
+14. [Capturing locators](#capturing-locators)
+15. [Deliverables for testers](#deliverables-for-testers)
+16. [Project structure](#project-structure)
+17. [Troubleshooting](#troubleshooting)
+18. [Known gaps](#known-gaps)
 
 ---
 
@@ -90,6 +92,9 @@ Start the emulator (or connect the phone) first. WebdriverIO starts Appium itsel
 | `npm run test:login` | Only the login and session spec |
 | `npm run wdio` | Smoke + regression |
 | `npx wdio run ./wdio.conf.js --spec ./test/specs/<path>.js` | Any single spec |
+| `npm run test:unit` | **Unit tests** – the project's own code, no device needed, ~5 s (see [Unit tests](#unit-tests)) |
+| `npm run test:unit:coverage` | Unit tests + coverage report; fails below 75% line coverage |
+| `npm run test:unit:error-demo` | 13 tests that fail **on purpose**, one per kind of error, to see how failures are reported (not part of `test:unit`) |
 
 > ⚠️ Smoke, `regression/01-login` and the layout audit **clear the app's data** before they start, so they always begin logged out. Don't run them on a phone where you use eGenome with your own account.
 
@@ -145,7 +150,7 @@ All environment-specific values live in `.env` (copy of `.env.example`, never co
 | `TEST_DEPENDENT_NAME`, `TEST_COMPLETED_REPORT`, `TEST_PENDING_REPORT`, `TEST_BOOKING_SERVICE` | Data the account is expected to have |
 | `TEST_ALLOW_DATA_CHANGES`, `TEST_ADDRESS_SEARCH`, `RAZORPAY_TEST_MODE` | Gated tests (above) |
 | `LAYOUT_CHECKS` | `on` (fail on layout differences) · `warn` (report only) · `off` |
-| `TEST_ENV`, `DASHBOARD_SCREENSHOTS`, `DASHBOARD_KEEP_RUNS`, `DASHBOARD_LOGCAT`, `DASHBOARD_VERBOSE` | Dashboard settings |
+| `TEST_ENV`, `DASHBOARD_SCREENSHOTS`, `DASHBOARD_KEEP_RUNS`, `DASHBOARD_LOGCAT`, `DASHBOARD_VERBOSE`, `DASHBOARD_VIDEO`, `DASHBOARD_PERF`, `DASHBOARD_SLOW_MS` | Dashboard settings (see `.env.example`) |
 
 ```js
 import { getUser, accountData, flags } from '../data/users.js';
@@ -217,6 +222,54 @@ describe('Example', () => {
 - Put back anything you change; skip (`this.skip()`) when required data isn't there.
 - To record something that isn't a page call as a step: `await step('Clear app data', () => …)`.
 
+## Unit tests
+
+The suites above test **the app** on a device (end-to-end). Unit tests test **this project's own code** – page objects,
+the layout checker, the recorder, the scripts – one small piece at a time, with **no phone, emulator, Appium or network**.
+108 tests run in about 5 seconds, so run them before every device run and after every change to the test code.
+
+```bash
+npm run test:unit            # all unit tests (test/unit + the dashboard's own unit tests)
+npm run test:unit:coverage   # the same + which lines the tests ran; fails if line coverage drops below 75%
+```
+
+| File (`test/unit/`) | What it checks |
+|---|---|
+| `layout.test.mjs` | Reading a screen dump; building a spec; comparing a screen with a spec (moved, missing, changed text vs. a line break, other screen shape, 48dp tap targets, top-to-bottom order, the month calendar); the real Addresses spec on the real screen |
+| `pageobjects.test.mjs` | Page objects on a **pretend phone**: Google's phone picker (new and old design), the keyboard covering "Send OTP", the tab bar never pressing Back on the login/OTP screen, phone number clean-up, OTP typed one digit per box, permission dialogs allowed/denied |
+| `selectors.test.mjs` | `S.*` selector builders; no page-object locator sends a backslash to the device |
+| `recorder.test.mjs` | OTP codes masked in steps, actions and saved files; step numbering and errors |
+| `test-data.test.mjs` | Clear messages for a missing or badly formatted test account in `.env` (real values are never printed) |
+| `locator-parser.test.mjs` | Element names and locators the capture tool suggests, on the real Login screen |
+| `api-formats.test.mjs` | API response format checks (`test/api-formats.json` rules) |
+| `scripts.test.mjs` | `run-with-env.mjs` passes the setting and the exit code on |
+| `unit-report.test.mjs` | The unit-test reporter: every kind of failure in the error demo reaches the dashboard with its reason, expected / actual, location and messages |
+
+- **Pretend phone** (`test/unit/helpers/fake-device.mjs`): stands in for WebdriverIO's `driver` and `$()`. A test says what
+  is on screen and what Back or a tap does; the fake records what the page object did and uses a pretend clock, so a
+  20-second wait takes milliseconds.
+- **Real screens** (`test/unit/fixtures/`): screen dumps from an emulator run, so the layout and locator tests use what the
+  app really shows.
+- **Rule:** every bug fix in the test code comes with a unit test that fails without the fix. The picker, keyboard and
+  tab-bar tests were checked this way against the old code.
+
+**On the dashboard:** every unit run is saved (`reports/unit/<run>.json`, the last 30 kept) and shown in the **Unit tests**
+tab of `npm run dashboard`: the verdict and numbers compared with the previous run of the same command; **Failures**
+first, each with the kind of error, the message, **expected vs actual** side by side, *where it failed* (opens the line in
+VS Code), the stack trace, the **messages the test attached** (API calls and response bodies, what the pretend phone did,
+what the layout checker said) and its history; **All tests** by file with filters and search; **Coverage** per file with
+the uncovered lines; **History** of the runs with unstable and slowest tests; **Console output**; **Run details** (command,
+commit, Node). The results are saved by a node:test reporter (`test/support/dashboard/unit-report.mjs`), so the terminal
+output stays the same.
+
+**Seeing the error reporting:** `npm run test:unit:error-demo` runs `test/unit/error-demo/error-demo.mjs`, where every test
+fails on purpose in a different way: a wrong value, an object and a list that differ, a pattern that does not match, an
+error thrown inside a page object, a test-data error, a page object that cannot close Google's picker, a layout that
+moved, an API answer in the wrong format, a setup hook that fails, a timeout, plus one pass and one todo. Nothing in the
+project is broken. The next `npm run test:unit` shows a green run again.
+
+How to write one: [`test/unit/README.md`](test/unit/README.md).
+
 ## Layout checks
 
 `await HomePage.verifyLayout()` reads the screen's element tree once and compares it with `test/layout/specs/Home.json` – proportionally, not by pixels.
@@ -244,18 +297,86 @@ Specs are `"reviewed": false` until checked against the design. To exclude an el
 
 ## Dashboard
 
-Open `reports/index.html` (or `npm run dashboard`). It works offline and **reloads itself when a run finishes** (toggle in the header).
+Open `reports/index.html` (or `npm run dashboard`). It opens straight from disk (no server, works offline and in CI) and
+**reloads itself after every test** while a run is going (Auto in the header). It is the same dashboard as the Wikipedia
+app project, with eGenome's step-by-step recording and layout checks inside each test.
 
-- **Overview:** last run, pass rates, flaky tests, consolidated totals across all kept runs, tests-per-run chart, runs table, per-test history.
-- **Run page:** Total / Passed / Failed / Warnings / Skipped boxes, each with its tests, steps and layout-check counts. Tabs filter tests **and** their steps (e.g. Failed shows only the failing step; "Show all steps" expands). Each step has its duration, actions, errors, layout results and a screenshot; click a screenshot to see expected (dashed) vs actual (red) element boxes.
-- **Failures** include the stack trace, a screenshot at failure and the tail of logcat. OTPs are masked.
+| Tab | What it answers |
+|---|---|
+| **Triage** | Can this build ship? A verdict (PASS / UNSTABLE / BLOCKED) with the reason, 8 numbers (pass rate, failed, regressions, new, flaky, crashes, warnings, API failures), and one row per root cause: the same error in several tests is one row. Each row says if it is **new**, **recurring**, a **regression** (passed on an older app build, fails on a newer one with the same test code), **flaky** (both results on the same build and test code) or **quarantined**, and its category (product bug / test bug / environment / infrastructure / needs review) with the reason. |
+| **Coverage** | Tests and results per module of the app (`test/triage.json`), and modules without results |
+| **Performance** | App start time, memory, janky frames per run; **budgets and trends** (`test/budgets.json`): over a limit or much slower than usual = a warning, never a failure; p50 / p95 per API; response-format checks |
+| **Device matrix** | Pass rate per Android version and device |
+| **History** | Every test across the kept runs, with pass rate and flakiness |
+| **API calls** | Every call the app made, from request to outcome (see below) |
+| **Compare** | Any two runs side by side: app version, device, results, timings |
+
+**A test's details** (click a row): the analysis (category, why, regression / flaky / quarantine), the error with links into
+the code (VS Code), **every step** with its duration, actions, the exact page-object call, the **screen after it** and its
+**layout-check results** (click a screenshot: ← → through the test, expected (dashed) vs actual (red) element boxes), the
+app's Android log (errors and warnings, filterable), a **video** of failed tests, memory and frames, the API calls made
+during the test, a diff against the last time it passed, and its history. Every code shown (HTTP status, exit codes,
+signals, P0–P3) has a one-line meaning. OTPs are masked; `Authorization` and cookies are never stored.
+
+To keep scrolling short, a test's details open in **tabs** (Summary · Steps · Screen & device · App log · API calls ·
+History), and the long pages are split into tabs too (Triage: triage table · overview · all runs; Performance; API calls;
+Compare), most urgent first. Each tab label says what it holds in words, ← → move between tabs, and the open tab is part of
+the link (`dt=` for the details, `sec=` for a page). On a phone the header scrolls away and the filters fold behind a
+**Filters** button.
+
+**What is recorded on the device** (read-only, with `adb` from this computer, so Appium's settings stay as they are): the
+app's version and a fingerprint of the installed APK at the start of each run (so the dashboard can tell an app change
+from a test change), the app's Android log for every test (errors, crashes, a stuck emulator screen, launch times, API
+calls), memory and frame stats, and a screen recording of failed tests. If a session cannot start, `adb devices` is
+checked and the reason is shown (no device, wrong `DEVICE_UDID`, …). `adb` must be on `PATH` (or `ANDROID_HOME` set).
+
+**API calls.** They are read from the app's own Android log, where OkHttp's `HttpLoggingInterceptor` writes each call. The
+eGenome staging app does not log its network traffic, so the API tab says so (with the exact reason) and stays empty. It
+fills in by itself, with request and response bodies, timelines, status codes, format checks (`test/api-formats.json`)
+and per-API budgets, as soon as a build logs its calls: the developers add `HttpLoggingInterceptor` (level `BODY`, staging
+builds only) to React Native's OkHttp client (`OkHttpClientProvider`) in `MainApplication`.
+
+Each call is placed in the **test step and screen** it happened in: the step's row lists its calls (opened when one
+failed), every call says "step 2 · Reports" (or "after step 2" / "before step 1" when it started between steps or while
+the app was opening), and the API tab has a **By screen** table. To line up the device's log times with the steps, the
+hooks read the device clock once per session (`adb shell date`, read-only). Runs recorded before 13 Nov 2026 have no
+clock reading, so their calls say they could not be matched to a step.
+
+| File | |
+|---|---|
+| `test/triage.json` | Module and owner per test, severity (or `[P0]` in the title), known issues, tickets, quarantine, category rules. The dashboard's Assign / Ticket / Known / Quarantine buttons edit it in your browser; **Download triage.json** gives you the file to commit. |
+| `test/budgets.json` | Limits: app start, memory, per-API p95 and size, test duration per test ID; trend settings |
+| `test/api-formats.json` | Fields the app relies on, per API (empty until the app logs its calls) |
 
 | Command | |
 |---|---|
-| `npm run dashboard` | Rebuild data and open the dashboard |
+| `npm run dashboard` | Rebuild everything and open the dashboard |
 | `npm run dashboard:build` | Rebuild only (e.g. after an interrupted run) |
+| `npm run dashboard:demo` | Demo runs (no device) in `reports-demo/`: open `reports-demo/index.html` |
+| `npm run test:dashboard:unit` | The dashboard's own tests (node:test, no device, ~2 s) |
+| `npm run test:dashboard:page` | The dashboard in a real browser: every tab, desktop / dark / phone (needs `@playwright/test`, see below) |
 
-A run stopped with Ctrl+C shows as **Aborted** after 30 minutes. Runs beyond `DASHBOARD_KEEP_RUNS` are deleted.
+A run that stopped (Ctrl+C, closed terminal) shows as **incomplete** after 30 minutes. Runs beyond `DASHBOARD_KEEP_RUNS` are
+deleted. Runs recorded before 13 Nov 2026 still open; their parts that did not exist yet (app version, Android log for
+passed tests, performance, API calls) say so instead of showing zeros. `reports/runs/<id>/run.json` keeps eGenome's own
+format (used by `npm run deliverables` and CI).
+
+## MCP server (AI assistant access)
+
+`mcp/` holds a small **Model Context Protocol** server that lets an AI assistant (Claude / Cowork, Claude Code, VS Code)
+read the test results – runs and verdicts, failures with their causes and history, one test in full, the unit tests,
+code meanings, the connected phone – the same data as the dashboard. It can also run the unit tests and start a device
+suite **only after you confirm** (it clears the app's data), one run at a time with time limits. It has its own `package.json`
+(the MCP packages are not added to the test project or CI).
+
+```bash
+npm run mcp:install    # once
+npm run mcp:test       # its tests
+npm run mcp:inspect    # try it in MCP Inspector
+```
+
+Claude Code and VS Code find it through `.mcp.json` / `.vscode/mcp.json`; Claude Desktop / Cowork: install the extension file `mcp/egenome-tests.mcpb` (Settings → Extensions), see
+[`mcp/README.md`](mcp/README.md). Then ask e.g. *"Triage the latest smoke run"*.
 
 ## Capturing locators
 
@@ -299,7 +420,14 @@ Navigate the app; each screen is saved to `locators/<Screen>.json` with a screen
 │   └── support/
 │       ├── app.js               clear data, restart, background, network on/off
 │       ├── layout/              hierarchy.js · spec-builder.js · check.js · index.js
-│       └── dashboard/           recorder.js · hooks.js · builder.js · cli.mjs · template/
+│       └── dashboard/           recorder.js (steps) · hooks.js · device-recorder.js (log, API, perf, video)
+│                                egenome-run.js (reads runs) · analysis.mjs (shared with the Wikipedia project)
+│                                builder.js · cli.mjs · lib/ (API log, codes, budgets, formats, adb) · template/
+│   ├── triage.json · budgets.json · api-formats.json   dashboard settings (shared through git)
+│   ├── dashboard/               the dashboard's own tests: unit/ page/ fixtures.mjs (demo runs)
+│   └── unit/                    unit tests of the project code: *.test.mjs · helpers/fake-device.mjs · fixtures/ (real screens)
+├── mcp/                         MCP server for AI assistants: server.mjs · runner.mjs · test/ · extension/ · own package.json
+├── .mcp.json · .vscode/mcp.json  connect Claude Code / VS Code to the MCP server
 ├── scripts/
 │   ├── locator-capture/         capture tool
 │   ├── layout/                  generate.mjs · accept.mjs

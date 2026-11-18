@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
 
 // Load .env before options.js reads DASHBOARD_* settings
-const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+const PROJECT_ROOT = process.env.DASHBOARD_PROJECT_ROOT ? path.resolve(process.env.DASHBOARD_PROJECT_ROOT) : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
 dotenv.config({ path: path.join(PROJECT_ROOT, '.env'), quiet: true });
 const { options } = await import('./options.js');
 const { buildIndex } = await import('./builder.js');

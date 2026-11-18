@@ -88,7 +88,7 @@ export function evaluate(spec, tree, { dpi = null } = {}) {
     if (checks.has('format') && spec_.match?.textPattern) {
       // live value (price, date, count...): only its format is fixed
       let ok;
-      try { ok = new RegExp(`^(?:${spec_.match.textPattern})$`, 's').test(el.text); } catch { ok = false; }
+      try { ok = new RegExp(`^(?:${spec_.match.textPattern})$`, 's').test(norm(el.text)); } catch { ok = false; }
       add('format', name, ok, spec_.match.textPattern, norm(el.text), ok ? '' : `${name} shows "${norm(el.text)}", which doesn't have the expected format`);
       mark(results[results.length - 1].status);
     }
