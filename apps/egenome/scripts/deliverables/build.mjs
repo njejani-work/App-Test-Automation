@@ -367,7 +367,7 @@ function buildStatic() {
   copy(path.join(DOCS, 'test-data.md'), out(SECTIONS.data, 'TEST-DATA.md'));
   copy(path.join(ROOT, '.env.example'), out(SECTIONS.data, 'env.example.txt'));
   copy(path.join(DOCS, 'known-issues.md'), out(SECTIONS.issues, 'KNOWN-ISSUES.md'));
-  copy(path.join(ROOT, 'scripts', 'locator-capture', 'README.md'), out(SECTIONS.tools, 'LOCATOR-CAPTURE-GUIDE.md'));
+  copy(fileURLToPath(import.meta.resolve('@apptest/toolkit/locators/README.md')), out(SECTIONS.tools, 'LOCATOR-CAPTURE-GUIDE.md'));
   copy(path.join(DOCS, 'how-to.md'), out(SECTIONS.tools, 'HOW-TO.md'));
 }
 

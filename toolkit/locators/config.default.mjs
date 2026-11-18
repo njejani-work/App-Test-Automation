@@ -1,5 +1,5 @@
-// Locator capture configuration.
-// Values can be overridden with environment variables (see README.md).
+// Default locator-capture settings, used when the app has no locators.config.mjs of its own.
+// The app comes from APP_PACKAGE / APP_ACTIVITY (or DASHBOARD_APP_PACKAGE); other values as in an app's config.
 
 export default {
   // Appium server (Appium 2 default path is '/'; Appium 1.x uses '/wd/hub')
@@ -14,7 +14,7 @@ export default {
     'appium:automationName': 'UiAutomator2',
     'appium:deviceName': process.env.DEVICE_NAME || 'emulator-5554',
     'appium:udid': process.env.DEVICE_UDID || 'emulator-5554',
-    'appium:appPackage': process.env.APP_PACKAGE || 'com.egenome.app',
+    'appium:appPackage': process.env.APP_PACKAGE || process.env.DASHBOARD_APP_PACKAGE || 'com.example.app',
     'appium:appActivity': process.env.APP_ACTIVITY || '.MainActivity',
     'appium:noReset': true, // keep app data / logged-in state
     'appium:dontStopAppOnReset': true,

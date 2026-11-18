@@ -18,7 +18,7 @@ npm install                 # installs WDIO, Appium and the locator-capture depe
 npm run appium:setup        # installs the UiAutomator2 driver into Appium (once)
 ```
 
-`config.mjs` is already set to `com.egenome.app` / `.MainActivity` on `emulator-5554`. Run `adb devices` to check the emulator id. If it's different, set `DEVICE_UDID`.
+Each app's settings are in its own `locators.config.mjs` (eGenome: `com.egenome.app` / `.MainActivity` on `emulator-5554`); without one, `config.default.mjs` here is used with the app from `APP_PACKAGE`. Run `adb devices` to check the emulator id. If it's different, set `DEVICE_UDID`.
 
 ## Run
 
@@ -48,10 +48,10 @@ A good approach: run **crawl** first to get broad coverage, then run **watch** f
 ## Other commands
 
 ```bash
-node scripts/locator-capture/capture.mjs rename Screen2 OtpScreen
-node scripts/locator-capture/capture.mjs merge HomeScreen HomeScreen2
-node scripts/locator-capture/capture.mjs import page.xml --name CartScreen   # page source saved from Appium Inspector
-node scripts/locator-capture/capture.mjs pages                              # regenerate all page classes
+node ../../toolkit/locators/capture.mjs rename Screen2 OtpScreen
+node ../../toolkit/locators/capture.mjs merge HomeScreen HomeScreen2
+node ../../toolkit/locators/capture.mjs import page.xml --name CartScreen   # page source saved from Appium Inspector
+node ../../toolkit/locators/capture.mjs pages                              # regenerate all page classes
 ```
 
 ## How locators are chosen

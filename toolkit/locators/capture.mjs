@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Locator capture for Android apps (Appium UiAutomator2 + WebdriverIO).
 //
-//   node scripts/locator-capture/capture.mjs watch [--attach]   capture screens while YOU navigate
-//   node scripts/locator-capture/capture.mjs crawl [--attach]   let the script explore the app itself
-//   node scripts/locator-capture/capture.mjs import <source.xml> [--name LoginScreen] [--activity .LoginActivity]
-//   node scripts/locator-capture/capture.mjs list
-//   node scripts/locator-capture/capture.mjs rename <OldScreen> <NewScreen>
-//   node scripts/locator-capture/capture.mjs merge <IntoScreen> <FromScreen>
-//   node scripts/locator-capture/capture.mjs pages              regenerate all page classes
+//   node ../../toolkit/locators/capture.mjs watch [--attach]   capture screens while YOU navigate
+//   node ../../toolkit/locators/capture.mjs crawl [--attach]   let the script explore the app itself
+//   node ../../toolkit/locators/capture.mjs import <source.xml> [--name LoginScreen] [--activity .LoginActivity]
+//   node ../../toolkit/locators/capture.mjs list
+//   node ../../toolkit/locators/capture.mjs rename <OldScreen> <NewScreen>
+//   node ../../toolkit/locators/capture.mjs merge <IntoScreen> <FromScreen>
+//   node ../../toolkit/locators/capture.mjs pages              regenerate all page classes
 //
 // Output (in ./locators by default):
 //   <Screen>.json            locators per element (primary + fallbacks + attributes)
@@ -16,7 +16,7 @@
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
-import defaultConfig from './config.mjs';
+
 import { Store } from './lib/store.mjs';
 import { analyze } from './lib/parser.mjs';
 import { detectFormat, writePage, writeAllPages } from './lib/pagegen.mjs';
@@ -32,10 +32,12 @@ const opt = (name) => {
   return i > -1 ? args[i + 1] : undefined;
 };
 
+// Settings: --config <file>, else the app's own locators.config.mjs (in the folder the command runs in: apps/<id>),
+// else the toolkit's defaults (config.default.mjs: the app from APP_PACKAGE).
 async function loadConfig() {
-  const custom = opt('config');
-  if (!custom) return defaultConfig;
-  const mod = await import(pathToFileURL(path.resolve(custom)).href);
+  const own = path.resolve('locators.config.mjs');
+  const file = opt('config') ? path.resolve(opt('config')) : fs.existsSync(own) ? own : new URL('./config.default.mjs', import.meta.url);
+  const mod = await import(file instanceof URL ? file.href : pathToFileURL(file).href);
   return mod.default;
 }
 
@@ -54,7 +56,7 @@ async function main() {
     case 'crawl': {
       const pkg = config.capabilities['appium:appPackage'];
       if (!pkg || pkg === 'com.example.app' /* placeholder */) {
-        console.warn('  ! Set appium:appPackage in scripts/locator-capture/config.mjs (or APP_PACKAGE env var).');
+        console.warn('  ! Set appium:appPackage in this app\'s locators.config.mjs (or the APP_PACKAGE env var).');
         if (cmd === 'crawl') process.exit(1);
       }
       console.log(`  Connecting to Appium at ${config.appium.hostname}:${config.appium.port}${config.appium.path} ...`);

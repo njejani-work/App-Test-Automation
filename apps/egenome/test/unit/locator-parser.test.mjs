@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { analyze, suggestName, camel, xpathLiteral, elementKey } from '../../scripts/locator-capture/lib/parser.mjs';
+import { analyze, suggestName, camel, xpathLiteral, elementKey } from '@apptest/toolkit/locators/lib/parser.mjs';
 
 const login = fs.readFileSync(new URL('./fixtures/screens/Login.xml', import.meta.url), 'utf8');
 
