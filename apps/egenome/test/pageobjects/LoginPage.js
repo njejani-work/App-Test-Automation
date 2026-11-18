@@ -23,6 +23,8 @@ const HINT = {
   title: S.id('com.google.android.gms:id/title'),
   cancel: S.id('com.google.android.gms:id/cancel'),
   number: S.id('com.google.android.gms:id/phone_number'),
+  // Newer Google Play services show a redesigned sheet (title, an X, the number as a row) without the ids above
+  sheetTitle: S.text('Choose a phone number'),
 };
 
 class LoginPage extends BasePage {
@@ -40,15 +42,26 @@ class LoginPage extends BasePage {
   get sendingIndicator() { return $(SEL.sending); }
   get consentText() { return $(SEL.consent); }
 
-  /** Closes Google's phone-number picker if it opened. */
+  /** True while Google's "Choose a phone number" sheet is on screen (old or new design); waits up to `timeout` ms for it. */
+  async phoneHintShown(timeout = 0) {
+    const shown = async () => {
+      for (const sel of [HINT.cancel, HINT.sheetTitle]) {
+        if (await $(sel).isDisplayed().catch(() => false)) return true;
+      }
+      return false;
+    };
+    if (!timeout) return shown();
+    return driver.waitUntil(shown, { timeout, interval: 300 }).catch(() => false);
+  }
+
+  /** Closes Google's phone-number picker if it opened: its Cancel button (old design) or Back (new design, same as its X). */
   async dismissPhoneHint(timeout = 2500) {
+    if (!(await this.phoneHintShown(timeout))) return false;
     const cancel = await $(HINT.cancel);
-    if (await cancel.waitForDisplayed({ timeout }).catch(() => false)) {
-      await cancel.click();
-      await cancel.waitForExist({ timeout: 5000, reverse: true });
-      return true;
-    }
-    return false;
+    if (await cancel.isDisplayed().catch(() => false)) await cancel.click();
+    else await driver.back();
+    await driver.waitUntil(async () => !(await this.phoneHintShown()), { timeout: 5000, interval: 300 }).catch(() => {});
+    return true;
   }
 
   /** Types a 10-digit mobile number (a leading +91 / 91 / 0 is stripped). */
@@ -94,8 +107,34 @@ class LoginPage extends BasePage {
   /** Gets past anything shown before the login screen: intro carousel (Skip) and Google's number picker. */
   async open() {
     await OnboardingPage.skipIfShown(3000);
-    await this.dismissPhoneHint(3000);
-    return this.waitForOpen(20000);
+    // The picker can pop up a moment after the login screen appears, so keep closing it until the screen is free
+    const end = Date.now() + 20000;
+    while (Date.now() < end) {
+      if (await this.dismissPhoneHint(0)) continue;
+      if ((await this.isOpen(1000)) && !(await this.dismissPhoneHint(2000))) {
+        // the keyboard covers "Send OTP"; it can also come back a moment after the picker closes (SMK-08, 17 Nov)
+        return this.settle(1500);
+      }
+    }
+    if (await this.phoneHintShown()) {
+      throw new Error('LoginPage did not open: Google\'s "Choose a phone number" sheet stayed over the login screen (neither its Cancel button nor Back closed it)');
+    }
+    return this.waitForOpen(1);
+  }
+
+  /**
+   * Gets the login screen ready to be checked: Google's picker can pop up a few seconds AFTER the screen opened (it
+   * covered the screen during the layout check on 17 Nov), so wait a moment for it, close it, then the keyboard.
+   */
+  async settle(wait = 3000) {
+    await this.dismissPhoneHint(wait);
+    await this.hideKeyboard();
+    return this;
+  }
+
+  async verifyLayout(name) {
+    await this.settle();
+    return super.verifyLayout(name);
   }
 
   /** Enter the number, tap "Send OTP" and wait for the OTP screen. */

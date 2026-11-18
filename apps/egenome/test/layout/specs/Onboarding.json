@@ -2,12 +2,12 @@
   "spec": "Onboarding",
   "page": "OnboardingPage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:13:59.893Z",
+  "generatedAt": "2026-11-13T10:29:56.417Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": false,
   "tolerance": {
@@ -23,10 +23,10 @@
     "skipBtn": {
       "selector": "android=new UiSelector().description(\"Skip\")",
       "box": {
-        "x": 0.8063,
-        "y": 0.0628,
-        "w": 0.1354,
-        "h": 0.0501
+        "x": 0.8125,
+        "y": 0.0563,
+        "w": 0.1208,
+        "h": 0.0578
       },
       "clickable": true,
       "enabled": true,
@@ -43,7 +43,7 @@
         "x": 0,
         "y": 0,
         "w": 1,
-        "h": 0.8983
+        "h": 0.8672
       },
       "clickable": false,
       "enabled": true,
@@ -58,10 +58,10 @@
       "selector": "android=new UiSelector().textStartsWith(\"Discover Your Biological Age\")",
       "text": "Discover Your Biological Age & Get Personalized Plans",
       "box": {
-        "x": 0.0389,
-        "y": 0.6284,
-        "w": 0.9222,
-        "h": 0.0871
+        "x": 0.0444,
+        "y": 0.6383,
+        "w": 0.9111,
+        "h": 0.0969
       },
       "clickable": false,
       "enabled": true,
@@ -77,10 +77,10 @@
       "selector": "android=new UiSelector().textStartsWith(\"National Reference Laboratory\")",
       "text": "National Reference Laboratory in Delhi NCR",
       "box": {
-        "x": 0.1653,
-        "y": 0.9076,
-        "w": 0.6688,
-        "h": 0.0283
+        "x": 0.1736,
+        "y": 0.8797,
+        "w": 0.6528,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -99,10 +99,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4382,
-        "y": 0.143,
-        "w": 0.1236,
-        "h": 0.0553
+        "x": 0.45,
+        "y": 0.1375,
+        "w": 0.1,
+        "h": 0.0563
       },
       "boxKeys": [
         "x",
@@ -124,10 +124,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.1229,
-        "y": 0.213,
-        "w": 0.1563,
-        "h": 0.07
+        "x": 0.1917,
+        "y": 0.2102,
+        "w": 0.125,
+        "h": 0.0703
       },
       "boxKeys": [
         "x",
@@ -149,10 +149,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.7201,
-        "y": 0.2124,
-        "w": 0.1576,
-        "h": 0.0706
+        "x": 0.6806,
+        "y": 0.2086,
+        "w": 0.1306,
+        "h": 0.0734
       },
       "boxKeys": [
         "x",
@@ -174,10 +174,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.1285,
-        "y": 0.3697,
-        "w": 0.1458,
-        "h": 0.0653
+        "x": 0.1944,
+        "y": 0.3711,
+        "w": 0.1194,
+        "h": 0.0672
       },
       "boxKeys": [
         "x",
@@ -199,10 +199,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.7382,
-        "y": 0.375,
-        "w": 0.1215,
-        "h": 0.0544
+        "x": 0.6958,
+        "y": 0.3766,
+        "w": 0.1,
+        "h": 0.0563
       },
       "boxKeys": [
         "x",
@@ -224,10 +224,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4049,
-        "y": 0.4372,
-        "w": 0.1903,
-        "h": 0.0852
+        "x": 0.4222,
+        "y": 0.4406,
+        "w": 0.1556,
+        "h": 0.0875
       },
       "boxKeys": [
         "x",
@@ -249,10 +249,10 @@
       },
       "text": "Skip",
       "box": {
-        "x": 0.8271,
-        "y": 0.0721,
-        "w": 0.0931,
-        "h": 0.0311
+        "x": 0.8347,
+        "y": 0.0688,
+        "w": 0.0764,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -270,10 +270,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4611,
-        "y": 0.8007,
-        "w": 0.0778,
-        "h": 0.0351
+        "x": 0.4556,
+        "y": 0.7453,
+        "w": 0.0889,
+        "h": 0.05
       },
       "boxKeys": [
         "x",
@@ -295,10 +295,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3222,
-        "y": 0.9359,
-        "w": 0.1458,
-        "h": 0.0544
+        "x": 0.3,
+        "y": 0.9094,
+        "w": 0.1667,
+        "h": 0.0781
       },
       "boxKeys": [
         "x",
@@ -320,10 +320,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.5313,
-        "y": 0.9359,
-        "w": 0.1458,
-        "h": 0.0544
+        "x": 0.5347,
+        "y": 0.9094,
+        "w": 0.1667,
+        "h": 0.0781
       },
       "boxKeys": [
         "x",
@@ -419,7 +419,7 @@
       "type": "gap",
       "above": "carousel",
       "below": "labBadge",
-      "value": 0.0208
+      "value": 0.0222
     },
     {
       "type": "gap",

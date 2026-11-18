@@ -214,10 +214,18 @@ export default class BasePage {
     return { left: Math.round(width * 0.1), top: Math.round(height * 0.2), width: Math.round(width * 0.8), height: Math.round(height * 0.55) };
   }
 
+  /** Closes the on-screen keyboard if it is up (or still sliding in) and waits until it is gone. */
   async hideKeyboard() {
-    try {
-      if (await driver.isKeyboardShown()) await driver.hideKeyboard();
-    } catch {}
+    const shown = () => driver.isKeyboardShown().catch(() => false);
+    if (!(await shown())) {
+      await driver.pause(300); // a field that just got focus opens the keyboard a moment later
+      if (!(await shown())) return;
+    }
+    for (let i = 0; i < 2 && (await shown()); i++) {
+      logAction('hide keyboard');
+      await driver.hideKeyboard().catch(() => {});
+      await driver.waitUntil(async () => !(await shown()), { timeout: 1500, interval: 200 }).catch(() => {});
+    }
   }
 
   /** In-app back arrow when present, otherwise the Android back button. */

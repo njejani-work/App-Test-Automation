@@ -2,12 +2,12 @@
   "spec": "EditProfile",
   "page": "EditProfilePage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:17:01.585Z",
+  "generatedAt": "2026-11-13T10:32:26.332Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": true,
   "tolerance": {
@@ -24,10 +24,10 @@
       "selector": "android=new UiSelector().text(\"Edit Profile\")",
       "text": "Edit Profile",
       "box": {
-        "x": 0.1701,
-        "y": 0.0721,
-        "w": 0.5313,
-        "h": 0.0426
+        "x": 0.1889,
+        "y": 0.0734,
+        "w": 0.5222,
+        "h": 0.0469
       },
       "clickable": false,
       "enabled": true,
@@ -42,10 +42,10 @@
     "backBtn": {
       "selector": "android=new UiSelector().description(\"Go back\")",
       "box": {
-        "x": 0.0632,
-        "y": 0.0697,
-        "w": 0.1069,
-        "h": 0.0479
+        "x": 0.0681,
+        "y": 0.0625,
+        "w": 0.1222,
+        "h": 0.0688
       },
       "clickable": true,
       "enabled": true,
@@ -59,10 +59,10 @@
     "saveBtn": {
       "selector": "android=new UiSelector().description(\"Save\")",
       "box": {
-        "x": 0.7014,
-        "y": 0.0687,
-        "w": 0.2354,
-        "h": 0.0501
+        "x": 0.7111,
+        "y": 0.068,
+        "w": 0.2208,
+        "h": 0.0586
       },
       "clickable": true,
       "enabled": true,
@@ -77,10 +77,10 @@
       "selector": "android=new UiSelector().text(\"Tap to change photo\")",
       "text": "Tap to change photo",
       "box": {
-        "x": 0.3042,
-        "y": 0.3265,
-        "w": 0.3917,
-        "h": 0.0283
+        "x": 0.3458,
+        "y": 0.3656,
+        "w": 0.3069,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -94,10 +94,10 @@
     "firstName": {
       "selector": "//*[starts-with(@text, \"FIRST NAME\")]/following::android.widget.EditText[1]",
       "box": {
-        "x": 0.0632,
-        "y": 0.5053,
-        "w": 0.8736,
-        "h": 0.079
+        "x": 0.0681,
+        "y": 0.5727,
+        "w": 0.8667,
+        "h": 0.1039
       },
       "clickable": true,
       "enabled": true,
@@ -112,10 +112,10 @@
     "lastName": {
       "selector": "//*[starts-with(@text, \"LAST NAME\")]/following::android.widget.EditText[1]",
       "box": {
-        "x": 0.0632,
-        "y": 0.634,
-        "w": 0.8736,
-        "h": 0.079
+        "x": 0.0681,
+        "y": 0.7359,
+        "w": 0.8667,
+        "h": 0.0953
       },
       "clickable": true,
       "enabled": true,
@@ -127,44 +127,6 @@
         "minTap"
       ]
     },
-    "dob": {
-      "selector": "//*[starts-with(@text, \"DATE OF BIRTH\")]/following::android.widget.TextView[normalize-space(@text) != ''][1]",
-      "box": {
-        "x": 0.1285,
-        "y": 0.792,
-        "w": 0.7028,
-        "h": 0.0311
-      },
-      "dynamic": true,
-      "boxKeys": [
-        "x",
-        "y"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "genderField": {
-      "selector": "//*[starts-with(@text, \"GENDER\")]/following::*[@clickable=\"true\"][1]",
-      "box": {
-        "x": 0,
-        "y": 0.9173,
-        "w": 0.3333,
-        "h": 0.0709
-      },
-      "clickable": true,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box",
-        "minTap"
-      ]
-    },
     "iconText": {
       "match": {
         "text": "",
@@ -173,10 +135,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0875,
-        "y": 0.0802,
-        "w": 0.0583,
-        "h": 0.0267
+        "x": 0.0958,
+        "y": 0.0773,
+        "w": 0.0667,
+        "h": 0.0391
       },
       "clickable": false,
       "enabled": true,
@@ -194,10 +156,10 @@
       },
       "text": "Save",
       "box": {
-        "x": 0.7646,
-        "y": 0.078,
-        "w": 0.1083,
-        "h": 0.0311
+        "x": 0.7778,
+        "y": 0.0805,
+        "w": 0.0861,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -213,10 +175,10 @@
         "desc": ", "
       },
       "box": {
-        "x": 0.3424,
-        "y": 0.1757,
-        "w": 0.316,
-        "h": 0.1415
+        "x": 0.3708,
+        "y": 0.2078,
+        "w": 0.2583,
+        "h": 0.1453
       },
       "clickable": true,
       "enabled": true,
@@ -234,10 +196,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3424,
-        "y": 0.1757,
-        "w": 0.316,
-        "h": 0.1415
+        "x": 0.3708,
+        "y": 0.2078,
+        "w": 0.2583,
+        "h": 0.1453
       },
       "boxKeys": [
         "x",
@@ -260,10 +222,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.4028,
-        "y": 0.2021,
-        "w": 0.1944,
-        "h": 0.0883
+        "x": 0.3889,
+        "y": 0.2172,
+        "w": 0.2222,
+        "h": 0.1266
       },
       "clickable": false,
       "enabled": true,
@@ -282,10 +244,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.6,
-        "y": 0.2907,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.5625,
+        "y": 0.3148,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -299,14 +261,14 @@
     "maxSizeMbJpegText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "Max\\s+size:\\s+[0-9][0-9,.]*MB\\s+•\\s+JPEG,\\s+PNG,\\s+WebP"
+        "textPattern": "Max +size: +[0-9][0-9,.]*MB +• +JPEG, +PNG, +WebP"
       },
       "near": true,
       "box": {
-        "x": 0.2736,
-        "y": 0.3595,
-        "w": 0.4528,
-        "h": 0.0218
+        "x": 0.3444,
+        "y": 0.4016,
+        "w": 0.3097,
+        "h": 0.0219
       },
       "dynamic": true,
       "boxKeys": [
@@ -329,10 +291,10 @@
       },
       "text": "Personal Information",
       "box": {
-        "x": 0.0632,
-        "y": 0.4192,
-        "w": 0.8736,
-        "h": 0.0361
+        "x": 0.0681,
+        "y": 0.4742,
+        "w": 0.8667,
+        "h": 0.0391
       },
       "clickable": false,
       "enabled": true,
@@ -351,10 +313,10 @@
       },
       "text": "FIRST NAME *",
       "box": {
-        "x": 0.0632,
-        "y": 0.4742,
-        "w": 0.8736,
-        "h": 0.0218
+        "x": 0.0681,
+        "y": 0.5383,
+        "w": 0.8667,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -373,32 +335,10 @@
       },
       "text": "LAST NAME *",
       "box": {
-        "x": 0.0632,
-        "y": 0.6029,
-        "w": 0.8736,
-        "h": 0.0218
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box",
-        "width"
-      ]
-    },
-    "dateOfBirthText": {
-      "match": {
-        "text": "DATE OF BIRTH ",
-        "cls": "android.widget.TextView"
-      },
-      "text": "DATE OF BIRTH ",
-      "box": {
-        "x": 0.0632,
-        "y": 0.7317,
-        "w": 0.8736,
-        "h": 0.0218
+        "x": 0.0681,
+        "y": 0.7016,
+        "w": 0.8667,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -412,106 +352,15 @@
     },
     "bar": {
       "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.0632,
-        "y": 0.7627,
-        "w": 0.8736,
-        "h": 0.0899
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "iconText4": {
-      "match": {
-        "text": "",
-        "cls": "android.widget.TextView"
-      },
-      "text": "",
-      "icon": true,
-      "box": {
-        "x": 0.8313,
-        "y": 0.7985,
-        "w": 0.0389,
-        "h": 0.018
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "dateOfBirthCannotText": {
-      "match": {
-        "text": "Date of birth cannot be changed for security reasons, please contact support.",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Date of birth cannot be changed for security reasons, please contact support.",
-      "box": {
-        "x": 0.0632,
-        "y": 0.8576,
-        "w": 0.8736,
-        "h": 0.0218
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box",
-        "width"
-      ]
-    },
-    "genderText": {
-      "match": {
-        "text": "GENDER",
-        "cls": "android.widget.TextView"
-      },
-      "text": "GENDER",
-      "box": {
-        "x": 0.0632,
-        "y": 0.8983,
-        "w": 0.8736,
-        "h": 0.0016
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box",
-        "width"
-      ]
-    },
-    "bar2": {
-      "match": {
         "cls": "android.view.View",
         "leaf": true
       },
       "near": true,
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 1,
-        "h": 0.0827
+        "h": 0.1313
       },
       "boxKeys": [
         "x",
@@ -524,6 +373,25 @@
         "presence",
         "state",
         "box"
+      ]
+    },
+    "homeBtn": {
+      "match": {
+        "desc": "Home"
+      },
+      "box": {
+        "x": 0,
+        "y": 0.8688,
+        "w": 0.3333,
+        "h": 0.1016
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
       ]
     },
     "homeText": {
@@ -534,9 +402,9 @@
       "text": "Home",
       "box": {
         "x": 0.1278,
-        "y": 0.9574,
-        "w": 0.0778,
-        "h": 0.0155
+        "y": 0.9266,
+        "w": 0.0764,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -553,9 +421,9 @@
       },
       "box": {
         "x": 0.3333,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -573,10 +441,10 @@
       },
       "text": "Report",
       "box": {
-        "x": 0.4563,
-        "y": 0.9574,
+        "x": 0.4556,
+        "y": 0.9266,
         "w": 0.0875,
-        "h": 0.0155
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -593,9 +461,9 @@
       },
       "box": {
         "x": 0.6667,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -613,10 +481,10 @@
       },
       "text": "Settings",
       "box": {
-        "x": 0.7792,
-        "y": 0.9574,
-        "w": 0.1076,
-        "h": 0.0155
+        "x": 0.7806,
+        "y": 0.9266,
+        "w": 0.1056,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -629,18 +497,6 @@
     }
   },
   "rules": [
-    {
-      "type": "inside",
-      "el": "dob",
-      "parent": "bar",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "genderField",
-      "parent": "bar2",
-      "centered": false
-    },
     {
       "type": "inside",
       "el": "iconText",
@@ -667,20 +523,20 @@
     },
     {
       "type": "inside",
-      "el": "iconText4",
+      "el": "homeBtn",
       "parent": "bar",
       "centered": false
     },
     {
       "type": "inside",
       "el": "homeText",
-      "parent": "genderField",
+      "parent": "homeBtn",
       "centered": true
     },
     {
       "type": "inside",
       "el": "reportBtn",
-      "parent": "bar2",
+      "parent": "bar",
       "centered": true
     },
     {
@@ -692,7 +548,7 @@
     {
       "type": "inside",
       "el": "settingsBtn",
-      "parent": "bar2",
+      "parent": "bar",
       "centered": false
     },
     {
@@ -704,15 +560,15 @@
     {
       "type": "sameRow",
       "els": [
-        "saveBtn",
         "backBtn",
-        "title"
+        "saveBtn"
       ]
     },
     {
       "type": "order",
       "els": [
-        "saveBtn",
+        "backBtn",
+        "title",
         "iconBtn",
         "circle",
         "changePhoto",
@@ -722,78 +578,50 @@
         "firstName",
         "lastNameText",
         "lastName",
-        "dateOfBirthText",
-        "bar",
-        "dateOfBirthCannotText",
-        "genderText",
-        "bar2"
+        "bar"
       ]
     },
     {
       "type": "gap",
-      "above": "saveBtn",
+      "above": "title",
       "below": "iconBtn",
-      "value": 0.1271
+      "value": 0.1556
     },
     {
       "type": "gap",
       "above": "circle",
       "below": "changePhoto",
-      "value": 0.0208
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "personalInformationText",
       "below": "firstNameText",
-      "value": 0.0424
+      "value": 0.0444
     },
     {
       "type": "gap",
       "above": "firstNameText",
       "below": "firstName",
-      "value": 0.0208
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "firstName",
       "below": "lastNameText",
-      "value": 0.0417
+      "value": 0.0444
     },
     {
       "type": "gap",
       "above": "lastNameText",
       "below": "lastName",
-      "value": 0.0208
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "lastName",
-      "below": "dateOfBirthText",
-      "value": 0.0417
-    },
-    {
-      "type": "gap",
-      "above": "dateOfBirthText",
       "below": "bar",
-      "value": 0.0208
-    },
-    {
-      "type": "gap",
-      "above": "bar",
-      "below": "dateOfBirthCannotText",
-      "value": 0.0111
-    },
-    {
-      "type": "gap",
-      "above": "dateOfBirthCannotText",
-      "below": "genderText",
-      "value": 0.0424
-    },
-    {
-      "type": "gap",
-      "above": "genderText",
-      "below": "bar2",
-      "value": 0.0389
+      "value": 0.0667
     },
     {
       "type": "alignLeft",
@@ -803,11 +631,7 @@
         "firstNameText",
         "firstName",
         "lastNameText",
-        "lastName",
-        "dateOfBirthText",
-        "bar",
-        "dateOfBirthCannotText",
-        "genderText"
+        "lastName"
       ]
     },
     {
@@ -825,11 +649,7 @@
         "firstNameText",
         "firstName",
         "lastNameText",
-        "lastName",
-        "dateOfBirthText",
-        "bar",
-        "dateOfBirthCannotText",
-        "genderText"
+        "lastName"
       ]
     },
     {
@@ -876,50 +696,34 @@
       "el": "lastName"
     },
     {
-      "type": "centerX",
-      "el": "dateOfBirthText"
-    },
-    {
-      "type": "centerX",
-      "el": "bar"
-    },
-    {
-      "type": "centerX",
-      "el": "dateOfBirthCannotText"
-    },
-    {
-      "type": "centerX",
-      "el": "genderText"
-    },
-    {
       "type": "noOverlap",
       "pairs": [
         [
-          "saveBtn",
-          "backBtn"
+          "backBtn",
+          "saveBtn"
         ],
         [
-          "saveBtn",
+          "backBtn",
           "iconBtn"
         ],
         [
-          "saveBtn",
+          "backBtn",
           "firstName"
         ],
         [
-          "saveBtn",
+          "backBtn",
           "lastName"
         ],
         [
-          "backBtn",
+          "saveBtn",
           "iconBtn"
         ],
         [
-          "backBtn",
+          "saveBtn",
           "firstName"
         ],
         [
-          "backBtn",
+          "saveBtn",
           "lastName"
         ],
         [

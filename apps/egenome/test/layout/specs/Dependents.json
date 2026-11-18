@@ -2,12 +2,12 @@
   "spec": "Dependents",
   "page": "DependentsPage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:17:29.499Z",
+  "generatedAt": "2026-11-13T10:32:49.563Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": false,
   "tolerance": {
@@ -24,10 +24,10 @@
       "selector": "android=new UiSelector().text(\"Family Network\")",
       "text": "Family Network",
       "box": {
-        "x": 0.3313,
-        "y": 0.078,
-        "w": 0.3465,
-        "h": 0.0426
+        "x": 0.2903,
+        "y": 0.0758,
+        "w": 0.4306,
+        "h": 0.0469
       },
       "clickable": false,
       "enabled": true,
@@ -41,10 +41,10 @@
     "backBtn": {
       "selector": "android=new UiSelector().description(\"Go back\")",
       "box": {
-        "x": 0.0632,
-        "y": 0.0874,
-        "w": 0.1069,
-        "h": 0.0479
+        "x": 0.0681,
+        "y": 0.0773,
+        "w": 0.1222,
+        "h": 0.0688
       },
       "clickable": true,
       "enabled": true,
@@ -58,10 +58,10 @@
     "addBtn": {
       "selector": "android=new UiSelector().description(\"\")",
       "box": {
-        "x": 0.8396,
-        "y": 0.0896,
-        "w": 0.0972,
-        "h": 0.0435
+        "x": 0.8208,
+        "y": 0.0805,
+        "w": 0.1111,
+        "h": 0.0625
       },
       "clickable": true,
       "enabled": true,
@@ -80,10 +80,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0875,
-        "y": 0.0979,
-        "w": 0.0583,
-        "h": 0.0267
+        "x": 0.0958,
+        "y": 0.0922,
+        "w": 0.0667,
+        "h": 0.0391
       },
       "clickable": false,
       "enabled": true,
@@ -101,10 +101,10 @@
       },
       "text": "member",
       "box": {
-        "x": 0.4465,
-        "y": 0.1228,
-        "w": 0.116,
-        "h": 0.0218
+        "x": 0.4486,
+        "y": 0.1258,
+        "w": 0.1139,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -122,10 +122,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.8396,
-        "y": 0.0896,
-        "w": 0.0972,
-        "h": 0.0435
+        "x": 0.8208,
+        "y": 0.0805,
+        "w": 0.1111,
+        "h": 0.0625
       },
       "boxKeys": [
         "x",
@@ -148,10 +148,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8639,
-        "y": 0.1001,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.8486,
+        "y": 0.0953,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -169,10 +169,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0632,
-        "y": 0.1636,
-        "w": 0.8736,
-        "h": 0.1234
+        "x": 0.0681,
+        "y": 0.1727,
+        "w": 0.8639,
+        "h": 0.1484
       },
       "boxKeys": [
         "x",
@@ -194,10 +194,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.2139,
-        "y": 0.1919,
-        "w": 0.0153,
-        "h": 0.0426
+        "x": 0.2069,
+        "y": 0.2109,
+        "w": 0.0389,
+        "h": 0.0469
       },
       "dynamic": true,
       "boxKeys": [
@@ -220,10 +220,10 @@
       },
       "text": "Members",
       "box": {
-        "x": 0.1618,
-        "y": 0.2366,
-        "w": 0.1188,
-        "h": 0.0218
+        "x": 0.1681,
+        "y": 0.2609,
+        "w": 0.1167,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -234,31 +234,6 @@
         "box"
       ]
     },
-    "shape": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.3597,
-        "y": 0.2077,
-        "w": 0.0028,
-        "h": 0.0348
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
     "valueText2": {
       "match": {
         "cls": "android.widget.TextView",
@@ -266,10 +241,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4917,
-        "y": 0.1919,
-        "w": 0.0153,
-        "h": 0.0426
+        "x": 0.4806,
+        "y": 0.2109,
+        "w": 0.0389,
+        "h": 0.0469
       },
       "dynamic": true,
       "boxKeys": [
@@ -292,10 +267,10 @@
       },
       "text": "Relations",
       "box": {
-        "x": 0.4403,
-        "y": 0.2366,
-        "w": 0.1181,
-        "h": 0.0218
+        "x": 0.4417,
+        "y": 0.2609,
+        "w": 0.1153,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -306,31 +281,6 @@
         "box"
       ]
     },
-    "shape2": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.6368,
-        "y": 0.2077,
-        "w": 0.0028,
-        "h": 0.0348
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
     "valueText3": {
       "match": {
         "cls": "android.widget.TextView",
@@ -338,10 +288,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.7597,
-        "y": 0.1919,
-        "w": 0.034,
-        "h": 0.0426
+        "x": 0.7556,
+        "y": 0.2109,
+        "w": 0.0389,
+        "h": 0.0469
       },
       "dynamic": true,
       "boxKeys": [
@@ -364,10 +314,10 @@
       },
       "text": "Minors",
       "box": {
-        "x": 0.7333,
-        "y": 0.2366,
-        "w": 0.0868,
-        "h": 0.0218
+        "x": 0.7319,
+        "y": 0.2609,
+        "w": 0.0847,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -385,10 +335,10 @@
       },
       "text": "User Profiles",
       "box": {
-        "x": 0.0632,
-        "y": 0.3159,
-        "w": 0.3625,
-        "h": 0.0382
+        "x": 0.0681,
+        "y": 0.3602,
+        "w": 0.3069,
+        "h": 0.0422
       },
       "clickable": false,
       "enabled": true,
@@ -399,17 +349,17 @@
         "box"
       ]
     },
-    "shape3": {
+    "shape": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.8792,
-        "y": 0.3153,
-        "w": 0.0569,
-        "h": 0.0398
+        "x": 0.8736,
+        "y": 0.3586,
+        "w": 0.0583,
+        "h": 0.0453
       },
       "boxKeys": [
         "x",
@@ -431,10 +381,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.9,
-        "y": 0.3197,
-        "w": 0.0146,
-        "h": 0.0311
+        "x": 0.8958,
+        "y": 0.3648,
+        "w": 0.0139,
+        "h": 0.0328
       },
       "dynamic": true,
       "boxKeys": [
@@ -457,10 +407,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0632,
-        "y": 0.3834,
-        "w": 0.8736,
-        "h": 0.1104
+        "x": 0.0681,
+        "y": 0.4422,
+        "w": 0.8639,
+        "h": 0.132
       },
       "dynamic": true,
       "boxKeys": [
@@ -483,10 +433,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0632,
-        "y": 0.3834,
-        "w": 0.8736,
-        "h": 0.1104
+        "x": 0.0681,
+        "y": 0.4422,
+        "w": 0.8639,
+        "h": 0.132
       },
       "boxKeys": [
         "x",
@@ -508,10 +458,10 @@
       },
       "text": "JM",
       "box": {
-        "x": 0.1319,
-        "y": 0.4232,
-        "w": 0.0542,
-        "h": 0.0311
+        "x": 0.1417,
+        "y": 0.4914,
+        "w": 0.0639,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -529,10 +479,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.1785,
-        "y": 0.4126,
-        "w": 0.0389,
-        "h": 0.0174
+        "x": 0.1958,
+        "y": 0.4703,
+        "w": 0.0444,
+        "h": 0.025
       },
       "boxKeys": [
         "x",
@@ -555,10 +505,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.1854,
-        "y": 0.4154,
-        "w": 0.0243,
-        "h": 0.0115
+        "x": 0.2042,
+        "y": 0.4742,
+        "w": 0.0278,
+        "h": 0.0172
       },
       "clickable": false,
       "enabled": true,
@@ -572,14 +522,14 @@
     "johnyMarkText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "Johny\\s+Mark"
+        "textPattern": "Johny +Mark"
       },
       "near": true,
       "box": {
-        "x": 0.2549,
-        "y": 0.4024,
-        "w": 0.5583,
-        "h": 0.0326
+        "x": 0.2792,
+        "y": 0.4672,
+        "w": 0.5194,
+        "h": 0.0359
       },
       "dynamic": true,
       "boxKeys": [
@@ -595,17 +545,17 @@
         "box"
       ]
     },
-    "shape4": {
+    "shape2": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.2549,
-        "y": 0.4394,
-        "w": 0.1382,
-        "h": 0.0354
+        "x": 0.2792,
+        "y": 0.5094,
+        "w": 0.1375,
+        "h": 0.0391
       },
       "boxKeys": [
         "x",
@@ -627,10 +577,10 @@
       },
       "text": "Spouse",
       "box": {
-        "x": 0.2757,
-        "y": 0.4415,
-        "w": 0.0958,
-        "h": 0.0311
+        "x": 0.3014,
+        "y": 0.5125,
+        "w": 0.0931,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -641,17 +591,17 @@
         "box"
       ]
     },
-    "shape5": {
+    "shape3": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.4139,
-        "y": 0.4394,
-        "w": 0.0917,
-        "h": 0.0354
+        "x": 0.4403,
+        "y": 0.5094,
+        "w": 0.0944,
+        "h": 0.0391
       },
       "boxKeys": [
         "x",
@@ -673,10 +623,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4347,
-        "y": 0.4415,
-        "w": 0.05,
-        "h": 0.0311
+        "x": 0.4625,
+        "y": 0.5125,
+        "w": 0.0486,
+        "h": 0.0328
       },
       "dynamic": true,
       "boxKeys": [
@@ -700,10 +650,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8549,
-        "y": 0.4297,
-        "w": 0.0389,
-        "h": 0.018
+        "x": 0.8431,
+        "y": 0.4945,
+        "w": 0.0444,
+        "h": 0.0266
       },
       "clickable": false,
       "enabled": true,
@@ -722,9 +672,9 @@
       "near": true,
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 1,
-        "h": 0.0827
+        "h": 0.1313
       },
       "boxKeys": [
         "x",
@@ -745,9 +695,9 @@
       },
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -766,9 +716,9 @@
       "text": "Home",
       "box": {
         "x": 0.1278,
-        "y": 0.9574,
-        "w": 0.0778,
-        "h": 0.0155
+        "y": 0.9266,
+        "w": 0.0764,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -785,9 +735,9 @@
       },
       "box": {
         "x": 0.3333,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -805,10 +755,10 @@
       },
       "text": "Report",
       "box": {
-        "x": 0.4563,
-        "y": 0.9574,
+        "x": 0.4556,
+        "y": 0.9266,
         "w": 0.0875,
-        "h": 0.0155
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -825,9 +775,9 @@
       },
       "box": {
         "x": 0.6667,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -845,10 +795,10 @@
       },
       "text": "Settings",
       "box": {
-        "x": 0.7792,
-        "y": 0.9574,
-        "w": 0.1076,
-        "h": 0.0155
+        "x": 0.7806,
+        "y": 0.9266,
+        "w": 0.1056,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -887,12 +837,6 @@
     },
     {
       "type": "inside",
-      "el": "shape",
-      "parent": "bar",
-      "centered": false
-    },
-    {
-      "type": "inside",
       "el": "valueText2",
       "parent": "bar",
       "centered": false
@@ -902,12 +846,6 @@
       "el": "relationsText",
       "parent": "bar",
       "centered": true
-    },
-    {
-      "type": "inside",
-      "el": "shape2",
-      "parent": "bar",
-      "centered": false
     },
     {
       "type": "inside",
@@ -924,7 +862,7 @@
     {
       "type": "inside",
       "el": "valueText4",
-      "parent": "shape3",
+      "parent": "shape",
       "centered": false
     },
     {
@@ -953,26 +891,26 @@
     },
     {
       "type": "inside",
-      "el": "shape4",
+      "el": "shape2",
       "parent": "jmJohnyMarkSpouseBtn",
       "centered": false
     },
     {
       "type": "inside",
       "el": "spouseText",
-      "parent": "shape4",
+      "parent": "shape2",
       "centered": true
     },
     {
       "type": "inside",
-      "el": "shape5",
+      "el": "shape3",
       "parent": "jmJohnyMarkSpouseBtn",
       "centered": false
     },
     {
       "type": "inside",
       "el": "valueText5",
-      "parent": "shape5",
+      "parent": "shape3",
       "centered": false
     },
     {
@@ -1035,7 +973,7 @@
     {
       "type": "sameRow",
       "els": [
-        "shape3",
+        "shape",
         "userProfilesText"
       ]
     },
@@ -1045,7 +983,7 @@
         "title",
         "circle",
         "bar",
-        "shape3",
+        "shape",
         "jmJohnyMarkSpouseBtn",
         "bar2",
         "bar3"
@@ -1055,19 +993,19 @@
       "type": "gap",
       "above": "circle",
       "below": "bar",
-      "value": 0.0681
+      "value": 0.0528
     },
     {
       "type": "gap",
       "above": "bar",
-      "below": "shape3",
-      "value": 0.0632
+      "below": "shape",
+      "value": 0.0667
     },
     {
       "type": "gap",
       "above": "bar2",
       "below": "bar3",
-      "value": 0.9458
+      "value": 0.5236
     },
     {
       "type": "alignLeft",
@@ -1091,7 +1029,7 @@
         "addBtn",
         "circle",
         "bar",
-        "shape3",
+        "shape",
         "bar2"
       ]
     },

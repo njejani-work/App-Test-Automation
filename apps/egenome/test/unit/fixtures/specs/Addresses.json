@@ -1,0 +1,1242 @@
+{
+  "spec": "Addresses",
+  "page": "AddressesPage",
+  "source": "device",
+  "generatedAt": "2026-11-13T10:32:38.918Z",
+  "reviewed": false,
+  "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
+  "baseline": {
+    "w": 720,
+    "h": 1280
+  },
+  "scrollTop": false,
+  "tolerance": {
+    "position": 0.02,
+    "size": 0.03,
+    "align": 0.012,
+    "center": 0.015,
+    "gap": 0.025,
+    "aspect": 0.03
+  },
+  "ignore": [],
+  "elements": {
+    "title": {
+      "selector": "android=new UiSelector().text(\"Manage Addresses\")",
+      "text": "Manage Addresses",
+      "box": {
+        "x": 0.2847,
+        "y": 0.05,
+        "w": 0.4306,
+        "h": 0.0328
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "backBtn": {
+      "selector": "android=new UiSelector().description(\"Go back\")",
+      "box": {
+        "x": 0.0444,
+        "y": 0.032,
+        "w": 0.1222,
+        "h": 0.0688
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "addBtn": {
+      "selector": "android=new UiSelector().description(\"\")",
+      "box": {
+        "x": 0.8417,
+        "y": 0.0367,
+        "w": 0.1167,
+        "h": 0.0594
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "primaryCard": {
+      "selector": "android=new UiSelector().descriptionContains(\", PRIMARY, \")",
+      "box": {
+        "x": 0.0444,
+        "y": 0.1203,
+        "w": 0.9111,
+        "h": 0.2656
+      },
+      "dynamic": true,
+      "boxKeys": [
+        "x",
+        "y"
+      ],
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "shape": {
+      "match": {
+        "cls": "android.view.View",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.0472,
+        "y": 0.1219,
+        "w": 0.9056,
+        "h": 0.2625
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "circle": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.1028,
+        "y": 0.1531,
+        "w": 0.1111,
+        "h": 0.0625
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "iconText": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.1306,
+        "y": 0.168,
+        "w": 0.0556,
+        "h": 0.0328
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "homeText": {
+      "match": {
+        "text": "Home",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "Home",
+      "box": {
+        "x": 0.2472,
+        "y": 0.1469,
+        "w": 0.1194,
+        "h": 0.0422
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.3889,
+        "y": 0.1555,
+        "w": 0.1972,
+        "h": 0.025
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "circle2": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.4056,
+        "y": 0.1648,
+        "w": 0.0111,
+        "h": 0.0063
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "serviceableText": {
+      "match": {
+        "text": "SERVICEABLE",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "SERVICEABLE",
+      "box": {
+        "x": 0.425,
+        "y": 0.1586,
+        "w": 0.1444,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar2": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.6083,
+        "y": 0.1555,
+        "w": 0.15,
+        "h": 0.025
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "circle3": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.625,
+        "y": 0.1648,
+        "w": 0.0111,
+        "h": 0.0063
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "primaryText": {
+      "match": {
+        "text": "PRIMARY",
+        "cls": "android.widget.TextView"
+      },
+      "text": "PRIMARY",
+      "box": {
+        "x": 0.6444,
+        "y": 0.1586,
+        "w": 0.0972,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "homeAddressText": {
+      "match": {
+        "text": "Home Address",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "Home Address",
+      "box": {
+        "x": 0.2472,
+        "y": 0.1922,
+        "w": 0.55,
+        "h": 0.0297
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box",
+        "width"
+      ]
+    },
+    "iconBtn": {
+      "match": {
+        "desc": ""
+      },
+      "near": true,
+      "box": {
+        "x": 0.7958,
+        "y": 0.1563,
+        "w": 0.1,
+        "h": 0.0563
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "iconText2": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.8208,
+        "y": 0.1695,
+        "w": 0.05,
+        "h": 0.0297
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar3": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.1028,
+        "y": 0.2406,
+        "w": 0.7944,
+        "h": 0.1
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "mainStreetMainStreetText": {
+      "match": {
+        "cls": "android.widget.TextView",
+        "textPattern": "[0-9][0-9,.]* +Main +Street, +Main +Street +Jacobpura, +Haryana +[-] +[0-9][0-9,.]*"
+      },
+      "near": true,
+      "box": {
+        "x": 0.1361,
+        "y": 0.2594,
+        "w": 0.7278,
+        "h": 0.0625
+      },
+      "dynamic": true,
+      "boxKeys": [
+        "x",
+        "y"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "format",
+        "box"
+      ]
+    },
+    "homeServiceableHomeAddressBtn": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "descPattern": "(.*, )?Home(, .*)?"
+      },
+      "near": true,
+      "box": {
+        "x": 0.0444,
+        "y": 0.4117,
+        "w": 0.9111,
+        "h": 0.2656
+      },
+      "dynamic": true,
+      "boxKeys": [
+        "x",
+        "y"
+      ],
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "shape2": {
+      "match": {
+        "cls": "android.view.View",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.0472,
+        "y": 0.4133,
+        "w": 0.9056,
+        "h": 0.2625
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "circle4": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.1028,
+        "y": 0.4445,
+        "w": 0.1111,
+        "h": 0.0625
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "iconText3": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.1306,
+        "y": 0.4594,
+        "w": 0.0556,
+        "h": 0.0328
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "homeText2": {
+      "match": {
+        "text": "Home",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "Home",
+      "box": {
+        "x": 0.2472,
+        "y": 0.4383,
+        "w": 0.1194,
+        "h": 0.0422
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar4": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.3889,
+        "y": 0.4469,
+        "w": 0.1972,
+        "h": 0.025
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "circle5": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.4056,
+        "y": 0.4563,
+        "w": 0.0111,
+        "h": 0.0063
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "serviceableText2": {
+      "match": {
+        "text": "SERVICEABLE",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "SERVICEABLE",
+      "box": {
+        "x": 0.425,
+        "y": 0.45,
+        "w": 0.1444,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "homeAddressText2": {
+      "match": {
+        "text": "Home Address",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "Home Address",
+      "box": {
+        "x": 0.2472,
+        "y": 0.4836,
+        "w": 0.55,
+        "h": 0.0297
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box",
+        "width"
+      ]
+    },
+    "iconBtn2": {
+      "match": {
+        "desc": ""
+      },
+      "near": true,
+      "box": {
+        "x": 0.7958,
+        "y": 0.4477,
+        "w": 0.1,
+        "h": 0.0563
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "iconText4": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.8208,
+        "y": 0.4609,
+        "w": 0.05,
+        "h": 0.0297
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar5": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.1028,
+        "y": 0.532,
+        "w": 0.7944,
+        "h": 0.1
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "sdgAsSectorHaryanaText": {
+      "match": {
+        "cls": "android.widget.TextView",
+        "textPattern": "sdg, +as +Sector +[0-9][0-9,.]* +Haryana +[-] +[0-9][0-9,.]*"
+      },
+      "near": true,
+      "box": {
+        "x": 0.1361,
+        "y": 0.5508,
+        "w": 0.7278,
+        "h": 0.0625
+      },
+      "dynamic": true,
+      "boxKeys": [
+        "x",
+        "y"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "format",
+        "box"
+      ]
+    },
+    "iconText5": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.0722,
+        "y": 0.0469,
+        "w": 0.0667,
+        "h": 0.0391
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "circle6": {
+      "match": {
+        "cls": "android.view.View",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.8417,
+        "y": 0.0367,
+        "w": 0.1056,
+        "h": 0.0594
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "iconText6": {
+      "match": {
+        "text": "",
+        "cls": "android.widget.TextView"
+      },
+      "text": "",
+      "icon": true,
+      "box": {
+        "x": 0.8625,
+        "y": 0.0477,
+        "w": 0.0639,
+        "h": 0.0375
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "bar6": {
+      "match": {
+        "cls": "android.view.View",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0,
+        "y": 0.8688,
+        "w": 1,
+        "h": 0.1313
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "homeBtn": {
+      "match": {
+        "desc": "Home"
+      },
+      "box": {
+        "x": 0,
+        "y": 0.8688,
+        "w": 0.3333,
+        "h": 0.1016
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "homeText3": {
+      "match": {
+        "text": "Home",
+        "cls": "android.widget.TextView"
+      },
+      "near": true,
+      "text": "Home",
+      "box": {
+        "x": 0.1278,
+        "y": 0.9266,
+        "w": 0.0764,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "reportBtn": {
+      "match": {
+        "desc": "Report"
+      },
+      "box": {
+        "x": 0.3333,
+        "y": 0.8688,
+        "w": 0.3333,
+        "h": 0.1016
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "reportText": {
+      "match": {
+        "text": "Report",
+        "cls": "android.widget.TextView"
+      },
+      "text": "Report",
+      "box": {
+        "x": 0.4556,
+        "y": 0.9266,
+        "w": 0.0875,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    },
+    "settingsBtn": {
+      "match": {
+        "desc": "Settings"
+      },
+      "box": {
+        "x": 0.6667,
+        "y": 0.8688,
+        "w": 0.3333,
+        "h": 0.1016
+      },
+      "clickable": true,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box",
+        "minTap"
+      ]
+    },
+    "settingsText": {
+      "match": {
+        "text": "Settings",
+        "cls": "android.widget.TextView"
+      },
+      "text": "Settings",
+      "box": {
+        "x": 0.7806,
+        "y": 0.9266,
+        "w": 0.1056,
+        "h": 0.0188
+      },
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "text",
+        "box"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "inside",
+      "el": "primaryCard",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "shape",
+      "parent": "primaryCard",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "circle",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText",
+      "parent": "circle",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "homeText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "bar",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "circle2",
+      "parent": "bar",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "serviceableText",
+      "parent": "bar",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "bar2",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "circle3",
+      "parent": "bar2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "primaryText",
+      "parent": "bar2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "homeAddressText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconBtn",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText2",
+      "parent": "iconBtn",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "bar3",
+      "parent": "shape",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "mainStreetMainStreetText",
+      "parent": "bar3",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "homeServiceableHomeAddressBtn",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "shape2",
+      "parent": "homeServiceableHomeAddressBtn",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "circle4",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText3",
+      "parent": "circle4",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "homeText2",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "bar4",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "circle5",
+      "parent": "bar4",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "serviceableText2",
+      "parent": "bar4",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "homeAddressText2",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconBtn2",
+      "parent": "shape2",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText4",
+      "parent": "iconBtn2",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "bar5",
+      "parent": "shape2",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "sdgAsSectorHaryanaText",
+      "parent": "bar5",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText5",
+      "parent": "backBtn",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "circle6",
+      "parent": "addBtn",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText6",
+      "parent": "circle6",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "homeBtn",
+      "parent": "bar6",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "homeText3",
+      "parent": "homeBtn",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "reportBtn",
+      "parent": "bar6",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "reportText",
+      "parent": "reportBtn",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "settingsBtn",
+      "parent": "bar6",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "settingsText",
+      "parent": "settingsBtn",
+      "centered": true
+    },
+    {
+      "type": "sameRow",
+      "els": [
+        "backBtn",
+        "addBtn",
+        "title"
+      ]
+    },
+    {
+      "type": "order",
+      "els": [
+        "backBtn",
+        "bar6"
+      ]
+    },
+    {
+      "type": "gap",
+      "above": "backBtn",
+      "below": "bar6",
+      "value": 1.3653
+    },
+    {
+      "type": "centerX",
+      "el": "title"
+    },
+    {
+      "type": "noOverlap",
+      "pairs": [
+        [
+          "backBtn",
+          "addBtn"
+        ]
+      ]
+    }
+  ]
+}

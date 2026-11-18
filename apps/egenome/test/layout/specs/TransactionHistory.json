@@ -2,12 +2,12 @@
   "spec": "TransactionHistory",
   "page": "TransactionHistoryPage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:17:36.710Z",
+  "generatedAt": "2026-11-13T10:32:57.857Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": false,
   "tolerance": {
@@ -24,10 +24,10 @@
       "selector": "android=new UiSelector().text(\"Transaction History\")",
       "text": "Transaction History",
       "box": {
-        "x": 0.2299,
-        "y": 0.0544,
-        "w": 0.5632,
-        "h": 0.0382
+        "x": 0.2792,
+        "y": 0.0438,
+        "w": 0.4736,
+        "h": 0.0422
       },
       "clickable": false,
       "enabled": true,
@@ -35,18 +35,17 @@
         "presence",
         "state",
         "text",
-        "box",
-        "width"
+        "box"
       ]
     },
     "subtitle": {
       "selector": "android=new UiSelector().textStartsWith(\"Your transaction history\")",
       "text": "Your transaction history",
       "box": {
-        "x": 0.2861,
-        "y": 0.0973,
-        "w": 0.45,
-        "h": 0.0283
+        "x": 0.3389,
+        "y": 0.0922,
+        "w": 0.3542,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -61,10 +60,10 @@
       "selector": "android=new UiSelector().text(\"No Transactions Yet\")",
       "text": "No Transactions Yet",
       "box": {
-        "x": 0.2118,
-        "y": 0.3744,
-        "w": 0.5757,
-        "h": 0.0382
+        "x": 0.2583,
+        "y": 0.4164,
+        "w": 0.4819,
+        "h": 0.0422
       },
       "clickable": false,
       "enabled": true,
@@ -72,8 +71,7 @@
         "presence",
         "state",
         "text",
-        "box",
-        "width"
+        "box"
       ]
     },
     "bar": {
@@ -84,9 +82,9 @@
       "near": true,
       "box": {
         "x": 0,
-        "y": 0.0498,
+        "y": 0.0375,
         "w": 1,
-        "h": 0.0818
+        "h": 0.0922
       },
       "boxKeys": [
         "x",
@@ -106,10 +104,10 @@
         "desc": "Go back"
       },
       "box": {
-        "x": 0.0424,
-        "y": 0.0662,
-        "w": 0.1069,
-        "h": 0.0479
+        "x": 0.0444,
+        "y": 0.0484,
+        "w": 0.1222,
+        "h": 0.0688
       },
       "clickable": true,
       "enabled": true,
@@ -128,10 +126,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0667,
-        "y": 0.0768,
-        "w": 0.0583,
-        "h": 0.0267
+        "x": 0.0722,
+        "y": 0.0633,
+        "w": 0.0667,
+        "h": 0.0391
       },
       "clickable": false,
       "enabled": true,
@@ -150,9 +148,9 @@
       "near": true,
       "box": {
         "x": 0,
-        "y": 0.1315,
+        "y": 0.1297,
         "w": 1,
-        "h": 0.0588
+        "h": 0.0711
       },
       "boxKeys": [
         "x",
@@ -172,10 +170,10 @@
         "desc": "All"
       },
       "box": {
-        "x": 0.0424,
-        "y": 0.1409,
-        "w": 0.1333,
-        "h": 0.0386
+        "x": 0.0444,
+        "y": 0.1422,
+        "w": 0.1292,
+        "h": 0.0438
       },
       "clickable": true,
       "enabled": true,
@@ -193,10 +191,10 @@
       },
       "text": "All",
       "box": {
-        "x": 0.0868,
-        "y": 0.1489,
-        "w": 0.0438,
-        "h": 0.0218
+        "x": 0.0917,
+        "y": 0.1531,
+        "w": 0.0333,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -212,10 +210,10 @@
         "desc": "Captured"
       },
       "box": {
-        "x": 0.1965,
-        "y": 0.1409,
-        "w": 0.2458,
-        "h": 0.0386
+        "x": 0.1972,
+        "y": 0.1422,
+        "w": 0.2139,
+        "h": 0.0438
       },
       "clickable": true,
       "enabled": true,
@@ -233,10 +231,10 @@
       },
       "text": "Captured",
       "box": {
-        "x": 0.241,
-        "y": 0.1489,
-        "w": 0.1563,
-        "h": 0.0218
+        "x": 0.2444,
+        "y": 0.1531,
+        "w": 0.1181,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -252,10 +250,10 @@
         "desc": "Refunded"
       },
       "box": {
-        "x": 0.4632,
-        "y": 0.1409,
-        "w": 0.2514,
-        "h": 0.0386
+        "x": 0.4333,
+        "y": 0.1422,
+        "w": 0.2194,
+        "h": 0.0438
       },
       "clickable": true,
       "enabled": true,
@@ -273,10 +271,10 @@
       },
       "text": "Refunded",
       "box": {
-        "x": 0.5076,
-        "y": 0.1489,
-        "w": 0.1618,
-        "h": 0.0218
+        "x": 0.4806,
+        "y": 0.1531,
+        "w": 0.1236,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -292,10 +290,10 @@
         "desc": "Failed"
       },
       "box": {
-        "x": 0.7361,
-        "y": 0.1409,
-        "w": 0.1875,
-        "h": 0.0386
+        "x": 0.675,
+        "y": 0.1422,
+        "w": 0.1708,
+        "h": 0.0438
       },
       "clickable": true,
       "enabled": true,
@@ -313,10 +311,10 @@
       },
       "text": "Failed",
       "box": {
-        "x": 0.7806,
-        "y": 0.1489,
-        "w": 0.0979,
-        "h": 0.0218
+        "x": 0.7222,
+        "y": 0.1531,
+        "w": 0.075,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -332,10 +330,10 @@
         "desc": "Authorized"
       },
       "box": {
-        "x": 0.9444,
-        "y": 0.1409,
-        "w": 0.0556,
-        "h": 0.0386
+        "x": 0.8681,
+        "y": 0.1422,
+        "w": 0.1319,
+        "h": 0.0438
       },
       "clickable": true,
       "enabled": true,
@@ -353,10 +351,10 @@
       },
       "text": "Authorized",
       "box": {
-        "x": 0.9889,
-        "y": 0.1489,
-        "w": 0.0111,
-        "h": 0.0218
+        "x": 0.9153,
+        "y": 0.1531,
+        "w": 0.0847,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -375,10 +373,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.4222,
-        "y": 0.2752,
-        "w": 0.1556,
-        "h": 0.0709
+        "x": 0.4097,
+        "y": 0.2766,
+        "w": 0.1778,
+        "h": 0.1016
       },
       "clickable": false,
       "enabled": true,
@@ -396,10 +394,10 @@
       },
       "text": "When you make payments or receive money, they'll appear here.",
       "box": {
-        "x": 0.1056,
-        "y": 0.4223,
-        "w": 0.7882,
-        "h": 0.083
+        "x": 0.1125,
+        "y": 0.4711,
+        "w": 0.7736,
+        "h": 0.075
       },
       "clickable": false,
       "enabled": true,
@@ -419,9 +417,9 @@
       "near": true,
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 1,
-        "h": 0.0827
+        "h": 0.1313
       },
       "boxKeys": [
         "x",
@@ -442,9 +440,9 @@
       },
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -463,9 +461,9 @@
       "text": "Home",
       "box": {
         "x": 0.1278,
-        "y": 0.9574,
-        "w": 0.0778,
-        "h": 0.0155
+        "y": 0.9266,
+        "w": 0.0764,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -482,9 +480,9 @@
       },
       "box": {
         "x": 0.3333,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -502,10 +500,10 @@
       },
       "text": "Report",
       "box": {
-        "x": 0.4563,
-        "y": 0.9574,
+        "x": 0.4556,
+        "y": 0.9266,
         "w": 0.0875,
-        "h": 0.0155
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -522,9 +520,9 @@
       },
       "box": {
         "x": 0.6667,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -542,10 +540,10 @@
       },
       "text": "Settings",
       "box": {
-        "x": 0.7792,
-        "y": 0.9574,
-        "w": 0.1076,
-        "h": 0.0155
+        "x": 0.7806,
+        "y": 0.9266,
+        "w": 0.1056,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -699,25 +697,25 @@
       "type": "gap",
       "above": "bar2",
       "below": "iconText2",
-      "value": 0.1896
+      "value": 0.1347
     },
     {
       "type": "gap",
       "above": "iconText2",
       "below": "empty",
-      "value": 0.0632
+      "value": 0.0681
     },
     {
       "type": "gap",
       "above": "empty",
       "below": "whenYouMakePaymentsText",
-      "value": 0.0215
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "whenYouMakePaymentsText",
       "below": "bar3",
-      "value": 0.9201
+      "value": 0.5736
     },
     {
       "type": "centerX",

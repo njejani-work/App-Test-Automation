@@ -2,12 +2,12 @@
   "spec": "Home",
   "page": "HomePage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:15:13.508Z",
+  "generatedAt": "2026-11-13T10:30:58.221Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": true,
   "tolerance": {
@@ -23,10 +23,10 @@
     "profileSwitcher": {
       "selector": "android=new UiSelector().descriptionMatches(\".+, (Self|self), .*\")",
       "box": {
-        "x": 0.6542,
-        "y": 0.0672,
-        "w": 0.3069,
-        "h": 0.0479
+        "x": 0.6681,
+        "y": 0.0625,
+        "w": 0.2875,
+        "h": 0.0688
       },
       "dynamic": true,
       "boxKeys": [
@@ -46,10 +46,10 @@
       "selector": "android=new UiSelector().text(\"You, right now\")",
       "text": "You, right now",
       "box": {
-        "x": 0.0417,
-        "y": 0.1368,
-        "w": 0.9167,
-        "h": 0.0382
+        "x": 0.0444,
+        "y": 0.1625,
+        "w": 0.9111,
+        "h": 0.0422
       },
       "clickable": false,
       "enabled": true,
@@ -64,10 +64,10 @@
     "weightCard": {
       "selector": "android=new UiSelector().descriptionContains(\", Weight, \")",
       "box": {
-        "x": 0.0424,
-        "y": 0.1844,
-        "w": 0.4007,
-        "h": 0.1825
+        "x": 0.0444,
+        "y": 0.2172,
+        "w": 0.4167,
+        "h": 0.243
       },
       "dynamic": true,
       "boxKeys": [
@@ -86,10 +86,10 @@
     "bmiCard": {
       "selector": "android=new UiSelector().descriptionContains(\", BMI, \")",
       "box": {
-        "x": 0.4632,
-        "y": 0.1844,
-        "w": 0.4014,
-        "h": 0.1825
+        "x": 0.4833,
+        "y": 0.2172,
+        "w": 0.4167,
+        "h": 0.243
       },
       "dynamic": true,
       "boxKeys": [
@@ -105,30 +105,13 @@
         "minTap"
       ]
     },
-    "stepsCard": {
-      "selector": "android=new UiSelector().descriptionStartsWith(\"Steps, \")",
-      "box": {
-        "x": 0.8833,
-        "y": 0.1844,
-        "w": 0.0743,
-        "h": 0.1825
-      },
-      "clickable": true,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box",
-        "minTap"
-      ]
-    },
     "paymentBanner": {
       "selector": "android=new UiSelector().descriptionContains(\"ACTION NEEDED\")",
       "box": {
-        "x": 0.0389,
-        "y": 0.3937,
-        "w": 0.9222,
-        "h": 0.4705
+        "x": 0.0444,
+        "y": 0.4977,
+        "w": 0.9111,
+        "h": 0.3711
       },
       "clickable": true,
       "enabled": true,
@@ -137,59 +120,6 @@
         "state",
         "box",
         "width",
-        "minTap"
-      ]
-    },
-    "completePaymentBtn": {
-      "selector": "android=new UiSelector().description(\"Complete Payment\")",
-      "box": {
-        "x": 0.084,
-        "y": 0.7606,
-        "w": 0.8333,
-        "h": 0.0588
-      },
-      "clickable": true,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box",
-        "width",
-        "minTap"
-      ]
-    },
-    "dailyRoutine": {
-      "selector": "android=new UiSelector().text(\"Daily Routine\")",
-      "text": "Daily Routine",
-      "box": {
-        "x": 0.0389,
-        "y": 0.8912,
-        "w": 0.3819,
-        "h": 0.0261
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "calendarBtn": {
-      "selector": "android=new UiSelector().description(\"󰸘\")",
-      "box": {
-        "x": 0.8604,
-        "y": 0.8983,
-        "w": 0.1007,
-        "h": 0.019
-      },
-      "clickable": true,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box",
         "minTap"
       ]
     },
@@ -200,10 +130,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0389,
-        "y": 0.0693,
-        "w": 0.3403,
-        "h": 0.0435
+        "x": 0.0444,
+        "y": 0.0656,
+        "w": 0.3889,
+        "h": 0.0625
       },
       "boxKeys": [
         "x",
@@ -225,10 +155,10 @@
       },
       "text": "{{TEST_USER_NAME}}",
       "box": {
-        "x": 0.6542,
-        "y": 0.07,
-        "w": 0.1806,
-        "h": 0.0218
+        "x": 0.6681,
+        "y": 0.068,
+        "w": 0.1431,
+        "h": 0.0281
       },
       "clickable": false,
       "enabled": true,
@@ -246,10 +176,10 @@
       },
       "text": "Self",
       "box": {
-        "x": 0.7368,
-        "y": 0.0942,
-        "w": 0.0493,
-        "h": 0.018
+        "x": 0.7083,
+        "y": 0.1016,
+        "w": 0.0472,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -268,10 +198,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.7958,
-        "y": 0.0942,
-        "w": 0.0389,
-        "h": 0.018
+        "x": 0.7667,
+        "y": 0.0992,
+        "w": 0.0444,
+        "h": 0.0266
       },
       "clickable": false,
       "enabled": true,
@@ -290,10 +220,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8639,
-        "y": 0.0712,
-        "w": 0.0875,
-        "h": 0.0398
+        "x": 0.8444,
+        "y": 0.068,
+        "w": 0.1,
+        "h": 0.0578
       },
       "clickable": false,
       "enabled": true,
@@ -311,10 +241,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.9319,
-        "y": 0.0672,
-        "w": 0.0292,
-        "h": 0.0131
+        "x": 0.9222,
+        "y": 0.0625,
+        "w": 0.0333,
+        "h": 0.0188
       },
       "boxKeys": [
         "x",
@@ -336,10 +266,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.9347,
-        "y": 0.0672,
-        "w": 0.0264,
-        "h": 0.0121
+        "x": 0.925,
+        "y": 0.0625,
+        "w": 0.0306,
+        "h": 0.0172
       },
       "boxKeys": [
         "x",
@@ -362,10 +292,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.9417,
-        "y": 0.0672,
-        "w": 0.0194,
-        "h": 0.009
+        "x": 0.9333,
+        "y": 0.0625,
+        "w": 0.0222,
+        "h": 0.0133
       },
       "clickable": false,
       "enabled": true,
@@ -383,10 +313,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0451,
-        "y": 0.1856,
-        "w": 0.3965,
-        "h": 0.1803
+        "x": 0.0472,
+        "y": 0.2188,
+        "w": 0.4111,
+        "h": 0.2398
       },
       "boxKeys": [
         "x",
@@ -408,10 +338,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0708,
-        "y": 0.2037,
-        "w": 0.0535,
-        "h": 0.0239
+        "x": 0.075,
+        "y": 0.2406,
+        "w": 0.0611,
+        "h": 0.0344
       },
       "boxKeys": [
         "x",
@@ -434,10 +364,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0826,
-        "y": 0.2086,
-        "w": 0.0292,
-        "h": 0.0137
+        "x": 0.0889,
+        "y": 0.2477,
+        "w": 0.0333,
+        "h": 0.0203
       },
       "clickable": false,
       "enabled": true,
@@ -455,10 +385,10 @@
       },
       "text": "Weight",
       "box": {
-        "x": 0.1389,
-        "y": 0.2015,
-        "w": 0.1271,
-        "h": 0.0283
+        "x": 0.1528,
+        "y": 0.243,
+        "w": 0.1222,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -476,10 +406,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3167,
-        "y": 0.2015,
+        "x": 0.3319,
+        "y": 0.2406,
         "w": 0.0986,
-        "h": 0.0233
+        "h": 0.025
       },
       "boxKeys": [
         "x",
@@ -502,10 +432,10 @@
       "near": true,
       "text": "GOOD",
       "box": {
-        "x": 0.3313,
-        "y": 0.2037,
-        "w": 0.0694,
-        "h": 0.019
+        "x": 0.3486,
+        "y": 0.2438,
+        "w": 0.0653,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -519,14 +449,14 @@
     "kgText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "[0-9][0-9,.]*\\s+kg"
+        "textPattern": "[0-9][0-9,.]* +kg"
       },
       "near": true,
       "box": {
-        "x": 0.0708,
-        "y": 0.2345,
-        "w": 0.3451,
-        "h": 0.037
+        "x": 0.075,
+        "y": 0.2813,
+        "w": 0.3569,
+        "h": 0.0531
       },
       "dynamic": true,
       "boxKeys": [
@@ -549,10 +479,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0708,
-        "y": 0.2826,
-        "w": 0.3229,
-        "h": 0.0196
+        "x": 0.075,
+        "y": 0.357,
+        "w": 0.3278,
+        "h": 0.0281
       },
       "boxKeys": [
         "x",
@@ -574,10 +504,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0708,
-        "y": 0.3057,
-        "w": 0.0306,
-        "h": 0.019
+        "x": 0.075,
+        "y": 0.3898,
+        "w": 0.0292,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -600,10 +530,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.2299,
-        "y": 0.3057,
-        "w": 0.0271,
-        "h": 0.019
+        "x": 0.2389,
+        "y": 0.3898,
+        "w": 0.0278,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -626,10 +556,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3854,
-        "y": 0.3057,
-        "w": 0.0292,
-        "h": 0.019
+        "x": 0.4014,
+        "y": 0.3898,
+        "w": 0.0278,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -654,10 +584,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0708,
-        "y": 0.3346,
-        "w": 0.0243,
-        "h": 0.0115
+        "x": 0.075,
+        "y": 0.4188,
+        "w": 0.0278,
+        "h": 0.0172
       },
       "clickable": false,
       "enabled": true,
@@ -671,14 +601,14 @@
     "kgUnderIdealText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "[0-9][0-9,.]*\\s+kg\\s+under\\s+ideal"
+        "textPattern": "[0-9][0-9,.]* +kg +under +ideal"
       },
       "near": true,
       "box": {
-        "x": 0.1021,
-        "y": 0.3308,
-        "w": 0.1764,
-        "h": 0.019
+        "x": 0.1111,
+        "y": 0.418,
+        "w": 0.1972,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -701,10 +631,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.466,
-        "y": 0.1856,
-        "w": 0.3958,
-        "h": 0.1803
+        "x": 0.4861,
+        "y": 0.2188,
+        "w": 0.4111,
+        "h": 0.2398
       },
       "boxKeys": [
         "x",
@@ -726,10 +656,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4917,
-        "y": 0.2037,
-        "w": 0.0535,
-        "h": 0.0239
+        "x": 0.5139,
+        "y": 0.2406,
+        "w": 0.0611,
+        "h": 0.0344
       },
       "boxKeys": [
         "x",
@@ -752,10 +682,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.5035,
-        "y": 0.2086,
-        "w": 0.0292,
-        "h": 0.0137
+        "x": 0.5278,
+        "y": 0.2477,
+        "w": 0.0333,
+        "h": 0.0203
       },
       "clickable": false,
       "enabled": true,
@@ -773,10 +703,10 @@
       },
       "text": "BMI",
       "box": {
-        "x": 0.5597,
-        "y": 0.2015,
-        "w": 0.0813,
-        "h": 0.0283
+        "x": 0.5917,
+        "y": 0.243,
+        "w": 0.0708,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -794,10 +724,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.7375,
-        "y": 0.2015,
+        "x": 0.7708,
+        "y": 0.2406,
         "w": 0.0986,
-        "h": 0.0233
+        "h": 0.025
       },
       "boxKeys": [
         "x",
@@ -820,10 +750,10 @@
       "near": true,
       "text": "GOOD",
       "box": {
-        "x": 0.7521,
-        "y": 0.2037,
-        "w": 0.0694,
-        "h": 0.019
+        "x": 0.7875,
+        "y": 0.2438,
+        "w": 0.0653,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -841,10 +771,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4917,
-        "y": 0.2345,
-        "w": 0.3444,
-        "h": 0.037
+        "x": 0.5139,
+        "y": 0.2813,
+        "w": 0.3569,
+        "h": 0.0531
       },
       "dynamic": true,
       "boxKeys": [
@@ -867,10 +797,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4917,
-        "y": 0.2811,
-        "w": 0.3236,
-        "h": 0.0218
+        "x": 0.5139,
+        "y": 0.3469,
+        "w": 0.3278,
+        "h": 0.0313
       },
       "boxKeys": [
         "x",
@@ -892,10 +822,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4785,
-        "y": 0.3109,
-        "w": 0.0486,
-        "h": 0.019
+        "x": 0.4972,
+        "y": 0.3891,
+        "w": 0.0556,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -918,10 +848,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.5174,
-        "y": 0.3109,
-        "w": 0.0486,
-        "h": 0.019
+        "x": 0.5375,
+        "y": 0.3891,
+        "w": 0.0556,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -944,10 +874,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.6014,
-        "y": 0.3109,
-        "w": 0.0486,
-        "h": 0.019
+        "x": 0.6222,
+        "y": 0.3891,
+        "w": 0.0556,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -970,10 +900,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.666,
-        "y": 0.3109,
-        "w": 0.0486,
-        "h": 0.019
+        "x": 0.6875,
+        "y": 0.3891,
+        "w": 0.0556,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -996,10 +926,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.7889,
-        "y": 0.3109,
-        "w": 0.0486,
-        "h": 0.019
+        "x": 0.8125,
+        "y": 0.3891,
+        "w": 0.0556,
+        "h": 0.0188
       },
       "dynamic": true,
       "boxKeys": [
@@ -1024,10 +954,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.4917,
-        "y": 0.3299,
-        "w": 0.0243,
-        "h": 0.0115
+        "x": 0.5139,
+        "y": 0.4117,
+        "w": 0.0278,
+        "h": 0.0172
       },
       "clickable": false,
       "enabled": true,
@@ -1045,10 +975,10 @@
       },
       "text": "Normal",
       "box": {
-        "x": 0.5229,
-        "y": 0.3262,
-        "w": 0.0792,
-        "h": 0.019
+        "x": 0.55,
+        "y": 0.4109,
+        "w": 0.0903,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -1066,10 +996,35 @@
       },
       "near": true,
       "box": {
-        "x": 0.8861,
-        "y": 0.1856,
-        "w": 0.0715,
-        "h": 0.1803
+        "x": 0.925,
+        "y": 0.2188,
+        "w": 0.0306,
+        "h": 0.2398
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "shape6": {
+      "match": {
+        "cls": "android.view.View",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.0472,
+        "y": 0.4992,
+        "w": 0.9056,
+        "h": 0.3695
       },
       "boxKeys": [
         "x",
@@ -1091,81 +1046,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.9118,
-        "y": 0.2124,
-        "w": 0.0146,
-        "h": 0.0065
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "stepsText": {
-      "match": {
-        "text": "Steps",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Steps",
-      "box": {
-        "x": 0.9556,
-        "y": 0.2015,
-        "w": 0.0021,
-        "h": 0.0283
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "shape6": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.9118,
-        "y": 0.2391,
-        "w": 0.0458,
-        "h": 0.1057
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "circle6": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.084,
-        "y": 0.4123,
-        "w": 0.0972,
-        "h": 0.0435
+        "x": 0.0917,
+        "y": 0.5242,
+        "w": 0.1111,
+        "h": 0.0625
       },
       "boxKeys": [
         "x",
@@ -1188,10 +1072,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.1035,
-        "y": 0.4207,
-        "w": 0.0583,
-        "h": 0.0267
+        "x": 0.1139,
+        "y": 0.5359,
+        "w": 0.0667,
+        "h": 0.0391
       },
       "clickable": false,
       "enabled": true,
@@ -1209,10 +1093,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.2056,
-        "y": 0.4201,
-        "w": 0.2896,
-        "h": 0.0283
+        "x": 0.2306,
+        "y": 0.5398,
+        "w": 0.2528,
+        "h": 0.0313
       },
       "boxKeys": [
         "x",
@@ -1234,10 +1118,10 @@
       },
       "text": "ACTION NEEDED",
       "box": {
-        "x": 0.225,
-        "y": 0.4232,
-        "w": 0.2507,
-        "h": 0.0218
+        "x": 0.2528,
+        "y": 0.5445,
+        "w": 0.2083,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -1253,13 +1137,12 @@
         "text": "Complete Payment",
         "cls": "android.widget.TextView"
       },
-      "near": true,
       "text": "Complete Payment",
       "box": {
-        "x": 0.0833,
-        "y": 0.4652,
-        "w": 0.8333,
-        "h": 0.0311
+        "x": 0.0917,
+        "y": 0.5992,
+        "w": 0.8167,
+        "h": 0.0438
       },
       "clickable": false,
       "enabled": true,
@@ -1278,10 +1161,10 @@
       },
       "text": "PAYMENT REQUIRED",
       "box": {
-        "x": 0.0833,
-        "y": 0.5009,
-        "w": 0.8333,
-        "h": 0.0218
+        "x": 0.0917,
+        "y": 0.6492,
+        "w": 0.8167,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -1300,10 +1183,10 @@
       },
       "text": "Complete your payment to continue with your health report.",
       "box": {
-        "x": 0.0833,
-        "y": 0.5274,
-        "w": 0.8333,
-        "h": 0.0479
+        "x": 0.0917,
+        "y": 0.6773,
+        "w": 0.8167,
+        "h": 0.0625
       },
       "clickable": false,
       "enabled": true,
@@ -1322,10 +1205,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.084,
-        "y": 0.5849,
-        "w": 0.2063,
-        "h": 0.0348
+        "x": 0.0917,
+        "y": 0.7531,
+        "w": 0.1778,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -1347,10 +1230,10 @@
       },
       "text": "Payment",
       "box": {
-        "x": 0.1132,
-        "y": 0.5914,
-        "w": 0.1479,
-        "h": 0.0218
+        "x": 0.125,
+        "y": 0.7625,
+        "w": 0.1111,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -1368,10 +1251,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3097,
-        "y": 0.5849,
-        "w": 0.175,
-        "h": 0.0348
+        "x": 0.2917,
+        "y": 0.7531,
+        "w": 0.1542,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -1393,10 +1276,10 @@
       },
       "text": "Secure",
       "box": {
-        "x": 0.3389,
-        "y": 0.5914,
-        "w": 0.1167,
-        "h": 0.0218
+        "x": 0.325,
+        "y": 0.7625,
+        "w": 0.0875,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -1414,10 +1297,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.5042,
-        "y": 0.5849,
-        "w": 0.1764,
-        "h": 0.0348
+        "x": 0.4681,
+        "y": 0.7531,
+        "w": 0.1542,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -1439,10 +1322,10 @@
       },
       "text": "Instant",
       "box": {
-        "x": 0.5333,
-        "y": 0.5914,
-        "w": 0.1181,
-        "h": 0.0218
+        "x": 0.5014,
+        "y": 0.7625,
+        "w": 0.0875,
+        "h": 0.0219
       },
       "clickable": false,
       "enabled": true,
@@ -1453,17 +1336,17 @@
         "box"
       ]
     },
-    "circle7": {
+    "circle6": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.084,
-        "y": 0.6331,
-        "w": 0.0535,
-        "h": 0.0239
+        "x": 0.0917,
+        "y": 0.8063,
+        "w": 0.0611,
+        "h": 0.0344
       },
       "boxKeys": [
         "x",
@@ -1487,10 +1370,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.091,
-        "y": 0.6359,
-        "w": 0.0389,
-        "h": 0.018
+        "x": 0.1,
+        "y": 0.8102,
+        "w": 0.0444,
+        "h": 0.0266
       },
       "clickable": false,
       "enabled": true,
@@ -1508,10 +1391,10 @@
       },
       "text": "Secure payment processing",
       "box": {
-        "x": 0.1583,
-        "y": 0.6294,
-        "w": 0.759,
-        "h": 0.0311
+        "x": 0.175,
+        "y": 0.807,
+        "w": 0.7333,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -1523,17 +1406,17 @@
         "width"
       ]
     },
-    "circle8": {
+    "shape10": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.084,
-        "y": 0.6688,
-        "w": 0.0535,
-        "h": 0.0239
+        "x": 0.0917,
+        "y": 0.8469,
+        "w": 0.0611,
+        "h": 0.0219
       },
       "boxKeys": [
         "x",
@@ -1557,9 +1440,9 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.091,
-        "y": 0.6716,
-        "w": 0.0389,
+        "x": 0.1,
+        "y": 0.8508,
+        "w": 0.0444,
         "h": 0.018
       },
       "clickable": false,
@@ -1578,80 +1461,10 @@
       },
       "text": "Instant access after payment",
       "box": {
-        "x": 0.1583,
-        "y": 0.6651,
-        "w": 0.759,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box",
-        "width"
-      ]
-    },
-    "circle9": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.084,
-        "y": 0.7046,
-        "w": 0.0535,
-        "h": 0.0239
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "iconText11": {
-      "match": {
-        "text": "",
-        "cls": "android.widget.TextView"
-      },
-      "near": true,
-      "text": "",
-      "icon": true,
-      "box": {
-        "x": 0.091,
-        "y": 0.7074,
-        "w": 0.0389,
-        "h": 0.018
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "fullHealthReportIncludedText": {
-      "match": {
-        "text": "Full health report included",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Full health report included",
-      "box": {
-        "x": 0.1583,
-        "y": 0.7009,
-        "w": 0.759,
-        "h": 0.0311
+        "x": 0.175,
+        "y": 0.8477,
+        "w": 0.7333,
+        "h": 0.0211
       },
       "clickable": false,
       "enabled": true,
@@ -1670,101 +1483,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.084,
-        "y": 0.7606,
-        "w": 0.8333,
-        "h": 0.0588
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "box"
-      ]
-    },
-    "completePaymentText2": {
-      "match": {
-        "text": "Complete Payment",
-        "cls": "android.widget.TextView"
-      },
-      "near": true,
-      "text": "Complete Payment",
-      "box": {
-        "x": 0.266,
-        "y": 0.7736,
-        "w": 0.4681,
-        "h": 0.0326
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "secureCheckoutInstantActivationText": {
-      "match": {
-        "text": "Secure checkout • Instant activation",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Secure checkout • Instant activation",
-      "box": {
-        "x": 0.0833,
-        "y": 0.8237,
-        "w": 0.8333,
-        "h": 0.0218
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box",
-        "width"
-      ]
-    },
-    "iconText12": {
-      "match": {
-        "text": "󰸘",
-        "cls": "android.widget.TextView"
-      },
-      "text": "󰸘",
-      "icon": true,
-      "box": {
-        "x": 0.8813,
-        "y": 0.9076,
-        "w": 0.0583,
-        "h": 0.0096
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "bar5": {
-      "match": {
-        "cls": "android.view.View",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 1,
-        "h": 0.0827
+        "h": 0.1313
       },
       "boxKeys": [
         "x",
@@ -1785,9 +1507,9 @@
       },
       "box": {
         "x": 0,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -1806,9 +1528,9 @@
       "text": "Home",
       "box": {
         "x": 0.1278,
-        "y": 0.9574,
-        "w": 0.0778,
-        "h": 0.0155
+        "y": 0.9266,
+        "w": 0.0764,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -1825,9 +1547,9 @@
       },
       "box": {
         "x": 0.3333,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -1845,10 +1567,10 @@
       },
       "text": "Report",
       "box": {
-        "x": 0.4563,
-        "y": 0.9574,
+        "x": 0.4556,
+        "y": 0.9266,
         "w": 0.0875,
-        "h": 0.0155
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -1865,9 +1587,9 @@
       },
       "box": {
         "x": 0.6667,
-        "y": 0.9173,
+        "y": 0.8688,
         "w": 0.3333,
-        "h": 0.0709
+        "h": 0.1016
       },
       "clickable": true,
       "enabled": true,
@@ -1885,10 +1607,10 @@
       },
       "text": "Settings",
       "box": {
-        "x": 0.7792,
-        "y": 0.9574,
-        "w": 0.1076,
-        "h": 0.0155
+        "x": 0.7806,
+        "y": 0.9266,
+        "w": 0.1056,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -1903,8 +1625,20 @@
   "rules": [
     {
       "type": "inside",
-      "el": "completePaymentBtn",
-      "parent": "paymentBanner",
+      "el": "weightCard",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "bmiCard",
+      "parent": "shape3",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "paymentBanner",
+      "parent": "shape6",
       "centered": true
     },
     {
@@ -1934,8 +1668,8 @@
     {
       "type": "inside",
       "el": "circle",
-      "parent": "profileSwitcher",
-      "centered": false
+      "parent": "circle2",
+      "centered": true
     },
     {
       "type": "inside",
@@ -1947,7 +1681,7 @@
       "type": "inside",
       "el": "iconText3",
       "parent": "circle2",
-      "centered": false
+      "centered": true
     },
     {
       "type": "inside",
@@ -2119,44 +1853,26 @@
     },
     {
       "type": "inside",
-      "el": "shape5",
-      "parent": "stepsCard",
+      "el": "shape6",
+      "parent": "paymentBanner",
       "centered": true
     },
     {
       "type": "inside",
       "el": "circle5",
-      "parent": "shape5",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "stepsText",
-      "parent": "shape5",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "shape6",
-      "parent": "shape5",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "circle6",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
       "type": "inside",
       "el": "iconText8",
-      "parent": "circle6",
+      "parent": "circle5",
       "centered": true
     },
     {
       "type": "inside",
       "el": "bar3",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
@@ -2168,25 +1884,25 @@
     {
       "type": "inside",
       "el": "completePaymentText",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": true
     },
     {
       "type": "inside",
       "el": "paymentRequiredText",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": true
     },
     {
       "type": "inside",
       "el": "completeYourPaymentToText",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": true
     },
     {
       "type": "inside",
       "el": "shape7",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
@@ -2198,7 +1914,7 @@
     {
       "type": "inside",
       "el": "shape8",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
@@ -2210,7 +1926,7 @@
     {
       "type": "inside",
       "el": "shape9",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
@@ -2221,86 +1937,44 @@
     },
     {
       "type": "inside",
-      "el": "circle7",
-      "parent": "paymentBanner",
+      "el": "circle6",
+      "parent": "shape6",
       "centered": false
     },
     {
       "type": "inside",
       "el": "iconText9",
-      "parent": "circle7",
+      "parent": "circle6",
       "centered": true
     },
     {
       "type": "inside",
       "el": "securePaymentProcessingText",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
     },
     {
       "type": "inside",
-      "el": "circle8",
-      "parent": "paymentBanner",
+      "el": "shape10",
+      "parent": "shape6",
       "centered": false
     },
     {
       "type": "inside",
       "el": "iconText10",
-      "parent": "circle8",
+      "parent": "shape10",
       "centered": true
     },
     {
       "type": "inside",
       "el": "instantAccessAfterPaymentText",
-      "parent": "paymentBanner",
+      "parent": "shape6",
       "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "circle9",
-      "parent": "paymentBanner",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "iconText11",
-      "parent": "circle9",
-      "centered": true
-    },
-    {
-      "type": "inside",
-      "el": "fullHealthReportIncludedText",
-      "parent": "paymentBanner",
-      "centered": false
-    },
-    {
-      "type": "inside",
-      "el": "bar4",
-      "parent": "paymentBanner",
-      "centered": true
-    },
-    {
-      "type": "inside",
-      "el": "completePaymentText2",
-      "parent": "completePaymentBtn",
-      "centered": true
-    },
-    {
-      "type": "inside",
-      "el": "secureCheckoutInstantActivationText",
-      "parent": "paymentBanner",
-      "centered": true
-    },
-    {
-      "type": "inside",
-      "el": "iconText12",
-      "parent": "calendarBtn",
-      "centered": true
     },
     {
       "type": "inside",
       "el": "homeBtn",
-      "parent": "bar5",
+      "parent": "bar4",
       "centered": false
     },
     {
@@ -2312,7 +1986,7 @@
     {
       "type": "inside",
       "el": "reportBtn",
-      "parent": "bar5",
+      "parent": "bar4",
       "centered": true
     },
     {
@@ -2324,7 +1998,7 @@
     {
       "type": "inside",
       "el": "settingsBtn",
-      "parent": "bar5",
+      "parent": "bar4",
       "centered": false
     },
     {
@@ -2341,155 +2015,49 @@
       ]
     },
     {
-      "type": "sameRow",
-      "els": [
-        "weightCard",
-        "bmiCard",
-        "stepsCard"
-      ]
-    },
-    {
-      "type": "sameRow",
-      "els": [
-        "dailyRoutine",
-        "calendarBtn"
-      ]
-    },
-    {
       "type": "order",
       "els": [
         "profileSwitcher",
         "youRightNow",
-        "weightCard",
-        "paymentBanner",
-        "dailyRoutine",
-        "bar5"
+        "shape5",
+        "bar4"
       ]
     },
     {
       "type": "gap",
       "above": "profileSwitcher",
       "below": "youRightNow",
-      "value": 0.0486
+      "value": 0.0556
     },
     {
       "type": "gap",
       "above": "youRightNow",
-      "below": "weightCard",
-      "value": 0.0208
+      "below": "shape5",
+      "value": 0.025
     },
     {
       "type": "gap",
-      "above": "weightCard",
-      "below": "paymentBanner",
-      "value": 0.0597
-    },
-    {
-      "type": "gap",
-      "above": "paymentBanner",
-      "below": "dailyRoutine",
-      "value": 0.0604
-    },
-    {
-      "type": "gap",
-      "above": "dailyRoutine",
-      "below": "bar5",
-      "value": 0
+      "above": "shape5",
+      "below": "bar4",
+      "value": 0.7292
     },
     {
       "type": "alignLeft",
       "els": [
         "image",
-        "paymentBanner",
-        "dailyRoutine"
+        "youRightNow"
       ]
     },
     {
       "type": "alignRight",
       "els": [
         "youRightNow",
-        "stepsCard"
-      ]
-    },
-    {
-      "type": "alignRight",
-      "els": [
-        "paymentBanner",
-        "calendarBtn"
+        "shape5"
       ]
     },
     {
       "type": "centerX",
       "el": "youRightNow"
-    },
-    {
-      "type": "centerX",
-      "el": "paymentBanner"
-    },
-    {
-      "type": "noOverlap",
-      "pairs": [
-        [
-          "profileSwitcher",
-          "weightCard"
-        ],
-        [
-          "profileSwitcher",
-          "bmiCard"
-        ],
-        [
-          "profileSwitcher",
-          "stepsCard"
-        ],
-        [
-          "profileSwitcher",
-          "paymentBanner"
-        ],
-        [
-          "profileSwitcher",
-          "calendarBtn"
-        ],
-        [
-          "weightCard",
-          "bmiCard"
-        ],
-        [
-          "weightCard",
-          "stepsCard"
-        ],
-        [
-          "weightCard",
-          "paymentBanner"
-        ],
-        [
-          "weightCard",
-          "calendarBtn"
-        ],
-        [
-          "bmiCard",
-          "stepsCard"
-        ],
-        [
-          "bmiCard",
-          "paymentBanner"
-        ],
-        [
-          "bmiCard",
-          "calendarBtn"
-        ],
-        [
-          "stepsCard",
-          "paymentBanner"
-        ],
-        [
-          "stepsCard",
-          "calendarBtn"
-        ],
-        [
-          "paymentBanner",
-          "calendarBtn"
-        ]
-      ]
     }
   ]
 }

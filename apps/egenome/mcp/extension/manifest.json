@@ -1,0 +1,104 @@
+{
+  "manifest_version": "0.3",
+  "name": "egenome-tests",
+  "display_name": "eGenome Tests",
+  "version": "0.3.0",
+  "description": "The eGenome.ai app tests: read runs, failures and their causes, one test in full, unit tests, codes, connected phone; run the unit tests; start device suites after a confirmation.",
+  "long_description": "Starts the MCP server in the eGenome.ai test project (mcp/server.mjs) from the folder you choose. It reads the same data as the test dashboard (reports/) and never returns .env values. It can also run the unit tests, and start smoke / regression / layout on the emulator: those clear the app's data, so the assistant must first show what will happen and only start after you agree; one run at a time, with time limits. Run `npm run mcp:install` in the project once before installing.",
+  "author": {
+    "name": "eGenome.ai test project"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.mjs"
+      ],
+      "env": {
+        "EGENOME_PROJECT": "${user_config.project_folder}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "get_latest_run",
+      "description": "Start here: verdict with the reason, counts, changes since the previous run"
+    },
+    {
+      "name": "list_failures",
+      "description": "Failures, one line each: priority, history, cause, error, step"
+    },
+    {
+      "name": "get_failure_details",
+      "description": "One test in full: error, steps, layout, app log, API calls, files"
+    },
+    {
+      "name": "compare_runs",
+      "description": "Two runs side by side: newly failing, fixed, what changed"
+    },
+    {
+      "name": "list_runs",
+      "description": "Recorded test runs, newest first"
+    },
+    {
+      "name": "get_unit_test_results",
+      "description": "Unit test failures with expected vs actual, coverage"
+    },
+    {
+      "name": "explain_codes",
+      "description": "What an HTTP / exit / Android code means"
+    },
+    {
+      "name": "device_status",
+      "description": "Connected phones and the app version (read-only adb)"
+    },
+    {
+      "name": "list_layout_specs",
+      "description": "Screens with a layout spec: elements, rules, screen size, reviewed or not"
+    },
+    {
+      "name": "run_unit_tests",
+      "description": "Run the unit tests (seconds, no phone) and return the result"
+    },
+    {
+      "name": "start_test_run",
+      "description": "Start smoke / regression / layout on the device, only after a confirmation (clears app data)"
+    },
+    {
+      "name": "check_test_run",
+      "description": "Progress of a running suite, then its verdict and failures"
+    },
+    {
+      "name": "stop_test_run",
+      "description": "Stop a running suite and everything it started"
+    }
+  ],
+  "prompts": [
+    {
+      "name": "triage_latest_run",
+      "description": "Triage the latest run: verdict, failures, cause, next action",
+      "text": "Triage the latest test run of the eGenome.ai app using the egenome-tests tools."
+    }
+  ],
+  "user_config": {
+    "project_folder": {
+      "type": "directory",
+      "title": "eGenome.ai project folder",
+      "description": "The eGenome.ai test project folder (the one with package.json, mcp/ and reports/).",
+      "required": true
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "license": "UNLICENSED"
+}

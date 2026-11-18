@@ -2,12 +2,12 @@
   "spec": "Premium",
   "page": "PremiumPage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:15:52.091Z",
+  "generatedAt": "2026-11-13T10:31:26.752Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": true,
   "tolerance": {
@@ -24,10 +24,10 @@
       "selector": "android=new UiSelector().text(\"eGenome Premium\")",
       "text": "eGenome Premium",
       "box": {
-        "x": 0.1986,
-        "y": 0.1063,
-        "w": 0.6021,
-        "h": 0.0414
+        "x": 0.2458,
+        "y": 0.1188,
+        "w": 0.5069,
+        "h": 0.0453
       },
       "clickable": false,
       "enabled": true,
@@ -42,10 +42,10 @@
     "backBtn": {
       "selector": "android=new UiSelector().description(\"Go back\")",
       "box": {
-        "x": 0.0389,
-        "y": 0.0585,
-        "w": 0.0875,
-        "h": 0.0392
+        "x": 0.0444,
+        "y": 0.05,
+        "w": 0.1,
+        "h": 0.0563
       },
       "clickable": true,
       "enabled": true,
@@ -59,10 +59,10 @@
     "oldPrice": {
       "selector": "android=new UiSelector().text(\"₹11,988\")",
       "box": {
-        "x": 0.0806,
-        "y": 0.2988,
-        "w": 0.8396,
-        "h": 0.0283
+        "x": 0.0917,
+        "y": 0.3125,
+        "w": 0.8167,
+        "h": 0.0297
       },
       "dynamic": true,
       "boxKeys": [
@@ -81,10 +81,10 @@
       "selector": "android=new UiSelector().textStartsWith(\"per year\")",
       "text": "per year*",
       "box": {
-        "x": 0.3313,
-        "y": 0.3439,
-        "w": 0.1743,
-        "h": 0.0283
+        "x": 0.3375,
+        "y": 0.3625,
+        "w": 0.1375,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -98,10 +98,10 @@
     "emiOption": {
       "selector": "android=new UiSelector().descriptionContains(\"EMI Starts\")",
       "box": {
-        "x": 0.0389,
-        "y": 0.8007,
-        "w": 0.9222,
-        "h": 0.0622
+        "x": 0.0444,
+        "y": 0.7359,
+        "w": 0.9111,
+        "h": 0.0766
       },
       "dynamic": true,
       "boxKeys": [
@@ -120,10 +120,10 @@
     "oneTimeOption": {
       "selector": "android=new UiSelector().descriptionContains(\"/Year, one-time\")",
       "box": {
-        "x": 0.0389,
-        "y": 0.8759,
-        "w": 0.9222,
-        "h": 0.0609
+        "x": 0.0444,
+        "y": 0.8313,
+        "w": 0.9111,
+        "h": 0.0766
       },
       "dynamic": true,
       "boxKeys": [
@@ -143,10 +143,10 @@
       "selector": "android=new UiSelector().text(\"No Auto Renewal\")",
       "text": "No Auto Renewal",
       "box": {
-        "x": 0.3354,
-        "y": 0.9369,
-        "w": 0.3292,
-        "h": 0.0283
+        "x": 0.3694,
+        "y": 0.9078,
+        "w": 0.2597,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -165,10 +165,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0583,
-        "y": 0.0669,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.0667,
+        "y": 0.0617,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -186,10 +186,10 @@
       },
       "text": "Push your boundaries and kick off your wellness journey with eGenome Premium",
       "box": {
-        "x": 0.0389,
-        "y": 0.1564,
-        "w": 0.9222,
-        "h": 0.0933
+        "x": 0.0444,
+        "y": 0.1766,
+        "w": 0.9111,
+        "h": 0.0656
       },
       "clickable": false,
       "enabled": true,
@@ -208,10 +208,35 @@
       },
       "near": true,
       "box": {
-        "x": 0.0806,
-        "y": 0.2988,
-        "w": 0.8396,
-        "h": 0.1884
+        "x": 0.0444,
+        "y": 0.2922,
+        "w": 0.9111,
+        "h": 0.4
+      },
+      "boxKeys": [
+        "x",
+        "y",
+        "h"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "box"
+      ]
+    },
+    "shape2": {
+      "match": {
+        "cls": "android.view.ViewGroup",
+        "leaf": true
+      },
+      "near": true,
+      "box": {
+        "x": 0.0917,
+        "y": 0.3125,
+        "w": 0.8167,
+        "h": 0.1953
       },
       "boxKeys": [
         "x",
@@ -233,10 +258,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0806,
-        "y": 0.3271,
-        "w": 0.2361,
-        "h": 0.0491
+        "x": 0.0917,
+        "y": 0.3422,
+        "w": 0.2292,
+        "h": 0.0547
       },
       "dynamic": true,
       "boxKeys": [
@@ -259,10 +284,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.0813,
-        "y": 0.3937,
-        "w": 0.8389,
-        "h": 0.0752
+        "x": 0.1083,
+        "y": 0.4219,
+        "w": 0.7833,
+        "h": 0.0594
       },
       "boxKeys": [
         "x",
@@ -280,14 +305,14 @@
     "saveUpToAnnuallyText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "Save\\s+up\\s+to\\s+₹[0-9][0-9,.]*\\s+annually\\s+by\\s+using\\s+EMI"
+        "textPattern": "Save +up +to +₹[0-9][0-9,.]* +annually +by +using +EMI"
       },
       "near": true,
       "box": {
-        "x": 0.159,
-        "y": 0.4045,
-        "w": 0.6833,
-        "h": 0.0535
+        "x": 0.1972,
+        "y": 0.4375,
+        "w": 0.6056,
+        "h": 0.0281
       },
       "dynamic": true,
       "boxKeys": [
@@ -310,10 +335,10 @@
       },
       "text": "Free",
       "box": {
-        "x": 0.6306,
-        "y": 0.5168,
-        "w": 0.0833,
-        "h": 0.0239
+        "x": 0.5917,
+        "y": 0.5328,
+        "w": 0.0653,
+        "h": 0.025
       },
       "clickable": false,
       "enabled": true,
@@ -331,10 +356,10 @@
       },
       "text": "Premium",
       "box": {
-        "x": 0.75,
-        "y": 0.5047,
-        "w": 0.1556,
-        "h": 0.0479
+        "x": 0.7361,
+        "y": 0.5328,
+        "w": 0.1333,
+        "h": 0.025
       },
       "clickable": false,
       "enabled": true,
@@ -352,10 +377,10 @@
       },
       "text": "Hassle-free Blood Test",
       "box": {
-        "x": 0.0951,
-        "y": 0.5656,
-        "w": 0.4993,
-        "h": 0.0622
+        "x": 0.1083,
+        "y": 0.5766,
+        "w": 0.4278,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -374,10 +399,10 @@
       "near": true,
       "text": "—",
       "box": {
-        "x": 0.6451,
-        "y": 0.5812,
-        "w": 0.0535,
-        "h": 0.0311
+        "x": 0.6028,
+        "y": 0.5766,
+        "w": 0.0431,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -397,10 +422,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8035,
-        "y": 0.5855,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.775,
+        "y": 0.5766,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -418,10 +443,10 @@
       },
       "text": "Health Evaluation Report",
       "box": {
-        "x": 0.0951,
-        "y": 0.6409,
-        "w": 0.4993,
-        "h": 0.0622
+        "x": 0.1083,
+        "y": 0.6281,
+        "w": 0.4278,
+        "h": 0.0641
       },
       "clickable": false,
       "enabled": true,
@@ -440,10 +465,10 @@
       "near": true,
       "text": "—",
       "box": {
-        "x": 0.6451,
-        "y": 0.6564,
-        "w": 0.0535,
-        "h": 0.0311
+        "x": 0.6028,
+        "y": 0.6445,
+        "w": 0.0431,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -463,76 +488,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8035,
-        "y": 0.6608,
-        "w": 0.0486,
-        "h": 0.0224
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "personalizedDietPlanText": {
-      "match": {
-        "text": "Personalized Diet Plan",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Personalized Diet Plan",
-      "box": {
-        "x": 0.0951,
-        "y": 0.7161,
-        "w": 0.4993,
-        "h": 0.0535
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "iconText6": {
-      "match": {
-        "text": "—",
-        "cls": "android.widget.TextView"
-      },
-      "near": true,
-      "text": "—",
-      "box": {
-        "x": 0.6451,
-        "y": 0.7317,
-        "w": 0.0535,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "iconText7": {
-      "match": {
-        "text": "",
-        "cls": "android.widget.TextView"
-      },
-      "near": true,
-      "text": "",
-      "icon": true,
-      "box": {
-        "x": 0.8035,
-        "y": 0.736,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.775,
+        "y": 0.6445,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -548,10 +507,10 @@
         "desc": "mastercard"
       },
       "box": {
-        "x": 0.2965,
-        "y": 0.7805,
-        "w": 0.034,
-        "h": 0.0087
+        "x": 0.2736,
+        "y": 0.7078,
+        "w": 0.0389,
+        "h": 0.0125
       },
       "clickable": false,
       "enabled": true,
@@ -566,10 +525,10 @@
         "desc": "visa"
       },
       "box": {
-        "x": 0.3729,
-        "y": 0.7805,
-        "w": 0.0583,
-        "h": 0.0087
+        "x": 0.3583,
+        "y": 0.7078,
+        "w": 0.0667,
+        "h": 0.0125
       },
       "clickable": false,
       "enabled": true,
@@ -584,10 +543,10 @@
         "desc": "google pay"
       },
       "box": {
-        "x": 0.4736,
-        "y": 0.7805,
-        "w": 0.0507,
-        "h": 0.0087
+        "x": 0.4694,
+        "y": 0.7078,
+        "w": 0.0583,
+        "h": 0.0125
       },
       "clickable": false,
       "enabled": true,
@@ -602,10 +561,10 @@
         "desc": "phonepe"
       },
       "box": {
-        "x": 0.5667,
-        "y": 0.7783,
-        "w": 0.0292,
-        "h": 0.0131
+        "x": 0.5722,
+        "y": 0.7047,
+        "w": 0.0333,
+        "h": 0.0188
       },
       "clickable": false,
       "enabled": true,
@@ -620,42 +579,16 @@
         "desc": "upi"
       },
       "box": {
-        "x": 0.6382,
-        "y": 0.7805,
-        "w": 0.0653,
-        "h": 0.0087
+        "x": 0.6514,
+        "y": 0.7078,
+        "w": 0.075,
+        "h": 0.0125
       },
       "clickable": false,
       "enabled": true,
       "checks": [
         "presence",
         "state",
-        "box"
-      ]
-    },
-    "emiStartsMonthText": {
-      "match": {
-        "cls": "android.widget.TextView",
-        "textPattern": "EMI\\s+Starts\\s+@\\s+₹[0-9][0-9,.]*[/]Month"
-      },
-      "near": true,
-      "box": {
-        "x": 0.1438,
-        "y": 0.8137,
-        "w": 0.7125,
-        "h": 0.0361
-      },
-      "dynamic": true,
-      "boxKeys": [
-        "x",
-        "y"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "format",
         "box"
       ]
     },
@@ -666,10 +599,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.6979,
-        "y": 0.8007,
-        "w": 0.234,
-        "h": 0.0143
+        "x": 0.6875,
+        "y": 0.7359,
+        "w": 0.2347,
+        "h": 0.0125
       },
       "boxKeys": [
         "x",
@@ -691,10 +624,10 @@
       },
       "text": "Limited Time Offer",
       "box": {
-        "x": 0.7174,
-        "y": 0.8007,
-        "w": 0.1951,
-        "h": 0.0121
+        "x": 0.7097,
+        "y": 0.7359,
+        "w": 0.1903,
+        "h": 0.0094
       },
       "clickable": false,
       "enabled": true,
@@ -705,17 +638,43 @@
         "box"
       ]
     },
-    "yearOneTimeText": {
+    "emiStartsMonthText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "₹[0-9][0-9,.]*[/]Year,\\s+one[-]time"
+        "textPattern": "EMI +Starts +@ +₹[0-9][0-9,.]*[/]Month"
       },
       "near": true,
       "box": {
-        "x": 0.2271,
-        "y": 0.8899,
-        "w": 0.5458,
-        "h": 0.0326
+        "x": 0.2,
+        "y": 0.7547,
+        "w": 0.5986,
+        "h": 0.0391
+      },
+      "dynamic": true,
+      "boxKeys": [
+        "x",
+        "y"
+      ],
+      "clickable": false,
+      "enabled": true,
+      "checks": [
+        "presence",
+        "state",
+        "format",
+        "box"
+      ]
+    },
+    "yearOneTimeText": {
+      "match": {
+        "cls": "android.widget.TextView",
+        "textPattern": "₹[0-9][0-9,.]*[/]Year, +one[-]time"
+      },
+      "near": true,
+      "box": {
+        "x": 0.2722,
+        "y": 0.8516,
+        "w": 0.4556,
+        "h": 0.0359
       },
       "dynamic": true,
       "boxKeys": [
@@ -736,13 +695,13 @@
     {
       "type": "inside",
       "el": "oldPrice",
-      "parent": "shape",
+      "parent": "shape2",
       "centered": false
     },
     {
       "type": "inside",
       "el": "perYear",
-      "parent": "shape",
+      "parent": "shape2",
       "centered": false
     },
     {
@@ -753,14 +712,20 @@
     },
     {
       "type": "inside",
-      "el": "valueText",
+      "el": "shape2",
       "parent": "shape",
+      "centered": true
+    },
+    {
+      "type": "inside",
+      "el": "valueText",
+      "parent": "shape2",
       "centered": false
     },
     {
       "type": "inside",
       "el": "bar",
-      "parent": "shape",
+      "parent": "shape2",
       "centered": true
     },
     {
@@ -771,8 +736,50 @@
     },
     {
       "type": "inside",
-      "el": "emiStartsMonthText",
-      "parent": "emiOption",
+      "el": "freeText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "premiumText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "hassleFreeBloodTestText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText2",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText3",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "healthEvaluationReportText",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText4",
+      "parent": "shape",
+      "centered": false
+    },
+    {
+      "type": "inside",
+      "el": "iconText5",
+      "parent": "shape",
       "centered": false
     },
     {
@@ -789,40 +796,15 @@
     },
     {
       "type": "inside",
-      "el": "yearOneTimeText",
-      "parent": "oneTimeOption",
+      "el": "emiStartsMonthText",
+      "parent": "emiOption",
       "centered": false
     },
     {
-      "type": "sameRow",
-      "els": [
-        "premiumText",
-        "freeText"
-      ]
-    },
-    {
-      "type": "sameRow",
-      "els": [
-        "hassleFreeBloodTestText",
-        "iconText2",
-        "iconText3"
-      ]
-    },
-    {
-      "type": "sameRow",
-      "els": [
-        "healthEvaluationReportText",
-        "iconText4",
-        "iconText5"
-      ]
-    },
-    {
-      "type": "sameRow",
-      "els": [
-        "personalizedDietPlanText",
-        "iconText6",
-        "iconText7"
-      ]
+      "type": "inside",
+      "el": "yearOneTimeText",
+      "parent": "oneTimeOption",
+      "centered": false
     },
     {
       "type": "sameRow",
@@ -841,10 +823,6 @@
         "title",
         "pushYourBoundariesAndText",
         "shape",
-        "premiumText",
-        "hassleFreeBloodTestText",
-        "healthEvaluationReportText",
-        "personalizedDietPlanText",
         "phonepeText",
         "emiOption",
         "oneTimeOption",
@@ -855,104 +833,39 @@
       "type": "gap",
       "above": "backBtn",
       "below": "title",
-      "value": 0.0194
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "title",
       "below": "pushYourBoundariesAndText",
-      "value": 0.0194
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "pushYourBoundariesAndText",
       "below": "shape",
-      "value": 0.1097
+      "value": 0.0889
     },
     {
       "type": "gap",
       "above": "shape",
-      "below": "premiumText",
-      "value": 0.0389
-    },
-    {
-      "type": "gap",
-      "above": "premiumText",
-      "below": "hassleFreeBloodTestText",
-      "value": 0.0292
-    },
-    {
-      "type": "gap",
-      "above": "hassleFreeBloodTestText",
-      "below": "healthEvaluationReportText",
-      "value": 0.0292
-    },
-    {
-      "type": "gap",
-      "above": "healthEvaluationReportText",
-      "below": "personalizedDietPlanText",
-      "value": 0.0292
-    },
-    {
-      "type": "gap",
-      "above": "personalizedDietPlanText",
       "below": "phonepeText",
-      "value": 0.0194
+      "value": 0.0222
     },
     {
       "type": "alignLeft",
       "els": [
         "backBtn",
-        "pushYourBoundariesAndText"
-      ]
-    },
-    {
-      "type": "alignLeft",
-      "els": [
-        "hassleFreeBloodTestText",
-        "healthEvaluationReportText",
-        "personalizedDietPlanText"
-      ]
-    },
-    {
-      "type": "alignLeft",
-      "els": [
-        "iconText2",
-        "iconText4",
-        "iconText6"
-      ]
-    },
-    {
-      "type": "alignLeft",
-      "els": [
-        "iconText3",
-        "iconText5",
-        "iconText7"
+        "pushYourBoundariesAndText",
+        "shape"
       ]
     },
     {
       "type": "alignRight",
       "els": [
-        "hassleFreeBloodTestText",
-        "healthEvaluationReportText",
-        "personalizedDietPlanText",
-        "phonepeText"
-      ]
-    },
-    {
-      "type": "alignRight",
-      "els": [
-        "iconText2",
-        "iconText4",
-        "iconText6"
-      ]
-    },
-    {
-      "type": "alignRight",
-      "els": [
-        "iconText3",
-        "iconText5",
-        "iconText7"
+        "pushYourBoundariesAndText",
+        "shape"
       ]
     },
     {

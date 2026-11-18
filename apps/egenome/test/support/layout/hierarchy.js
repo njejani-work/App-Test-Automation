@@ -112,6 +112,9 @@ function uiSelectorPredicate(sel) {
  * Find elements for a selector (page-object selector string) or an attribute matcher
  * ({ desc, text, rid, cls, descStarts, textStarts }). Returns elements in document order.
  */
+/** Text as a person reads it: line breaks and repeated spaces count as one space ("Main Street\nJacobpura" = "Main Street Jacobpura"). */
+export const flat = (s) => String(s ?? '').replace(/\s+/g, ' ').trim();
+
 export function findAll(tree, selOrMatch) {
   const { all, doc } = tree;
   if (selOrMatch && typeof selOrMatch === 'object') {
@@ -119,9 +122,9 @@ export function findAll(tree, selOrMatch) {
     const tp = m.textPattern != null ? new RegExp(`^(?:${m.textPattern})$`, 's') : null;
     const dp = m.descPattern != null ? new RegExp(`^(?:${m.descPattern})$`, 's') : null;
     return all.filter((e) =>
-      (m.desc == null || e.desc === m.desc) && (m.text == null || e.text === m.text) && (m.rid == null || e.rid === m.rid) &&
-      (m.cls == null || e.cls === m.cls) && (m.descStarts == null || e.desc.startsWith(m.descStarts)) && (m.textStarts == null || e.text.startsWith(m.textStarts)) &&
-      (!tp || tp.test(e.text)) && (!dp || dp.test(e.desc)) && (m.clickable == null || e.clickable === m.clickable) &&
+      (m.desc == null || flat(e.desc) === flat(m.desc)) && (m.text == null || flat(e.text) === flat(m.text)) && (m.rid == null || e.rid === m.rid) &&
+      (m.cls == null || e.cls === m.cls) && (m.descStarts == null || flat(e.desc).startsWith(flat(m.descStarts))) && (m.textStarts == null || flat(e.text).startsWith(flat(m.textStarts))) &&
+      (!tp || tp.test(flat(e.text))) && (!dp || dp.test(flat(e.desc))) && (m.clickable == null || e.clickable === m.clickable) &&
       (m.leaf == null || (e.leaf === m.leaf && !e.text && !e.desc)));
   }
   const sel = resolveTokens(String(selOrMatch));

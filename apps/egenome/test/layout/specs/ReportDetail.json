@@ -2,12 +2,12 @@
   "spec": "ReportDetail",
   "page": "ReportDetailPage",
   "source": "device",
-  "generatedAt": "2026-10-30T05:16:14.653Z",
+  "generatedAt": "2026-11-13T10:31:45.620Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
-    "w": 1440,
-    "h": 3216
+    "w": 720,
+    "h": 1280
   },
   "scrollTop": true,
   "tolerance": {
@@ -24,10 +24,10 @@
       "selector": "android=new UiSelector().textMatches(\"Month [0-9]+ Report\")",
       "text": "Month 1 Report",
       "box": {
-        "x": 0.2792,
-        "y": 0.0613,
-        "w": 0.441,
-        "h": 0.0382
+        "x": 0.3153,
+        "y": 0.0602,
+        "w": 0.3667,
+        "h": 0.0422
       },
       "clickable": false,
       "enabled": true,
@@ -41,10 +41,10 @@
     "backBtn": {
       "selector": "android=new UiSelector().description(\"Go back\")",
       "box": {
-        "x": 0.0424,
-        "y": 0.0606,
-        "w": 0.0875,
-        "h": 0.0392
+        "x": 0.0444,
+        "y": 0.0531,
+        "w": 0.1,
+        "h": 0.0563
       },
       "clickable": true,
       "enabled": true,
@@ -58,10 +58,10 @@
     "downloadBtn": {
       "selector": "android=new UiSelector().description(\"Download report\")",
       "box": {
-        "x": 0.8701,
-        "y": 0.0606,
-        "w": 0.0875,
-        "h": 0.0392
+        "x": 0.8556,
+        "y": 0.0531,
+        "w": 0.1,
+        "h": 0.0563
       },
       "clickable": true,
       "enabled": true,
@@ -80,10 +80,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.0618,
-        "y": 0.069,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.0667,
+        "y": 0.0648,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -102,10 +102,10 @@
       "text": "",
       "icon": true,
       "box": {
-        "x": 0.8896,
-        "y": 0.069,
-        "w": 0.0486,
-        "h": 0.0224
+        "x": 0.8778,
+        "y": 0.0648,
+        "w": 0.0556,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -121,10 +121,10 @@
         "desc": "Report Home"
       },
       "box": {
-        "x": 0.0424,
-        "y": 0.12,
-        "w": 0.3083,
-        "h": 0.0522
+        "x": 0.0444,
+        "y": 0.1375,
+        "w": 0.3139,
+        "h": 0.0641
       },
       "clickable": true,
       "enabled": true,
@@ -142,10 +142,10 @@
       },
       "text": "Report Home",
       "box": {
-        "x": 0.0833,
-        "y": 0.1318,
-        "w": 0.2257,
-        "h": 0.0283
+        "x": 0.0917,
+        "y": 0.1547,
+        "w": 0.2194,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -159,14 +159,14 @@
     "bioMarkersBtn": {
       "match": {
         "cls": "android.view.ViewGroup",
-        "descPattern": "Bio\\s+Markers"
+        "descPattern": "Bio +Markers"
       },
       "near": true,
       "box": {
-        "x": 0.375,
-        "y": 0.12,
-        "w": 0.2771,
-        "h": 0.0522
+        "x": 0.3861,
+        "y": 0.1375,
+        "w": 0.2847,
+        "h": 0.0641
       },
       "dynamic": true,
       "boxKeys": [
@@ -185,14 +185,14 @@
     "bioMarkersText": {
       "match": {
         "cls": "android.widget.TextView",
-        "textPattern": "Bio\\s+Markers"
+        "textPattern": "Bio +Markers"
       },
       "near": true,
       "box": {
-        "x": 0.416,
-        "y": 0.1318,
-        "w": 0.1944,
-        "h": 0.0283
+        "x": 0.4333,
+        "y": 0.1547,
+        "w": 0.1903,
+        "h": 0.0297
       },
       "dynamic": true,
       "boxKeys": [
@@ -213,10 +213,10 @@
         "desc": "Plan"
       },
       "box": {
-        "x": 0.6764,
-        "y": 0.12,
-        "w": 0.1535,
-        "h": 0.0522
+        "x": 0.6986,
+        "y": 0.1375,
+        "w": 0.1639,
+        "h": 0.0641
       },
       "clickable": true,
       "enabled": true,
@@ -234,10 +234,10 @@
       },
       "text": "Plan",
       "box": {
-        "x": 0.7174,
-        "y": 0.1318,
-        "w": 0.0708,
-        "h": 0.0283
+        "x": 0.7458,
+        "y": 0.1547,
+        "w": 0.0694,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -253,10 +253,10 @@
         "desc": "Diet Plan"
       },
       "box": {
-        "x": 0.8542,
-        "y": 0.12,
-        "w": 0.1458,
-        "h": 0.0522
+        "x": 0.8903,
+        "y": 0.1375,
+        "w": 0.1097,
+        "h": 0.0641
       },
       "clickable": true,
       "enabled": true,
@@ -274,10 +274,10 @@
       },
       "text": "Diet Plan",
       "box": {
-        "x": 0.8951,
-        "y": 0.1318,
-        "w": 0.1049,
-        "h": 0.0283
+        "x": 0.9375,
+        "y": 0.1547,
+        "w": 0.0625,
+        "h": 0.0297
       },
       "clickable": false,
       "enabled": true,
@@ -295,10 +295,10 @@
       },
       "text": "Hi {{TEST_USER_NAME}}!",
       "box": {
-        "x": 0.3354,
-        "y": 0.2195,
-        "w": 0.3292,
-        "h": 0.047
+        "x": 0.2764,
+        "y": 0.2648,
+        "w": 0.4458,
+        "h": 0.0516
       },
       "clickable": false,
       "enabled": true,
@@ -316,10 +316,10 @@
       },
       "text": "Here's your customized AI health insights",
       "box": {
-        "x": 0.0507,
-        "y": 0.2758,
-        "w": 0.8979,
-        "h": 0.0311
+        "x": 0.1375,
+        "y": 0.3289,
+        "w": 0.7236,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -338,10 +338,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.1292,
-        "y": 0.3178,
-        "w": 0.1653,
-        "h": 0.0373
+        "x": 0.1167,
+        "y": 0.3766,
+        "w": 0.1639,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -363,10 +363,10 @@
       },
       "text": "Month 1",
       "box": {
-        "x": 0.1625,
-        "y": 0.3206,
-        "w": 0.0979,
-        "h": 0.0311
+        "x": 0.1472,
+        "y": 0.3805,
+        "w": 0.1,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -384,10 +384,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3042,
-        "y": 0.3178,
-        "w": 0.1938,
-        "h": 0.0373
+        "x": 0.2917,
+        "y": 0.3766,
+        "w": 0.2,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -409,10 +409,10 @@
       },
       "text": "📊 CVD Risk",
       "box": {
-        "x": 0.3229,
-        "y": 0.3206,
-        "w": 0.1549,
-        "h": 0.0311
+        "x": 0.3111,
+        "y": 0.3805,
+        "w": 0.1583,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -430,10 +430,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.5083,
-        "y": 0.3178,
-        "w": 0.1778,
-        "h": 0.0373
+        "x": 0.5042,
+        "y": 0.3766,
+        "w": 0.1847,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -455,10 +455,10 @@
       },
       "text": "Health Plan",
       "box": {
-        "x": 0.5271,
-        "y": 0.3206,
-        "w": 0.1389,
-        "h": 0.0311
+        "x": 0.5236,
+        "y": 0.3805,
+        "w": 0.1431,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -476,10 +476,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.6965,
-        "y": 0.3178,
-        "w": 0.175,
-        "h": 0.0373
+        "x": 0.7,
+        "y": 0.3766,
+        "w": 0.1819,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -501,10 +501,10 @@
       },
       "text": "⚡ Bio Age",
       "box": {
-        "x": 0.7153,
-        "y": 0.3206,
-        "w": 0.1361,
-        "h": 0.0311
+        "x": 0.7194,
+        "y": 0.3805,
+        "w": 0.1403,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -515,17 +515,17 @@
         "box"
       ]
     },
-    "shape5": {
+    "bar": {
       "match": {
         "cls": "android.view.ViewGroup",
         "leaf": true
       },
       "near": true,
       "box": {
-        "x": 0.3806,
-        "y": 0.3619,
-        "w": 0.2389,
-        "h": 0.0373
+        "x": 0.3764,
+        "y": 0.4273,
+        "w": 0.2472,
+        "h": 0.0406
       },
       "boxKeys": [
         "x",
@@ -547,10 +547,10 @@
       },
       "text": "✨ New Insights",
       "box": {
-        "x": 0.3993,
-        "y": 0.3647,
-        "w": 0.2007,
-        "h": 0.0311
+        "x": 0.3958,
+        "y": 0.4313,
+        "w": 0.2056,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -568,10 +568,10 @@
       },
       "text": "Your Biological Age",
       "box": {
-        "x": 0.2347,
-        "y": 0.477,
-        "w": 0.5299,
-        "h": 0.0435
+        "x": 0.2181,
+        "y": 0.5727,
+        "w": 0.5611,
+        "h": 0.0484
       },
       "clickable": false,
       "enabled": true,
@@ -590,10 +590,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3576,
-        "y": 0.5395,
-        "w": 0.2847,
-        "h": 0.1465
+        "x": 0.3389,
+        "y": 0.6469,
+        "w": 0.3222,
+        "h": 0.207
       },
       "dynamic": true,
       "boxKeys": [
@@ -616,10 +616,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3785,
-        "y": 0.5585,
-        "w": 0.2431,
-        "h": 0.1088
+        "x": 0.3611,
+        "y": 0.6719,
+        "w": 0.2778,
+        "h": 0.1563
       },
       "boxKeys": [
         "x",
@@ -641,10 +641,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.3785,
-        "y": 0.5585,
-        "w": 0.2431,
-        "h": 0.1088
+        "x": 0.3611,
+        "y": 0.6719,
+        "w": 0.2778,
+        "h": 0.1563
       },
       "boxKeys": [
         "x",
@@ -666,10 +666,10 @@
       },
       "near": true,
       "box": {
-        "x": 0.4611,
-        "y": 0.5756,
-        "w": 0.0778,
-        "h": 0.0414
+        "x": 0.4556,
+        "y": 0.7023,
+        "w": 0.0889,
+        "h": 0.0594
       },
       "dynamic": true,
       "boxKeys": [
@@ -692,10 +692,10 @@
       },
       "text": "Years",
       "box": {
-        "x": 0.4507,
-        "y": 0.6191,
-        "w": 0.0986,
-        "h": 0.0311
+        "x": 0.4528,
+        "y": 0.7648,
+        "w": 0.0944,
+        "h": 0.0328
       },
       "clickable": false,
       "enabled": true,
@@ -713,10 +713,10 @@
       },
       "text": "Your body is telling an important story. We are identifying specific areas where targeted changes can help you reclaim your lost years.",
       "box": {
-        "x": 0.0875,
-        "y": 0.7049,
-        "w": 0.8257,
-        "h": 0.1132
+        "x": 0.0931,
+        "y": 0.8789,
+        "w": 0.8139,
+        "h": 0.0891
       },
       "clickable": false,
       "enabled": true,
@@ -728,27 +728,6 @@
         "width"
       ]
     },
-    "heartText": {
-      "match": {
-        "text": "Heart",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Heart",
-      "box": {
-        "x": 0.1806,
-        "y": 0.8731,
-        "w": 0.0868,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
     "iconText3": {
       "match": {
         "text": "🫀",
@@ -756,31 +735,10 @@
       },
       "text": "🫀",
       "box": {
-        "x": 0.1854,
-        "y": 0.8374,
-        "w": 0.0771,
-        "h": 0.0361
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "bloodSugarText": {
-      "match": {
-        "text": "Blood Sugar",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Blood Sugar",
-      "box": {
-        "x": 0.4069,
-        "y": 0.8731,
-        "w": 0.1847,
-        "h": 0.0311
+        "x": 0.1847,
+        "y": 0.9938,
+        "w": 0.0833,
+        "h": 0.0063
       },
       "clickable": false,
       "enabled": true,
@@ -798,31 +756,10 @@
       },
       "text": "🍯",
       "box": {
-        "x": 0.4604,
-        "y": 0.8374,
-        "w": 0.0771,
-        "h": 0.0361
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "vitaminsText": {
-      "match": {
-        "text": "Vitamins",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Vitamins",
-      "box": {
-        "x": 0.7083,
-        "y": 0.8731,
-        "w": 0.1333,
-        "h": 0.0311
+        "x": 0.4556,
+        "y": 0.9938,
+        "w": 0.0833,
+        "h": 0.0063
       },
       "clickable": false,
       "enabled": true,
@@ -840,10 +777,10 @@
       },
       "text": "💊",
       "box": {
-        "x": 0.7361,
-        "y": 0.8374,
-        "w": 0.0771,
-        "h": 0.0361
+        "x": 0.7278,
+        "y": 0.9938,
+        "w": 0.0833,
+        "h": 0.0063
       },
       "clickable": false,
       "enabled": true,
@@ -851,94 +788,6 @@
         "presence",
         "state",
         "text",
-        "box"
-      ]
-    },
-    "needsCareText": {
-      "match": {
-        "text": "Needs care",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Needs care",
-      "box": {
-        "x": 0.1361,
-        "y": 0.9042,
-        "w": 0.1764,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "greatText": {
-      "match": {
-        "text": "Great!",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Great!",
-      "box": {
-        "x": 0.45,
-        "y": 0.9042,
-        "w": 0.0986,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "watchItText": {
-      "match": {
-        "text": "Watch it",
-        "cls": "android.widget.TextView"
-      },
-      "text": "Watch it",
-      "box": {
-        "x": 0.709,
-        "y": 0.9042,
-        "w": 0.1313,
-        "h": 0.0311
-      },
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
-        "text",
-        "box"
-      ]
-    },
-    "bar": {
-      "match": {
-        "cls": "android.view.ViewGroup",
-        "leaf": true
-      },
-      "near": true,
-      "box": {
-        "x": 0.0424,
-        "y": 0.9838,
-        "w": 0.9153,
-        "h": 0.0162
-      },
-      "boxKeys": [
-        "x",
-        "y",
-        "h"
-      ],
-      "clickable": false,
-      "enabled": true,
-      "checks": [
-        "presence",
-        "state",
         "box"
       ]
     }
@@ -1007,7 +856,7 @@
     {
       "type": "inside",
       "el": "newInsightsText",
-      "parent": "shape5",
+      "parent": "bar",
       "centered": true
     },
     {
@@ -1069,22 +918,6 @@
       ]
     },
     {
-      "type": "sameRow",
-      "els": [
-        "heartText",
-        "bloodSugarText",
-        "vitaminsText"
-      ]
-    },
-    {
-      "type": "sameRow",
-      "els": [
-        "needsCareText",
-        "greatText",
-        "watchItText"
-      ]
-    },
-    {
       "type": "order",
       "els": [
         "backBtn",
@@ -1092,97 +925,74 @@
         "hiJohnDoeText",
         "hereSYourCustomizedText",
         "shape",
-        "shape5",
+        "bar",
         "yourBiologicalAgeText",
         "yearsBtn",
         "yourBodyIsTellingText",
-        "iconText3",
-        "heartText",
-        "needsCareText",
-        "bar"
+        "iconText3"
       ]
     },
     {
       "type": "gap",
       "above": "backBtn",
       "below": "reportHomeBtn",
-      "value": 0.0451
+      "value": 0.05
     },
     {
       "type": "gap",
       "above": "reportHomeBtn",
       "below": "hiJohnDoeText",
-      "value": 0.1056
+      "value": 0.1125
     },
     {
       "type": "gap",
       "above": "hiJohnDoeText",
       "below": "hereSYourCustomizedText",
-      "value": 0.0208
+      "value": 0.0222
     },
     {
       "type": "gap",
       "above": "hereSYourCustomizedText",
       "below": "shape",
-      "value": 0.0243
+      "value": 0.0264
     },
     {
       "type": "gap",
       "above": "shape",
-      "below": "shape5",
-      "value": 0.0153
+      "below": "bar",
+      "value": 0.0181
     },
     {
       "type": "gap",
-      "above": "shape5",
+      "above": "bar",
       "below": "yourBiologicalAgeText",
-      "value": 0.1736
+      "value": 0.1861
     },
     {
       "type": "gap",
       "above": "yourBodyIsTellingText",
       "below": "iconText3",
-      "value": 0.0431
-    },
-    {
-      "type": "gap",
-      "above": "heartText",
-      "below": "needsCareText",
-      "value": 0
-    },
-    {
-      "type": "gap",
-      "above": "needsCareText",
-      "below": "bar",
-      "value": 0.1083
+      "value": 0.0458
     },
     {
       "type": "alignLeft",
       "els": [
         "backBtn",
-        "reportHomeBtn",
-        "bar"
+        "reportHomeBtn"
       ]
     },
     {
       "type": "alignLeft",
       "els": [
-        "vitaminsText",
-        "watchItText"
+        "planBtn",
+        "shape4"
       ]
     },
     {
       "type": "alignRight",
       "els": [
-        "downloadBtn",
-        "bar"
-      ]
-    },
-    {
-      "type": "alignRight",
-      "els": [
-        "vitaminsText",
-        "watchItText"
+        "planBtn",
+        "hereSYourCustomizedText"
       ]
     },
     {
@@ -1199,7 +1009,7 @@
     },
     {
       "type": "centerX",
-      "el": "shape5"
+      "el": "bar"
     },
     {
       "type": "centerX",
@@ -1216,18 +1026,6 @@
     {
       "type": "centerX",
       "el": "iconText4"
-    },
-    {
-      "type": "centerX",
-      "el": "bloodSugarText"
-    },
-    {
-      "type": "centerX",
-      "el": "greatText"
-    },
-    {
-      "type": "centerX",
-      "el": "bar"
     },
     {
       "type": "noOverlap",
