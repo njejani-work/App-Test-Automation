@@ -305,7 +305,9 @@ export function buildSpec(tree, screen, meta) {
     generatedAt: new Date().toISOString(),
     reviewed: false,
     note: 'Generated - review each value against the design, then set "reviewed": true. Remove a check by deleting it from an element\'s "checks", or list element names in "ignore".',
-    baseline: { w: screen.w, h: screen.h },
+    // the system bars on the recording device (top = status bar bottom, bottom = navigation bar top), so a device with
+    // other bars can be checked fairly (barShift in check.js)
+    baseline: { w: screen.w, h: screen.h, ...(screen.top != null ? { top: screen.top, bottom: screen.bottom } : {}) },
     scrollTop: Boolean(meta.scrollTop),
     tolerance: { ...DEFAULT_TOLERANCE, ...(previous?.tolerance || {}) },
     ignore: previous?.ignore || [],

@@ -9,6 +9,22 @@ function box(e, screen) {
   const b = e.bounds;
   return { x: b.x1 / screen.w, y: b.y1 / screen.h, w: (b.x2 - b.x1) / screen.w, h: (b.y2 - b.y1) / screen.h, px: b };
 }
+
+/**
+ * How far the system bars let elements move vertically, as a share of the screen height: { lo, hi }.
+ * Another Android version can draw a taller or shorter status bar or navigation bar (18 Nov 2026: CI on Android 14,
+ * specs from an Android 17 emulator: the status bar 24dp = 3.75% shorter). Content held at the top then moves with the
+ * status bar, content held at the bottom with the navigation bar, and stretched content somewhere in between. So an
+ * element may be anywhere between those two moves. Needs the bars of both screens (spec.baseline.top/bottom, recorded
+ * since 18 Nov, and screen.top/bottom from contentArea()); otherwise nothing may move.
+ */
+export function barShift(spec, screen) {
+  const b = spec.baseline || {};
+  if (b.top == null || screen.top == null) return { lo: 0, hi: 0 };
+  const dTop = (screen.top - b.top) / screen.h;
+  const dBottom = ((screen.bottom ?? screen.h) - (b.bottom ?? b.h)) / screen.h;
+  return { lo: Math.min(dTop, dBottom), hi: Math.max(dTop, dBottom) };
+}
 const round = (b) => (b ? { x: +b.x.toFixed(4), y: +b.y.toFixed(4), w: +b.w.toFixed(4), h: +b.h.toFixed(4) } : null);
 
 /**
@@ -17,6 +33,8 @@ const round = (b) => (b ? { x: +b.x.toFixed(4), y: +b.y.toFixed(4), w: +b.w.toFi
  */
 export function evaluate(spec, tree, { dpi = null } = {}) {
   const screen = tree.screen;
+  const shift = barShift(spec, screen);
+  const stretch = shift.hi - shift.lo; // how much a box may grow or shrink, or a gap change, with the bars
   const tol = { nearest: 0.25, nearestShape: 0.06, ...DEFAULT_TOLERANCE, ...(spec.tolerance || {}) };
   const ignore = new Set(spec.ignore || []);
   const baseAspect = spec.baseline.h / spec.baseline.w;
@@ -96,9 +114,18 @@ export function evaluate(spec, tree, { dpi = null } = {}) {
       if (!aspectMatches) add('box', name, null, '', '', 'skipped: screen aspect ratio differs from the baseline');
       else {
         const keys = spec_.boxKeys || ['x', 'y', 'w', 'h'];
-        const off = keys.filter((k) => Math.abs(actual[k] - exp[k]) > (k === 'x' || k === 'y' ? tol.position : tol.size));
+        // y may also move with the system bars (barShift); h may grow or shrink by as much
+        const outside = (k) => {
+          if (k === 'y') return actual.y < exp.y + shift.lo - tol.position || actual.y > exp.y + shift.hi + tol.position;
+          if (k === 'h') return Math.abs(actual.h - exp.h) > tol.size + stretch;
+          return Math.abs(actual[k] - exp[k]) > (k === 'x' ? tol.position : tol.size);
+        };
+        const allowed = (k) => (k === 'y' && stretch + Math.abs(shift.lo) > 0
+          ? `${pct(exp.y + shift.lo)}-${pct(exp.y + shift.hi)} ±${pct(tol.position)} with this device's system bars`
+          : `${pct(exp[k])} ±${pct(k === 'x' || k === 'y' ? tol.position : tol.size + (k === 'h' ? stretch : 0))}`);
+        const off = keys.filter(outside);
         add('box', name, off.length === 0, keys.map((k) => `${k}=${pct(exp[k])}`).join(' '), keys.map((k) => `${k}=${pct(actual[k])}`).join(' '),
-          off.length ? `${name} moved/resized: ${off.map((k) => `${k} ${pct(actual[k])} (expected ${pct(exp[k])} ±${pct(k === 'x' || k === 'y' ? tol.position : tol.size)})`).join(', ')}` : '');
+          off.length ? `${name} moved/resized: ${off.map((k) => `${k} ${pct(actual[k])} (expected ${allowed(k)})`).join(', ')}` : '');
         mark(results[results.length - 1].status);
       }
     }
@@ -231,7 +258,7 @@ export function evaluate(spec, tree, { dpi = null } = {}) {
       case 'gap':
         need('gap', [r.above, r.below], ([a, b]) => {
           const g = (b.el.bounds.y1 - a.el.bounds.y2) / screen.w;
-          const ok = Math.abs(g - r.value) <= tol.gap;
+          const ok = Math.abs(g - r.value) <= tol.gap + stretch * screen.h / screen.w; // the bars can widen or narrow a gap
           add('gap', `${r.above} ↕ ${r.below}`, ok, `${pct(r.value)} of width`, pct(g), ok ? '' : `Spacing between ${r.above} and ${r.below} is ${pct(g)} of width, expected ${pct(r.value)}`);
         });
         break;

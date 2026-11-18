@@ -167,3 +167,19 @@ export function treeFromCapture(elements) {
   }));
   return { doc: null, all };
 }
+
+/**
+ * The screen with the edges of its content area: top = where the status bar ends, bottom = where the navigation bar
+ * starts, from Appium's "mobile: getSystemBars" ({ statusBar: {visible, y, height}, navigationBar: {visible, y} }).
+ * Recorded with each spec, and compared when checking, so other bars (another Android version) are allowed for.
+ * No bars, or values that make no sense -> the whole screen.
+ */
+export function contentArea(screen, bars) {
+  const sb = bars?.statusBar, nb = bars?.navigationBar;
+  const num = (v) => Number.isFinite(Number(v)) ? Number(v) : null;
+  let top = sb?.visible && num(sb.y) != null && num(sb.height) != null ? num(sb.y) + num(sb.height) : 0;
+  let bottom = nb?.visible && num(nb.y) != null && num(nb.y) > screen.h / 2 ? num(nb.y) : screen.h;
+  if (top < 0 || top > screen.h / 4) top = 0;
+  if (bottom <= top || bottom > screen.h) bottom = screen.h;
+  return { w: screen.w, h: screen.h, top, bottom };
+}

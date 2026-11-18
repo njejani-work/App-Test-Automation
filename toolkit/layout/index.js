@@ -10,7 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { parseSource } from './hierarchy.js';
+import { parseSource, contentArea } from './hierarchy.js';
 import { buildSpec } from './spec-builder.js';
 import { evaluate } from './check.js';
 import { annotate, recorderState } from '../dashboard/recorder.js';
@@ -48,6 +48,11 @@ async function displayDensity() {
 }
 
 /** Page source once the UI stops changing (animations, loaders). */
+/** The status and navigation bars (Appium UiAutomator2), or null when the driver can't tell. */
+async function systemBars() {
+  try { return await driver.execute('mobile: getSystemBars'); } catch { return null; }
+}
+
 async function stableSource(tries = 4) {
   let prev = await driver.getPageSource();
   for (let i = 0; i < tries; i++) {
@@ -90,6 +95,11 @@ export async function checkLayout(name, { page } = {}) {
   const xml = await stableSource();
   const sourceFile = saveSource(name, xml);
   const tree = parseSource(xml);
+  // The system bars: recorded with a new spec, and compared with the recorded ones when checking (see barShift)
+  if (update || spec?.baseline?.top != null) {
+    const bars = await systemBars();
+    if (bars) tree.screen = contentArea(tree.screen, bars);
+  }
 
   if (update) {
     const pageName = spec?.page || page?.constructor?.name;

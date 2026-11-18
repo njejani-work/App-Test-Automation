@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { parseBounds, parseSource, flat, findAll, resolveTokens, isGlyph } from '@apptest/toolkit/layout/hierarchy.js';
+import { parseBounds, parseSource, flat, findAll, resolveTokens, isGlyph, contentArea } from '@apptest/toolkit/layout/hierarchy.js';
 import { evaluate } from '@apptest/toolkit/layout/check.js';
 import { buildSpec, shapeOf, isDynamicText } from '@apptest/toolkit/layout/spec-builder.js';
 import { S } from '../pageobjects/BasePage.js';
@@ -98,6 +98,43 @@ test('account names go into a spec as {{TOKENS}}, not as the name itself', () =>
 });
 
 // ---------------------------------------------------------------- comparing a screen with a spec
+test('another status bar height is allowed for when the spec recorded the bars (CI on Android 14, 18 Nov)', (tt) => {
+  // Recorded where the status bar ends at 96 px; checked where it ends at 48 px (24dp shorter). Content held at the top
+  // moves 48 px up with it; content held at the bottom stays where it is.
+  const recorded = screen('Login');
+  recorded.screen = contentArea(recorded.screen, { statusBar: { visible: true, y: 0, height: 96 }, navigationBar: { visible: false } });
+  const spec = specFrom(recorded);
+  assert.deepEqual(spec.baseline, { w: 720, h: 1280, top: 96, bottom: 1280 }, 'the bars are recorded with the spec');
+  const ci = screen('Login');
+  for (const e of ci.all) if (e.bounds && e.bounds.y1 < 640) e.bounds = { ...e.bounds, y1: e.bounds.y1 - 48, y2: e.bounds.y2 - 48 };
+  const before = evaluate({ ...spec, baseline: { w: 720, h: 1280 } }, ci); // a spec without bars: nothing may move
+  ci.screen = contentArea(ci.screen, { statusBar: { visible: true, y: 0, height: 48 }, navigationBar: { visible: false } });
+  const r = evaluate(spec, ci);
+  tt.diagnostic(`without the bars: ${failed(before).length} failed · with them: ${failed(r).length} failed`);
+  assert.ok(failed(before).some((x) => /moved\/resized: y/.test(x.message)), 'without the bars, the top half looks moved');
+  assert.deepEqual(failed(r).map((x) => x.message), [], 'with the bars, nothing is reported');
+});
+
+test('the bars only excuse their own amount: an element that moved more is still reported', (tt) => {
+  const recorded = screen('Login');
+  recorded.screen = contentArea(recorded.screen, { statusBar: { visible: true, y: 0, height: 96 } });
+  const spec = specFrom(recorded);
+  const ci = screen('Login');
+  ci.screen = contentArea(ci.screen, { statusBar: { visible: true, y: 0, height: 48 } });
+  const el = byText(ci, 'Log in or Sign up');
+  el.bounds = { ...el.bounds, y1: el.bounds.y1 + 160, y2: el.bounds.y2 + 160 }; // 12.5% lower: far beyond 3.75%
+  const msgs = failed(evaluate(spec, ci)).map((x) => x.message).join(' ');
+  tt.diagnostic(msgs);
+  assert.match(msgs, /moved\/resized: y \d+\.\d% \(expected \d+\.\d%-\d+\.\d% ±2\.0% with this device's system bars\)/);
+});
+
+test('content area: no bars, or values that make no sense, fall back to the whole screen', () => {
+  const s = { w: 720, h: 1280 };
+  assert.deepEqual(contentArea(s, null), { w: 720, h: 1280, top: 0, bottom: 1280 });
+  assert.deepEqual(contentArea(s, { statusBar: { visible: true, y: 0, height: 900 } }), { w: 720, h: 1280, top: 0, bottom: 1280 });
+  assert.deepEqual(contentArea(s, { statusBar: { visible: true, y: 0, height: 63 }, navigationBar: { visible: true, y: 1184 } }), { w: 720, h: 1280, top: 63, bottom: 1184 });
+});
+
 test('an element that moved is reported with how far it moved', (tt) => {
   const t = screen('Login');
   const spec = specFrom(t);

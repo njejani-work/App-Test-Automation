@@ -2,12 +2,14 @@
   "spec": "Settings",
   "page": "SettingsPage",
   "source": "device",
-  "generatedAt": "2026-11-13T10:31:56.966Z",
+  "generatedAt": "2026-11-18T10:31:50.324Z",
   "reviewed": false,
   "note": "Generated - review each value against the design, then set \"reviewed\": true. Remove a check by deleting it from an element's \"checks\", or list element names in \"ignore\".",
   "baseline": {
     "w": 720,
-    "h": 1280
+    "h": 1280,
+    "top": 48,
+    "bottom": 1232
   },
   "scrollTop": true,
   "tolerance": {

@@ -22,6 +22,7 @@ on:
       api-level:      { type: number, default: 34 }
       screen:         { type: string, default: '720x1280', description: 'Same screen shape as the layout baselines' }
       density:        { type: number, default: 320 }
+      layout-checks:  { type: string, default: 'on', description: 'on = layout differences fail the test; warn = listed on the dashboard only' }
 
 jobs:
   test:
@@ -33,6 +34,7 @@ jobs:
       DEVICE_UDID: emulator-5554
       TEST_ENV: ci
       DASHBOARD_LOGCAT: 'true'
+      LAYOUT_CHECKS: ${{ inputs.layout-checks }}
       APP_DIR: apps/${{ inputs.app }}
       SUITE: ${{ inputs.suite }}
 
