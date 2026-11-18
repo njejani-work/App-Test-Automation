@@ -1,0 +1,16 @@
+{
+  "name": "app-tests",
+  "private": true,
+  "description": "Android app test automation for several apps: one shared toolkit (toolkit/) and one small folder per app (apps/<id>).",
+  "type": "module",
+  "workspaces": [
+    "toolkit",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test:unit": "npm run test:unit --workspaces --if-present"
+  }
+}

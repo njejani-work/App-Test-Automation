@@ -1,0 +1,7 @@
+{
+  "name": "@apptest/toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared tooling for every app's tests: dashboard, layout checker, page-object base, locators, scripts, MCP server. Filled in by the migration (step 2 on).",
+  "type": "module"
+}
