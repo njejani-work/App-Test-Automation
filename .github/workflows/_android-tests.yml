@@ -1,0 +1,167 @@
+# =====================================================================================
+#  Shared CI for every app in this repo (a "reusable workflow"): one fresh Linux runner, the workspace installed once,
+#  an Android emulator, the app's APK, then one suite of that app's tests. The dashboard is saved as an artifact.
+#  Each app has a short caller next to this file (e.g. egenome.yml) that says WHEN to run and WHICH app.
+#  (GitHub only accepts reusable workflows in .github/workflows/, so this file lives here, not in toolkit/.)
+#
+#  Per app, in GitHub: Settings -> Secrets and variables -> Actions
+#    Secrets: the names the caller lists in "secrets-needed" (e.g. TEST_PHONE, TEST_OTP for eGenome)
+#    The app: a Release tagged "<apk-release>" with the .apk attached, or the "<apk-url-secret>" secret (a direct link)
+#    Variables (visible, optional): read by the tests as environment variables (e.g. TEST_USER_NAME)
+# =====================================================================================
+name: Android tests (shared)
+
+on:
+  workflow_call:
+    inputs:
+      app:            { type: string, required: true, description: 'App folder under apps/, e.g. egenome' }
+      suite:          { type: string, required: true, description: 'npm script test:<suite> of that app' }
+      secrets-needed: { type: string, default: '', description: 'Comma-separated secret names the tests need' }
+      apk-release:    { type: string, required: true, description: 'Release tag with the .apk attached' }
+      apk-url-secret: { type: string, default: '', description: 'Secret holding a direct APK link (used when there is no release)' }
+      api-level:      { type: number, default: 34 }
+      screen:         { type: string, default: '720x1280', description: 'Same screen shape as the layout baselines' }
+      density:        { type: number, default: 320 }
+
+jobs:
+  test:
+    name: ${{ inputs.app }} · ${{ inputs.suite }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      DEVICE_NAME: emulator-5554        # the emulator below always gets this name
+      DEVICE_UDID: emulator-5554
+      TEST_ENV: ci
+      DASHBOARD_LOGCAT: 'true'
+      APP_DIR: apps/${{ inputs.app }}
+      SUITE: ${{ inputs.suite }}
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm                    # the workspace's one package-lock.json
+
+      # One install for the whole workspace (toolkit + every app), exactly as in package-lock.json
+      - name: Install the workspace
+        run: npm ci
+
+      # The UiAutomator2 driver is a package of the app, installed by npm ci at the repo root. Appium looks for drivers
+      # in APPIUM_HOME, which the shared config points at the root; the same here, so this only confirms it is there.
+      - name: Check Appium's UiAutomator2 driver
+        env:
+          APPIUM_HOME: ${{ github.workspace }}
+        run: npx appium driver list --installed
+
+      # The secrets this app's tests need: stop early with a clear message if one is missing; otherwise pass them on.
+      # Repository variables are passed on too (visible settings such as TEST_USER_NAME).
+      - name: App secrets and variables
+        env:
+          SECRETS: ${{ toJSON(secrets) }}
+          VARS: ${{ toJSON(vars) }}
+          NEEDED: ${{ inputs.secrets-needed }}
+        run: |
+          node -e '
+            const s = JSON.parse(process.env.SECRETS || "{}"), v = JSON.parse(process.env.VARS || "{}");
+            const needed = (process.env.NEEDED || "").split(",").map((x) => x.trim()).filter(Boolean);
+            const missing = needed.filter((n) => !s[n]);
+            if (missing.length) { console.log(`::error::Add these repository secrets (Settings > Secrets and variables > Actions): ${missing.join(", ")}`); process.exit(1); }
+            const fs = require("fs"), out = (k, val) => fs.appendFileSync(process.env.GITHUB_ENV, `${k}<<__END__\n${val}\n__END__\n`);
+            for (const n of needed) out(n, s[n]);
+            for (const [k, val] of Object.entries(v)) out(k, val);
+            console.log(`Passed on: ${needed.length} secret(s), ${Object.keys(v).length} variable(s)`);
+          '
+
+      # .env.example becomes the app's .env; the values above win (dotenv never overwrites a value already set)
+      - name: Create the app's .env from its template
+        run: cp "$APP_DIR/.env.example" "$APP_DIR/.env"
+
+      - name: Get the APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.apk-release }}
+          APK_URL: ${{ inputs.apk-url-secret != '' && secrets[inputs.apk-url-secret] || '' }}
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Using the APK attached to the GitHub Release '$TAG'"
+            gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.apk' --output app.apk --clobber
+          elif [ -n "$APK_URL" ]; then
+            echo "Downloading from the APK link secret"
+            curl --fail --location --silent --show-error -o app.apk "$APK_URL"
+          else
+            echo "::error::No APK source. Create a GitHub Release tagged '$TAG' with the .apk attached, or add the APK link secret."
+            exit 1
+          fi
+          ls -lh app.apk
+          if [ "$(head -c 2 app.apk)" != "PK" ]; then
+            echo "::error::The download is not an APK ($(stat -c %s app.apk) bytes): the link opens a web page instead of the file."
+            head -c 400 app.apk | tr -cd '[:print:]\n' ; echo
+            exit 1
+          fi
+          echo "OK: valid APK, $(stat -c %s app.apk) bytes"
+
+      - name: Enable hardware acceleration for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost /usr/local/lib/node_modules/@angular /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Restore the cached Android system image
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/lib/android/sdk/system-images/android-${{ inputs.api-level }}/google_apis/x86_64
+          key: sysimg-android-${{ inputs.api-level }}-google_apis-x86_64-v1
+
+      # Retries: "Error on ZipFile unknown archive" = a corrupted download; a retry usually fixes it
+      - name: Download the Android system image (with retries)
+        env:
+          API: ${{ inputs.api-level }}
+        run: |
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          IMG="$ANDROID_HOME/system-images/android-$API/google_apis/x86_64"
+          yes | "$SDKM" --licenses > /dev/null || true
+          for attempt in 1 2 3; do
+            if [ -f "$IMG/system.img" ] && [ -f "$IMG/source.properties" ]; then
+              echo "System image ready ($(du -sh "$IMG" | cut -f1))"; exit 0
+            fi
+            echo "Attempt $attempt: downloading system-images;android-$API;google_apis;x86_64"
+            rm -rf "$IMG"
+            "$SDKM" --install "system-images;android-$API;google_apis;x86_64" --channel=0 > /dev/null || true
+            [ -f "$IMG/system.img" ] || sleep 20
+          done
+          [ -f "$IMG/system.img" ] && exit 0
+          echo "::error::Could not download the Android system image after 3 attempts. Re-run the job."
+          exit 1
+
+      - name: Start emulator and run the ${{ inputs.suite }} suite of ${{ inputs.app }}
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ inputs.api-level }}
+          target: google_apis           # includes Google services (phone-number picker etc.)
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            adb shell wm size ${{ inputs.screen }}
+            adb shell wm density ${{ inputs.density }}
+            adb install -r app.apk
+            cd "$APP_DIR" && npm run test:$SUITE
+
+      # Even when tests failed: that is when the dashboard is needed most
+      - name: Upload the test dashboard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-${{ inputs.app }}-${{ inputs.suite }}-run${{ github.run_number }}
+          path: ${{ env.APP_DIR }}/reports/
+          retention-days: 14
+          if-no-files-found: ignore

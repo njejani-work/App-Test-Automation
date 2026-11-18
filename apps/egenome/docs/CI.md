@@ -1,6 +1,11 @@
 # Running the tests on GitHub Actions (CI)
 
-The workflow file `.github/workflows/app-tests.yml` tells GitHub to run the tests by itself:
+> **Since 18 Nov 2026 (app-tests workspace):** the workflow is at the repo root: `.github/workflows/egenome.yml` says
+> when eGenome's tests run, and the shared `.github/workflows/_android-tests.yml` holds the steps (the same for every
+> app). A pull request runs it only when `apps/egenome/`, `toolkit/` or the workflows change. Secrets and the
+> `staging-apk` release stay as described below. The dashboard artifact is `apps/egenome/reports/`.
+
+The workflow files tell GitHub to run the tests by itself:
 
 | When | What runs |
 |---|---|
