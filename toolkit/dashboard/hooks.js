@@ -1,5 +1,5 @@
 // WebdriverIO hooks that feed the dashboard. Wired in wdio.conf.js:
-//   import { withDashboard } from './test/support/dashboard/hooks.js';
+//   import { withDashboard } from '@apptest/toolkit/dashboard/hooks.js';
 //   export const config = withDashboard(baseConfig);
 // Every hook is defensive: a reporting problem must never fail a test.
 import fs from 'node:fs';

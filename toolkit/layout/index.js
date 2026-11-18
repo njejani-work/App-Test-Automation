@@ -9,13 +9,15 @@
 //   LAYOUT_UPDATE=true   re-baseline: write the spec from the current screen instead of checking
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { parseSource } from './hierarchy.js';
 import { buildSpec } from './spec-builder.js';
 import { evaluate } from './check.js';
 import { annotate, recorderState } from '../dashboard/recorder.js';
+import { PROJECT_ROOT } from '../dashboard/options.js';
 
-export const SPECS_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'layout', 'specs');
+// The app's own specs: <app>/test/layout/specs/<Screen>.json
+export const SPECS_DIR = path.join(PROJECT_ROOT, 'test', 'layout', 'specs');
 export const specPath = (name) => path.join(SPECS_DIR, `${name}.json`);
 
 export function loadSpec(name) {
@@ -59,7 +61,10 @@ async function stableSource(tries = 4) {
 
 async function pageLocatorsFor(pageName) {
   if (!pageName) return {};
-  const { CATALOG } = await import('../../pageobjects/catalog.js');
+  // the app's own page-object catalogue (<app>/test/pageobjects/catalog.js), when it has one
+  const file = path.join(PROJECT_ROOT, 'test', 'pageobjects', 'catalog.js');
+  if (!fs.existsSync(file)) return {};
+  const { CATALOG } = await import(pathToFileURL(file).href);
   return CATALOG.find((c) => c.page === pageName)?.locators || {};
 }
 

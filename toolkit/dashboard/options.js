@@ -1,12 +1,11 @@
 // Dashboard settings. Override with environment variables (e.g. in .env).
 // Values are read on access, so settings loaded from .env after import still apply.
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-// The project whose tests are recorded. Another project can use this recorder too (the Instagram tests do): it sets
-// DASHBOARD_PROJECT_ROOT to its own folder, so its reports/ and its test/triage.json, budgets.json are used.
-const OWN_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
-export const PROJECT_ROOT = process.env.DASHBOARD_PROJECT_ROOT ? path.resolve(process.env.DASHBOARD_PROJECT_ROOT) : OWN_ROOT;
+// The app project whose tests are recorded (shared toolkit: every app uses this code): DASHBOARD_PROJECT_ROOT, else the
+// folder the command runs in (apps/<id> for every npm script). Its reports/, .env, test/triage.json, budgets.json and
+// layout specs are used.
+export const PROJECT_ROOT = path.resolve(process.env.DASHBOARD_PROJECT_ROOT || process.cwd());
 /** The Android app under test (DASHBOARD_APP_PACKAGE): its version, its log lines and its API calls are read. */
 export const APP_PACKAGE = process.env.DASHBOARD_APP_PACKAGE || 'com.egenome.app';
 

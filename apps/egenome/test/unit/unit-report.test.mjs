@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { ranges } from '../support/dashboard/unit-report.mjs';
+import { ranges } from '@apptest/toolkit/dashboard/unit-report.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'eg-unit-report-'));
@@ -17,7 +17,7 @@ const { NODE_TEST_CONTEXT, ...env } = process.env;
 before(() => {
   // The reporter is given as a path relative to the project (like the npm scripts do): a full Windows path
   // ("C:\\...") would be read by Node as a URL with the scheme "c:" and the reporter would not load.
-  const r = spawnSync(process.execPath, ['--test', '--test-reporter=./test/support/dashboard/unit-report.mjs', '--test-reporter-destination=stdout', 'test/unit/error-demo/error-demo.mjs'],
+  const r = spawnSync(process.execPath, ['--test', `--test-reporter=${import.meta.resolve('@apptest/toolkit/dashboard/unit-report.mjs')}`, '--test-reporter-destination=stdout', 'test/unit/error-demo/error-demo.mjs'],
     { cwd: root, encoding: 'utf8', timeout: 90000, env: { ...env, DASHBOARD_DIR: dir, DASHBOARD_UNIT_ID: '20260101-000000', DASHBOARD_UNIT_NO_BUILD: '1' } });
   const saved = path.join(dir, 'unit', '20260101-000000.json');
   if (!fs.existsSync(saved)) throw new Error(`The reporter saved nothing. Inner run (exit ${r.status}): ${String(r.stderr || r.stdout || r.error || '').trim().split('\n').slice(-6).join(' | ')}`);

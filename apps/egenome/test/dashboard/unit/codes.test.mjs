@@ -1,7 +1,7 @@
 // One-line meanings for the codes the reports show.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { CODE_BOOK, httpMeaning, codesIn } from '../../support/dashboard/lib/codes.js';
+import { CODE_BOOK, httpMeaning, codesIn } from '@apptest/toolkit/dashboard/lib/codes.js';
 
 test('HTTP status codes have a name and a one-line meaning; unknown ones get their class', () => {
   assert.equal(httpMeaning(403), '403 Forbidden: The server understood the request but refuses it: no permission, or this client or IP address is blocked.');

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { readApps, writeAppsData } from '../../support/dashboard/lib/apps.js';
+import { readApps, writeAppsData } from '@apptest/toolkit/dashboard/lib/apps.js';
 
 // App test Automation/ { Test Dashboard/apps.json, eGenome.ai/reports, Instagram/reports }
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'eg-apps-'));
@@ -34,11 +34,11 @@ test('each app gets links to the others relative to its own page (works from dis
   assert.deepEqual(load(ig), A, 'the same data is in reports/data/apps.js');
 });
 
-test('no shared list: no apps.js, so the page shows the plain title', () => {
+test('no shared list: apps.js holds null, so the page shows the plain title and never asks for a missing file', () => {
   writeAppsData(eg, appsFile);
-  assert.ok(fs.existsSync(path.join(eg, 'data', 'apps.js')));
+  assert.ok(load(eg).apps.length === 2);
   assert.equal(writeAppsData(eg, path.join(hub, 'missing.json')), null);
-  assert.ok(!fs.existsSync(path.join(eg, 'data', 'apps.js')));
+  assert.equal(load(eg), null, 'the file is there (no failed load in the browser) and says: no app list');
 });
 
 test('the logo at the top left: an image file when there is one, otherwise a badge with a colour', () => {

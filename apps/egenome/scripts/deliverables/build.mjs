@@ -21,9 +21,9 @@ const dotenv = (await import('dotenv')).default;
 dotenv.config({ path: path.join(ROOT, '.env'), quiet: true });
 
 const { CATALOG } = await imp('test/pageobjects/catalog.js');
-const { describeSelector } = await imp('test/support/dashboard/recorder.js');
-const { exportSnapshot } = await imp('test/support/dashboard/builder.js');
-const { options } = await imp('test/support/dashboard/options.js');
+const { describeSelector } = await import('@apptest/toolkit/dashboard/recorder.js');
+const { exportSnapshot } = await import('@apptest/toolkit/dashboard/builder.js');
+const { options } = await import('@apptest/toolkit/dashboard/options.js');
 
 // ------------------------------------------------------------------ helpers
 const SECTIONS = {

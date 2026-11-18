@@ -1,5 +1,5 @@
 import BasePage, { S } from '../BasePage.js';
-import { logAction } from '../../support/dashboard/recorder.js';
+import { logAction } from '@apptest/toolkit/dashboard/recorder.js';
 import { APP_ID } from '../../support/app.js';
 
 // Bottom tab bar shown on Home, Report and Settings (captured: ~Home / ~Report / ~Settings).

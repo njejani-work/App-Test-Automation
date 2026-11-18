@@ -4,12 +4,12 @@
 import { test, describe, before } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { fakeDevice } from '../helpers/fake-device.mjs';
+import { fakeDevice } from '@apptest/toolkit/testing/fake-device.mjs';
 import LoginPage from '../../pageobjects/LoginPage.js';
-import { parseSource } from '../../support/layout/hierarchy.js';
-import { buildSpec } from '../../support/layout/spec-builder.js';
-import { evaluate } from '../../support/layout/check.js';
-import { checkCall } from '../../support/dashboard/lib/formats.js';
+import { parseSource } from '@apptest/toolkit/layout/hierarchy.js';
+import { buildSpec } from '@apptest/toolkit/layout/spec-builder.js';
+import { evaluate } from '@apptest/toolkit/layout/check.js';
+import { checkCall } from '@apptest/toolkit/dashboard/lib/formats.js';
 import { getUser, users } from '../../data/users.js';
 
 describe('Assertions (expected vs actual)', () => {

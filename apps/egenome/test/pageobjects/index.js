@@ -4,7 +4,7 @@
 // Page objects exported here are instrumented for the dashboard: each async method a spec calls
 // is logged as a step with a screenshot and passed/failed status (see test/support/dashboard).
 // Import from the individual files instead if you ever need the raw, un-logged objects.
-import { instrument, step } from '../support/dashboard/recorder.js';
+import { instrument, step } from '@apptest/toolkit/dashboard/recorder.js';
 
 import RawBottomNav from './components/BottomNav.js';
 import RawSystemDialogs from './components/SystemDialogs.js';

@@ -1,7 +1,7 @@
 // API response format checks (test/support/dashboard/lib/formats.js), with rules written like test/api-formats.json.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ruleFor, checkBody, checkCall } from '../support/dashboard/lib/formats.js';
+import { ruleFor, checkBody, checkCall } from '@apptest/toolkit/dashboard/lib/formats.js';
 
 const RULE = { name: 'Reports list', match: '/v1/reports', status: 200, fields: { data: 'array', 'data[].id': 'string', 'data[].paid': 'boolean?', 'meta.total': 'number?' }, nonEmpty: ['data'] };
 const good = { data: [{ id: 'r1', paid: true }, { id: 'r2' }] };

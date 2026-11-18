@@ -38,10 +38,10 @@ const files = {
 };
 for (const [env, [name, text]] of Object.entries(files)) { fs.writeFileSync(path.join(OUT, name), text); process.env[env] = path.join(OUT, name); }
 
-const rec = await import('../support/dashboard/recorder.js');
-const dev = await import('../support/dashboard/device-recorder.js');
-const adb = await import('../support/dashboard/lib/device.js');
-const { buildRun, buildIndex } = await import('../support/dashboard/builder.js');
+const rec = await import('@apptest/toolkit/dashboard/recorder.js');
+const dev = await import('@apptest/toolkit/dashboard/device-recorder.js');
+const adb = await import('@apptest/toolkit/dashboard/lib/device.js');
+const { buildRun, buildIndex } = await import('@apptest/toolkit/dashboard/builder.js');
 
 // ------------------------------------------------------------------ a controllable clock (realistic durations)
 const BASE = Date.UTC(2026, 10, 10, 3, 30, 0); // 10 Nov 2026 09:00 India time
@@ -183,7 +183,7 @@ for (const [n, p] of plan.entries()) {
 
   if (p.noDevice) {
     // The worker ends at once: no device. onWorkerEnd checks adb and writes the reason (same code path as hooks.js)
-    const { createHooks } = await import('../support/dashboard/hooks.js');
+    const { createHooks } = await import('@apptest/toolkit/dashboard/hooks.js');
     process.env.DASHBOARD_RUN_ID = id;
     tick(15000);
     await createHooks().onWorkerEnd('0-0', 1);
@@ -274,12 +274,13 @@ for (const [n, p] of plan.entries()) {
   const { spawnSync } = await import('node:child_process');
   const sample = path.join(here, 'unit-sample');
   fs.rmSync(path.join(OUT, 'unit'), { recursive: true, force: true });
-  for (const [id, extra, fail] of [['20261110-100500', [], false], ['20261110-150500', ['--experimental-test-coverage', '--test-coverage-lines=90', '--test-coverage-include=**/demo-lib.mjs'], true]]) {
-    const r = spawnSync(process.execPath, ['--test', ...extra, '--test-reporter=../../support/dashboard/unit-report.mjs', '--test-reporter-destination=stdout', 'demo.sample.mjs'], {
+  for (const [id, extra, fail] of [['20261110-100500', [], false], ['20261110-150500', ['--experimental-test-coverage', '--test-coverage-lines=90', '--test-coverage-include=**/demo-lib.mjs', '--test-coverage-exclude=**/*.sample.mjs'], true]]) {
+    const r = spawnSync(process.execPath, ['--test', ...extra, `--test-reporter=${import.meta.resolve('@apptest/toolkit/dashboard/unit-report.mjs')}`, '--test-reporter-destination=stdout', 'demo.sample.mjs'], {
       cwd: sample, encoding: 'utf8', timeout: 60000,
       env: { ...process.env, DASHBOARD_DIR: OUT, DASHBOARD_UNIT_ID: id, DASHBOARD_UNIT_NO_BUILD: '1', DEMO_FAIL: fail ? '1' : '', npm_lifecycle_event: 'test:unit' },
     });
-    // (relative reporter path: a full Windows path "C:\\..." would be read as a URL and not load)
+    // reporter as a file: URL (a bare Windows path "C:\\..." would be read as a URL scheme and not load). An explicit
+    // --test-coverage-exclude: Node 24 otherwise leaves out every file under a test/ folder, demo-lib.mjs included.
     if (!fs.existsSync(path.join(OUT, 'unit', `${id}.json`))) throw new Error(`demo unit run ${id} was not saved: ${r.stderr || r.stdout}`);
   }
 }

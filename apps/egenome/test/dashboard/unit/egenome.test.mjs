@@ -9,12 +9,12 @@ import path from 'node:path';
 const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'egdash-'));
 process.env.DASHBOARD_DIR = tmp(); // nothing here may touch the real reports folder
 process.env.DASHBOARD_SLOW_MS = '';
-const { loadEgRun, suitesOf, testIdOf, placeCalls } = await import('../../support/dashboard/egenome-run.js');
-const { apiLevelOf } = await import('../../support/dashboard/analysis.mjs');
-const adb = await import('../../support/dashboard/lib/device.js');
-const dev = await import('../../support/dashboard/device-recorder.js');
-const { buildIndex, exportSnapshot } = await import('../../support/dashboard/builder.js');
-const { createHooks } = await import('../../support/dashboard/hooks.js');
+const { loadEgRun, suitesOf, testIdOf, placeCalls } = await import('@apptest/toolkit/dashboard/egenome-run.js');
+const { apiLevelOf } = await import('@apptest/toolkit/dashboard/analysis.mjs');
+const adb = await import('@apptest/toolkit/dashboard/lib/device.js');
+const dev = await import('@apptest/toolkit/dashboard/device-recorder.js');
+const { buildIndex, exportSnapshot } = await import('@apptest/toolkit/dashboard/builder.js');
+const { createHooks } = await import('@apptest/toolkit/dashboard/hooks.js');
 
 /** A run folder in eGenome's format (meta.json + workers/0-0.json). */
 function writeRun(root, id, meta, entries, device = { name: 'emulator-5554', model: 'sdk_gphone64_x86_64', platformVersion: '15', apiLevel: 35 }) {
@@ -204,7 +204,7 @@ test('a test that skips itself (this.skip()) is skipped, also in runs recorded b
 });
 
 test('known log lines in test/triage.json are listed but not counted as app errors', async () => {
-  const { explainAppErrors, testStatus } = await import('../../support/dashboard/analysis.mjs');
+  const { explainAppErrors, testStatus } = await import('@apptest/toolkit/dashboard/analysis.mjs');
   const triage = JSON.parse(fs.readFileSync(new URL('../../triage.json', import.meta.url), 'utf8'));
   const t = {
     state: 'passed',
@@ -229,7 +229,7 @@ test('known log lines in test/triage.json are listed but not counted as app erro
 });
 
 test('API calls are placed in the step (and screen) that was running when the app made them', async () => {
-  const { clockOffsetMs, setAdbRunner } = await import('../../support/dashboard/lib/device.js');
+  const { clockOffsetMs, setAdbRunner } = await import('@apptest/toolkit/dashboard/lib/device.js');
   // The device clock is India time, 1.5 s ahead of this computer's clock
   const host = Date.UTC(2026, 10, 13, 10, 0, 0);
   const realNow = Date.now;

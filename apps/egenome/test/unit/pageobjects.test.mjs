@@ -2,7 +2,7 @@
 // The first tests are the three bugs found on the emulator in Nov 2026, so they can never come back unnoticed.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { fakeDevice } from './helpers/fake-device.mjs';
+import { fakeDevice } from '@apptest/toolkit/testing/fake-device.mjs';
 import LoginPage from '../pageobjects/LoginPage.js';
 import BottomNav from '../pageobjects/components/BottomNav.js';
 import OnboardingPage from '../pageobjects/OnboardingPage.js';

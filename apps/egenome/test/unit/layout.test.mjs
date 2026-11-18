@@ -3,9 +3,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { parseBounds, parseSource, flat, findAll, resolveTokens, isGlyph } from '../support/layout/hierarchy.js';
-import { evaluate } from '../support/layout/check.js';
-import { buildSpec, shapeOf, isDynamicText } from '../support/layout/spec-builder.js';
+import { parseBounds, parseSource, flat, findAll, resolveTokens, isGlyph } from '@apptest/toolkit/layout/hierarchy.js';
+import { evaluate } from '@apptest/toolkit/layout/check.js';
+import { buildSpec, shapeOf, isDynamicText } from '@apptest/toolkit/layout/spec-builder.js';
 import { S } from '../pageobjects/BasePage.js';
 
 const fixture = (f) => fs.readFileSync(new URL(`./fixtures/${f}`, import.meta.url), 'utf8');

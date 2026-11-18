@@ -8,6 +8,8 @@ import { secretsFrom, deviceFrom } from './adapters/env-file.mjs';
 import { suiteEnv } from './adapters/tool-env.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+// the shared dashboard code (@apptest/toolkit) reads this app's reports/ and test/ settings from here
+process.env.DASHBOARD_PROJECT_ROOT ||= ROOT;
 export const VERSION = '0.3.0';
 
 const Env = z.object({

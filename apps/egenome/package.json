@@ -26,14 +26,14 @@
     "locators:list": "node scripts/locator-capture/capture.mjs list",
     "locators:pages": "node scripts/locator-capture/capture.mjs pages",
     "test:login": "wdio run ./wdio.conf.js --spec ./test/specs/regression/01-login.e2e.js",
-    "dashboard": "node test/support/dashboard/cli.mjs --open",
-    "dashboard:build": "node test/support/dashboard/cli.mjs",
+    "dashboard": "node ../../toolkit/dashboard/cli.mjs --open",
+    "dashboard:build": "node ../../toolkit/dashboard/cli.mjs",
     "dashboard:demo": "node test/dashboard/fixtures.mjs",
     "test:dashboard:unit": "node --test \"test/dashboard/unit/*.test.mjs\"",
     "test:dashboard:page": "playwright test -c test/dashboard/playwright.config.mjs",
-    "test:unit": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./test/support/dashboard/unit-report.mjs --test-reporter-destination=stdout \"test/unit/**/*.test.mjs\" \"test/dashboard/unit/*.test.mjs\"",
-    "test:unit:coverage": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./test/support/dashboard/unit-report.mjs --test-reporter-destination=stdout --experimental-test-coverage --test-coverage-lines=75 --test-coverage-include=\"test/support/layout/*.js\" --test-coverage-include=\"test/pageobjects/**/*.js\" --test-coverage-include=\"test/data/*.js\" --test-coverage-include=\"test/support/dashboard/**/*.js\" --test-coverage-include=\"test/support/dashboard/**/*.mjs\" --test-coverage-include=\"scripts/locator-capture/lib/parser.mjs\" \"test/unit/**/*.test.mjs\" \"test/dashboard/unit/*.test.mjs\"",
-    "test:unit:error-demo": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./test/support/dashboard/unit-report.mjs --test-reporter-destination=stdout test/unit/error-demo/error-demo.mjs",
+    "test:unit": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=@apptest/toolkit/dashboard/unit-report.mjs --test-reporter-destination=stdout \"test/unit/**/*.test.mjs\" \"test/dashboard/unit/*.test.mjs\"",
+    "test:unit:coverage": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=@apptest/toolkit/dashboard/unit-report.mjs --test-reporter-destination=stdout --experimental-test-coverage --test-coverage-lines=75 --test-coverage-exclude=\"**/*.test.mjs\" --test-coverage-include=\"../../toolkit/layout/*.js\" --test-coverage-include=\"test/pageobjects/**/*.js\" --test-coverage-include=\"test/data/*.js\" --test-coverage-include=\"../../toolkit/dashboard/**/*.js\" --test-coverage-include=\"../../toolkit/dashboard/**/*.mjs\" --test-coverage-include=\"../../toolkit/testing/*.mjs\" --test-coverage-include=\"scripts/locator-capture/lib/parser.mjs\" \"test/unit/**/*.test.mjs\" \"test/dashboard/unit/*.test.mjs\"",
+    "test:unit:error-demo": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=@apptest/toolkit/dashboard/unit-report.mjs --test-reporter-destination=stdout test/unit/error-demo/error-demo.mjs",
     "mcp:install": "npm --prefix mcp install",
     "mcp:test": "npm --prefix mcp test",
     "mcp:inspect": "npm --prefix mcp run inspect",
@@ -44,7 +44,7 @@
     "test:layout": "wdio run ./wdio.conf.js --suite layout",
     "test:extended": "wdio run ./wdio.conf.js --suite extended",
     "layout:generate": "node scripts/layout/generate.mjs",
-    "layout:baseline": "node scripts/run-with-env.mjs LAYOUT_UPDATE=true -- wdio run ./wdio.conf.js --suite layout",
+    "layout:baseline": "node ../../toolkit/scripts/run-with-env.mjs LAYOUT_UPDATE=true -- wdio run ./wdio.conf.js --suite layout",
     "layout:accept": "node scripts/layout/accept.mjs"
   }
 }

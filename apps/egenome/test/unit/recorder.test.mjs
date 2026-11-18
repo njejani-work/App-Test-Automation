@@ -7,7 +7,7 @@ import path from 'node:path';
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'eg-unit-rec-'));
 process.env.DASHBOARD_DIR = dir; // never the real reports folder
-const rec = await import('../support/dashboard/recorder.js');
+const rec = await import('@apptest/toolkit/dashboard/recorder.js');
 const { S } = await import('../pageobjects/BasePage.js');
 globalThis.driver = { saveScreenshot: async () => {} };
 after(() => { delete globalThis.driver; fs.rmSync(dir, { recursive: true, force: true }); });

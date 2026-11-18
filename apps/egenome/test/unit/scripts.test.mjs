@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const script = fileURLToPath(new URL('../../scripts/run-with-env.mjs', import.meta.url));
+const script = fileURLToPath(import.meta.resolve('@apptest/toolkit/scripts/run-with-env.mjs'));
 const helper = fileURLToPath(new URL('./helpers/exit-with.mjs', import.meta.url)); // the project path has spaces: also checked
 const run = (...args) => spawnSync(process.execPath, [script, ...args], { encoding: 'utf8', timeout: 60000 });
 

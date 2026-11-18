@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config({ quiet: true });
 
 // Step-by-step results dashboard (reports/index.html) - see test/support/dashboard
-import { withDashboard } from './test/support/dashboard/hooks.js';
+import { withDashboard } from '@apptest/toolkit/dashboard/hooks.js';
 
 // Appium finds its drivers (UiAutomator2) in APPIUM_HOME. In the app-tests workspace npm installs every package once,
 // at the repo root, but Appium would look in this app's folder and find no driver, so the session could not start

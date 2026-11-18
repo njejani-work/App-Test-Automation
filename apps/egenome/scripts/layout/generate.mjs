@@ -17,9 +17,9 @@ const imp = (rel) => import(pathToFileURL(path.join(ROOT, rel)).href);
 const dotenv = (await import('dotenv')).default;
 dotenv.config({ path: path.join(ROOT, '.env'), quiet: true });
 
-const { treeFromCapture } = await imp('test/support/layout/hierarchy.js');
-const { buildSpec } = await imp('test/support/layout/spec-builder.js');
-const { SPECS_DIR, specPath, loadSpec, nameTokens } = await imp('test/support/layout/index.js');
+const { treeFromCapture } = await import('@apptest/toolkit/layout/hierarchy.js');
+const { buildSpec } = await import('@apptest/toolkit/layout/spec-builder.js');
+const { SPECS_DIR, specPath, loadSpec, nameTokens } = await import('@apptest/toolkit/layout/index.js');
 const { CATALOG } = await imp('test/pageobjects/catalog.js');
 
 /** spec name -> catalog page + capture (first viewport of the screen) */

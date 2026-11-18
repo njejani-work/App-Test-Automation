@@ -21,7 +21,7 @@ before(async () => {
   const { NODE_TEST_CONTEXT, ...env } = process.env;
   execFileSync(process.execPath, [path.join(ROOT, 'test/dashboard/fixtures.mjs'), reports], { env, stdio: 'ignore', timeout: 120000 });
   // a pretend adb (no phone needed): one emulator with the app installed
-  const { setAdbRunner } = await import(pathToFileURL(path.join(ROOT, 'test/support/dashboard/lib/device.js')).href);
+  const { setAdbRunner } = await import('@apptest/toolkit/dashboard/lib/device.js');
   setAdbRunner((args) => {
     const a = args.join(' ');
     if (a === 'devices') return 'List of devices attached\nemulator-5554\tdevice\n';

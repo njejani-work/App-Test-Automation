@@ -26,7 +26,7 @@ const suite = (ms, exit) => ({ unit: () => ({ cmd: node, args: ['-e', "for (cons
 const until = async (fn, ms = 20000) => { const end = Date.now() + ms; for (;;) { const r = await fn(); if (r) return r; if (Date.now() > end) throw new Error('timed out waiting'); await new Promise((x) => setTimeout(x, 200)); } };
 
 before(async () => {
-  const { setAdbRunner } = await import(pathToFileURL(path.join(ROOT, 'test/support/dashboard/lib/device.js')).href);
+  const { setAdbRunner } = await import('@apptest/toolkit/dashboard/lib/device.js');
   setAdbRunner((args) => { const a = args.join(' '); if (a === 'devices') return `List of devices attached\n${device}\n`; if (a === 'getprop ro.kernel.qemu') return `${emulator}\n`; return ''; });
 });
 after(() => fs.rmSync(reports, { recursive: true, force: true }));

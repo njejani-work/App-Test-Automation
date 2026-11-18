@@ -1,5 +1,5 @@
 // App-level helpers shared by the suites (each is recorded as a dashboard step).
-import { step } from './dashboard/recorder.js';
+import { step } from '@apptest/toolkit/dashboard/recorder.js';
 
 export const APP_ID = 'com.egenome.app';
 

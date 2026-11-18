@@ -14,7 +14,7 @@
   "scripts": {
     "start": "node server.mjs",
     "inspect": "npx @modelcontextprotocol/inspector node server.mjs",
-    "test": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=../test/support/dashboard/unit-report.mjs --test-reporter-destination=stdout \"test/**/*.test.mjs\""
+    "test": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=@apptest/toolkit/dashboard/unit-report.mjs --test-reporter-destination=stdout \"test/**/*.test.mjs\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.2",

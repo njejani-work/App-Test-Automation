@@ -6,7 +6,7 @@
 // The page models below use the captured labels with *partial* matching
 // (descriptionContains / descriptionMatches), which survives data and icon changes.
 
-import { logAction } from '../support/dashboard/recorder.js';
+import { logAction } from '@apptest/toolkit/dashboard/recorder.js';
 
 const q = (s) => JSON.stringify(String(s));
 
@@ -88,7 +88,7 @@ export default class BasePage {
    * screen's elements against test/layout/specs/<name>.json. See test/support/layout.
    */
   async verifyLayout(name = this.layoutSpec) {
-    const { checkLayout } = await import('../support/layout/index.js');
+    const { checkLayout } = await import('@apptest/toolkit/layout/index.js');
     return checkLayout(name, { page: this });
   }
 

@@ -1,7 +1,7 @@
 // Unit tests for the API log parser (test/support/report/network.js). Run: npm run test:dashboard:unit
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { NetworkLog, endpointOf, issuesOf, explainFailure, shapeOf, resolutionOf } from '../../support/dashboard/lib/network.js';
+import { NetworkLog, endpointOf, issuesOf, explainFailure, shapeOf, resolutionOf } from '@apptest/toolkit/dashboard/lib/network.js';
 
 const L = (tid, msg) => `11-12 11:08:16.138  5988  ${tid} I OkHttp  : ${msg}`;
 

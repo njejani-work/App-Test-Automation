@@ -36,11 +36,17 @@ export function readApps(appsFile) {
   }));
 }
 
-/** Write reports/data/apps.js for the page in `reportsDir`. Returns what it wrote (null when there is no app list). */
+/** Write reports/data/apps.js for the page in `reportsDir`. Returns what it wrote (null when there is no app list: then it holds null). */
 export function writeAppsData(reportsDir, appsFile) {
   const apps = readApps(appsFile);
   const file = path.join(reportsDir, 'data', 'apps.js');
-  if (!apps.length) { try { fs.rmSync(file, { force: true }); } catch {} return null; }
+  if (!apps.length) {
+    // no shared list: an empty apps.js all the same, so the page never asks for a missing file (a failed load shows as a
+    // browser error), and it shows the plain title and App filter
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, 'window.DASH_APPS=null;\n');
+    return null;
+  }
   const current = apps.find((a) => same(a.reportsDir, reportsDir));
   const data = {
     current: current ? current.id : null,

@@ -60,9 +60,9 @@ for (const name of targets) {
   const spec = JSON.parse(fs.readFileSync(file, 'utf8'));
   const xmlFile = path.join(RUNS, runId, 'layout', `${name}.xml`);
   if (!patchOnly && fs.existsSync(xmlFile)) {
-    const { parseSource } = await imp('test/support/layout/hierarchy.js');
-    const { buildSpec } = await imp('test/support/layout/spec-builder.js');
-    const { nameTokens } = await imp('test/support/layout/index.js');
+    const { parseSource } = await import('@apptest/toolkit/layout/hierarchy.js');
+    const { buildSpec } = await import('@apptest/toolkit/layout/spec-builder.js');
+    const { nameTokens } = await import('@apptest/toolkit/layout/index.js');
     const { CATALOG } = await imp('test/pageobjects/catalog.js');
     const tree = parseSource(fs.readFileSync(xmlFile, 'utf8'));
     const names = ['TEST_USER_NAME', 'TEST_USER2_NAME', 'TEST_DEPENDENT_NAME'].map((k) => process.env[k]).filter(Boolean);

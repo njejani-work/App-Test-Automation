@@ -1,7 +1,7 @@
 // Reading one test's Android log: lines taken from the real tour run of 13 Nov 2026 (11:10) on the Android 17 emulator.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyLogcat, deviceWarnings } from '../../support/dashboard/lib/logcat.js';
+import { classifyLogcat, deviceWarnings } from '@apptest/toolkit/dashboard/lib/logcat.js';
 
 const PKG = 'org.wikipedia.dev';
 const WEBVIEW_CRASH = [
@@ -58,7 +58,7 @@ test('a normal log gives no device warnings', () => {
 
 // ---------------------------------------------------------------- error lines explained by known API issues (run 13 Nov 2026 11:22)
 test('error lines caused by a known API issue or by Android itself do not make a passed test a warning', async () => {
-  const D = await import('../../support/dashboard/analysis.mjs');
+  const D = await import('@apptest/toolkit/dashboard/analysis.mjs');
   const knownApi = [{ match: 'meta.wikimedia.beta.wmcloud.org/w/api.php?action=streamconfigs', reason: 'Beta analytics server refuses the dev build (403).' }];
   const H = 'E org.wikipedia.recurring.RecurringTasksExecutor$run$lambda$1$$inlined$CoroutineExceptionHandler';
   const known403 = `${H}org.wikipedia.dataclient.okhttp.HttpStatusException: Code: 403, URL: https://meta.wikimedia.beta.wmcloud.org/w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&action=streamconfigs&format=json`;
