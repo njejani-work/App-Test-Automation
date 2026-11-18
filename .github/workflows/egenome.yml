@@ -1,0 +1,44 @@
+# eGenome app tests: WHEN they run and with which settings. The steps are the shared _android-tests.yml.
+#   pull request into main (only when eGenome or the shared code changes) -> smoke
+#   every night at 02:00 India time (20:30 UTC)                           -> regression
+#   "Run workflow" button in the Actions tab                              -> the suite you pick
+name: eGenome app tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/egenome/**'
+      - 'toolkit/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/_android-tests.yml'
+      - '.github/workflows/egenome.yml'
+  schedule:
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Which suite to run'
+        type: choice
+        options: [smoke, regression, layout]
+        default: smoke
+
+# A newer push to the same pull request cancels the older run
+concurrency:
+  group: egenome-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    uses: ./.github/workflows/_android-tests.yml
+    with:
+      app: egenome
+      suite: ${{ github.event.inputs.suite || (github.event_name == 'schedule' && 'regression') || 'smoke' }}
+      secrets-needed: TEST_PHONE,TEST_OTP
+      apk-release: staging-apk
+      apk-url-secret: STAGING_APK_URL
+      # warn until the layout specs are re-recorded with the system bars (18 Nov 2026): CI's Android 14 emulator has a
+      # shorter status bar than the Android 17 emulator the specs come from. Then back to 'on'.
+      layout-checks: warn
+    secrets: inherit

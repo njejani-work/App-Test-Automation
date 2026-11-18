@@ -1,0 +1,442 @@
+{
+  "_help": [
+    "Triage settings for the test dashboard (reports/index.html). Shared through git: edit, commit, push.",
+    "modules: the app's areas, who owns each, and areas deliberately not tested (shown as coverage gaps or exclusions).",
+    "tests: module (and severity, when the title has no [P0]-[P3] tag) per test ID. A [P0]/[P1] tag in the test title sets the severity. Default P2.",
+    "issues: per error signature: owner, ticket link, known issue. The dashboard's Assign / Ticket / Mark as known buttons edit these in your browser; 'Download triage.json' then gives you this file with your changes, to replace it here.",
+    "ticket.newIssueUrl: where 'Create ticket' opens a pre-filled issue (GitHub style ?title=&body=). Empty = the button copies the ticket text instead.",
+    "knownApi: API problems that are understood and not a test failure; matched against the call's endpoint or URL. Shown grey, not red, and never a budget warning.",
+    "knownLogLines: lines in the app's Android log that are understood and not an app problem: [{ match: 'regular expression on the log line', reason }]. They stay listed in the test's App log, but do not count as app errors or make a test 'passed with warnings'.",
+    "quarantine: tests whose failures do not count towards the verdict until a date: [{ test, reason, owner, until: 'YYYY-MM-DD', ticket, added }]. After 'until' the failure counts again and the verdict says the quarantine expired. The dashboard's Quarantine button adds entries (then Download triage.json).",
+    "categoryRules: your own rules for failure categories, checked before the built-in ones: [{ match: 'regular expression on the error message', category: 'product' | 'test' | 'environment' | 'infrastructure' | 'review', why: 'shown as the reason' }]. issues.<signature>.category overrides one failure by hand."
+  ],
+  "ticket": {
+    "newIssueUrl": "",
+    "name": "Ticket"
+  },
+  "modules": {
+    "Onboarding & Login": {
+      "owner": ""
+    },
+    "Home": {
+      "owner": ""
+    },
+    "Reports": {
+      "owner": ""
+    },
+    "Payments": {
+      "owner": ""
+    },
+    "Settings & Profile": {
+      "owner": ""
+    },
+    "Resilience": {
+      "owner": ""
+    },
+    "Extended (pending)": {
+      "owner": ""
+    }
+  },
+  "tests": {
+    "EXT-03": {
+      "module": "Extended (pending)"
+    },
+    "EXT-04": {
+      "module": "Extended (pending)"
+    },
+    "EXT-05": {
+      "module": "Extended (pending)"
+    },
+    "EXT-06": {
+      "module": "Extended (pending)"
+    },
+    "EXT-07": {
+      "module": "Extended (pending)"
+    },
+    "EXT-08": {
+      "module": "Extended (pending)"
+    },
+    "EXT-10": {
+      "module": "Extended (pending)"
+    },
+    "EXT-11": {
+      "module": "Extended (pending)"
+    },
+    "EXT-12": {
+      "module": "Extended (pending)"
+    },
+    "EXT-13": {
+      "module": "Extended (pending)"
+    },
+    "EXT-15": {
+      "module": "Extended (pending)"
+    },
+    "EXT-17": {
+      "module": "Extended (pending)"
+    },
+    "EXT-18": {
+      "module": "Extended (pending)"
+    },
+    "EXT-19": {
+      "module": "Extended (pending)"
+    },
+    "EXT-20": {
+      "module": "Extended (pending)"
+    },
+    "EXT-22": {
+      "module": "Extended (pending)"
+    },
+    "EXT-23": {
+      "module": "Extended (pending)"
+    },
+    "EXT-24": {
+      "module": "Extended (pending)"
+    },
+    "EXT-25": {
+      "module": "Extended (pending)"
+    },
+    "EXT-26": {
+      "module": "Extended (pending)"
+    },
+    "EXT-27": {
+      "module": "Extended (pending)"
+    },
+    "EXT-28": {
+      "module": "Extended (pending)"
+    },
+    "EXT-29": {
+      "module": "Extended (pending)"
+    },
+    "EXT-30": {
+      "module": "Extended (pending)"
+    },
+    "EXT-31": {
+      "module": "Extended (pending)"
+    },
+    "LAY-01": {
+      "module": "Onboarding & Login",
+      "severity": "P1"
+    },
+    "LAY-02": {
+      "module": "Onboarding & Login",
+      "severity": "P1"
+    },
+    "LAY-03": {
+      "module": "Onboarding & Login",
+      "severity": "P1"
+    },
+    "LAY-04": {
+      "module": "Home",
+      "severity": "P1"
+    },
+    "LAY-05": {
+      "module": "Home",
+      "severity": "P1"
+    },
+    "LAY-06": {
+      "module": "Home",
+      "severity": "P1"
+    },
+    "LAY-07": {
+      "module": "Payments",
+      "severity": "P1"
+    },
+    "LAY-08": {
+      "module": "Reports",
+      "severity": "P1"
+    },
+    "LAY-09": {
+      "module": "Reports",
+      "severity": "P1"
+    },
+    "LAY-10": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-11": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-12": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-13": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-14": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-15": {
+      "module": "Settings & Profile",
+      "severity": "P1"
+    },
+    "LAY-16": {
+      "module": "Payments",
+      "severity": "P1"
+    },
+    "LGN-01": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-02": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-03": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-04": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-05": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-06": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-07": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-08": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-09": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-10": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-11": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-12": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-13": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-14": {
+      "module": "Onboarding & Login"
+    },
+    "LGN-15": {
+      "module": "Onboarding & Login"
+    },
+    "HOM-01": {
+      "module": "Home"
+    },
+    "HOM-02": {
+      "module": "Home"
+    },
+    "HOM-03": {
+      "module": "Home"
+    },
+    "HOM-04": {
+      "module": "Home"
+    },
+    "HOM-05": {
+      "module": "Home"
+    },
+    "HOM-06": {
+      "module": "Home"
+    },
+    "HOM-07": {
+      "module": "Home"
+    },
+    "HOM-08": {
+      "module": "Home"
+    },
+    "HOM-09": {
+      "module": "Home"
+    },
+    "HOM-10": {
+      "module": "Home"
+    },
+    "RPT-01": {
+      "module": "Reports"
+    },
+    "RPT-02": {
+      "module": "Reports"
+    },
+    "RPT-03": {
+      "module": "Reports"
+    },
+    "RPT-04": {
+      "module": "Reports"
+    },
+    "RPT-05": {
+      "module": "Reports"
+    },
+    "RPT-06": {
+      "module": "Reports"
+    },
+    "RPT-07": {
+      "module": "Reports"
+    },
+    "RPT-08": {
+      "module": "Reports"
+    },
+    "RPT-09": {
+      "module": "Reports"
+    },
+    "PAY-01": {
+      "module": "Payments"
+    },
+    "PAY-02": {
+      "module": "Payments"
+    },
+    "PAY-03": {
+      "module": "Payments"
+    },
+    "PAY-04": {
+      "module": "Payments"
+    },
+    "PAY-05": {
+      "module": "Payments"
+    },
+    "PAY-06": {
+      "module": "Payments"
+    },
+    "PAY-07": {
+      "module": "Payments"
+    },
+    "PAY-08": {
+      "module": "Payments"
+    },
+    "SET-01": {
+      "module": "Settings & Profile"
+    },
+    "SET-02": {
+      "module": "Settings & Profile"
+    },
+    "SET-03": {
+      "module": "Settings & Profile"
+    },
+    "SET-04": {
+      "module": "Settings & Profile"
+    },
+    "SET-05": {
+      "module": "Settings & Profile"
+    },
+    "SET-06": {
+      "module": "Settings & Profile"
+    },
+    "SET-07": {
+      "module": "Settings & Profile"
+    },
+    "SET-08": {
+      "module": "Settings & Profile"
+    },
+    "SET-09": {
+      "module": "Settings & Profile"
+    },
+    "SET-10": {
+      "module": "Settings & Profile"
+    },
+    "SET-11": {
+      "module": "Settings & Profile"
+    },
+    "SET-12": {
+      "module": "Settings & Profile"
+    },
+    "SET-13": {
+      "module": "Settings & Profile"
+    },
+    "SET-14": {
+      "module": "Settings & Profile"
+    },
+    "SET-15": {
+      "module": "Settings & Profile"
+    },
+    "RES-01": {
+      "module": "Resilience"
+    },
+    "RES-02": {
+      "module": "Resilience"
+    },
+    "RES-03": {
+      "module": "Resilience"
+    },
+    "SMK-01": {
+      "module": "Onboarding & Login"
+    },
+    "SMK-02": {
+      "module": "Onboarding & Login"
+    },
+    "SMK-03": {
+      "module": "Home"
+    },
+    "SMK-04": {
+      "module": "Payments"
+    },
+    "SMK-05": {
+      "module": "Reports"
+    },
+    "SMK-06": {
+      "module": "Settings & Profile"
+    },
+    "SMK-07": {
+      "module": "Settings & Profile"
+    },
+    "SMK-08": {
+      "module": "Onboarding & Login"
+    },
+    "SESSION": {
+      "module": "Onboarding & Login",
+      "severity": "P0",
+      "_why": "The test session could not start: nothing was tested."
+    }
+  },
+  "issues": {},
+  "knownApi": [],
+  "knownLogLines": [
+    {
+      "match": "E adservices: Failed binding to measurement service",
+      "reason": "Google's ad-measurement service (part of Google Play services) is not available on the emulator's Android image; a library in the app tries to reach it. Not an app problem."
+    },
+    {
+      "match": "SurfaceMountingManager: (Stopping surface \\[\\d+\\]|Surface \\[\\d+\\] was stopped)",
+      "reason": "React Native logs this at error level when a screen is closed or the app goes to the background. Normal."
+    },
+    {
+      "match": "ReactNative: Tried to remove non-existent frame callback",
+      "reason": "React Native's own message when an animation frame callback is cleaned up twice, e.g. when a screen closes. Harmless."
+    },
+    {
+      "match": "No package ID [0-9a-f]+ found for resource ID 0x",
+      "reason": "Android could not resolve a resource ID from another package (a library or WebView asking for an overlay resource). Harmless unless something on screen is missing."
+    },
+    {
+      "match": "SwipeRefreshLayout: Got ACTION_MOVE event but don't have an active pointer id",
+      "reason": "Android's pull-to-refresh widget logs this for scroll gestures injected by the test (UiAutomator). Not seen with a real finger; not an app problem."
+    },
+    {
+      "match": "GFXSTREAM: \\[egl\\.cpp|EGL_BAD_ATTRIBUTE",
+      "reason": "The emulator's graphics layer (gfxstream) answering an OpenGL query it does not support. Emulator only."
+    },
+    {
+      "match": "(LegacySurfaceTexture is not attached|clearBuffersForDisconnectLocked|cancelBuffer given a leaked buffer)",
+      "reason": "Android's graphics surfaces being torn down when a screen with video or animation closes. Harmless; mostly seen on emulators."
+    },
+    {
+      "match": "InAppUpdate: (Failed to check for update|.*Install Error\\(-6\\)|\\s+at )",
+      "reason": "Google Play's in-app update check is not allowed on this device (Install Error -6: the app was not installed from Google Play, or the device state does not allow it). The app catches it and carries on. Expected on test devices; on a phone with a Play Store install it should not appear."
+    },
+    {
+      "match": "IntBufferBatchMountItem: Skipping batch of MountItems; was stopped",
+      "reason": "React Native skipping screen updates for a screen that has already closed (same cause as the \"stopping surface\" lines). Harmless."
+    },
+    {
+      "match": "CleverTapReact: Unhandled event property ReadableType",
+      "reason": "The CleverTap analytics SDK dropped one property of an analytics event because its value type is not supported (it accepts text, numbers, booleans and dates; null, lists or nested objects are dropped). Seen when Edit Profile opens (SMK-06, 18 Nov). No effect on the user; the event is still sent without that property. Developers: check the event properties sent when Edit Profile opens."
+    }
+  ],
+  "quarantine": [],
+  "categoryRules": [
+    {
+      "match": "^Layout \"[^\"]+\": \\d+ of \\d+ checks failed",
+      "category": "review",
+      "why": "Layout checks failed: compare the screenshot with the layout spec (boxes shown on the screenshot). Either the screen changed (product) or the spec needs updating (npm run layout:accept)."
+    }
+  ]
+}
