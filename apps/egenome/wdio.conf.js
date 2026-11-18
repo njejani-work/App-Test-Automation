@@ -5,6 +5,16 @@ dotenv.config({ quiet: true });
 // Step-by-step results dashboard (reports/index.html) - see test/support/dashboard
 import { withDashboard } from './test/support/dashboard/hooks.js';
 
+// Appium finds its drivers (UiAutomator2) in APPIUM_HOME. In the app-tests workspace npm installs every package once,
+// at the repo root, but Appium would look in this app's folder and find no driver, so the session could not start
+// (18 Nov 2026). Point it at the folder where the driver really is. Kept if APPIUM_HOME is already set.
+import path from 'node:path';
+import { createRequire } from 'node:module';
+try {
+    const driverPkg = createRequire(import.meta.url).resolve('appium-uiautomator2-driver/package.json');
+    process.env.APPIUM_HOME ||= path.resolve(path.dirname(driverPkg), '..', '..'); // <root>/node_modules/<driver> -> <root>
+} catch { /* driver not installed: Appium reports it */ }
+
 const baseConfig = {
     //
     // ====================
