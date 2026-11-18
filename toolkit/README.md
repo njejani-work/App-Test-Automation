@@ -5,6 +5,7 @@ objects, specs, data and settings, and imports these as `@apptest/toolkit/<folde
 
 | Folder | What | Used by an app as |
 |---|---|---|
+| `wdio/` | `createConfig(app, { hooks, replace })`: the whole WebdriverIO config from the app's `app.config.js` (Appium service, reporters, timeouts, default capabilities, the screenshot on failure, the dashboard recording, `APPIUM_HOME` for the workspace) | `export const config = await createConfig(app);` in the app's `wdio.conf.js` |
 | `dashboard/` | Step recorder, device recorder (app log, memory, frames, video, API calls), analysis, page builder and template, unit-test reporter | `withDashboard(config)` from `dashboard/hooks.js` in `wdio.conf.js`; `instrument()` / `step()` from `dashboard/recorder.js` in page objects; `--test-reporter=@apptest/toolkit/dashboard/unit-report.mjs` |
 | `dashboard/lib/` | Code meanings, adb and device, logcat, network, budgets, response formats, run details, the app list | through the dashboard; also directly (e.g. the MCP server) |
 | `layout/` | Layout checker: reads a screen, builds and compares specs | `checkLayout(name)` from `layout/index.js` (via `BasePage.verifyLayout()`) |
@@ -26,5 +27,4 @@ A change here reaches every app. Run each app's unit tests (`npm run test:unit -
 If an app needs different behaviour, add a setting with a default that keeps the other apps unchanged; never copy a
 file from here into an app.
 
-Moved here from eGenome in steps 2-3 of the migration (18 Nov 2026); the base WebdriverIO config (`createConfig()`) follows
-in step 4.
+Moved here from eGenome in steps 2-4 of the migration (18 Nov 2026).
