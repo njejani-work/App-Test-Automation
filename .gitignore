@@ -23,3 +23,7 @@ allure-report/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Dashboard demo data and the dashboard's own test output
+reports-demo/
+.dashboard-test/

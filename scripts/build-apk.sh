@@ -6,7 +6,8 @@
 # Usage:   scripts/build-apk.sh [variant]     (default variant: devDebug)
 #          npm run build:apk                  (same, from any shell)
 # Example: APP_REF=some-branch scripts/build-apk.sh devDebug
-# Output:  out/<app>-<variant>-<commit>.apk + out/<same>.build-info.txt
+# Output:  out/<app>-<variant>-v<version>-<date-time>-<commit>.apk + .build-info.txt
+#          (the newest KEEP_BUILDS builds are kept, default 5)
 #          (wdio.conf.js picks the newest one automatically)
 #
 # Two modes:
@@ -153,10 +154,29 @@ APK_PATH="$APK_DIR/${APK_FILES[0]}"
 
 APPLICATION_ID="$(grep -o '"applicationId": *"[^"]*"' "$METADATA" | sed 's/.*"\([^"]*\)"$/\1/')"
 VERSION_NAME="$(grep -o '"versionName": *"[^"]*"' "$METADATA" | head -1 | sed 's/.*"\([^"]*\)"$/\1/')"
+VERSION_CODE="$(grep -o '"versionCode": *[0-9]*' "$METADATA" | head -1 | grep -o '[0-9]*$' || true)"
 
 # ---------------------------------------------------------------- 6. name it and record it
+# Every build gets its own file, named so you can tell builds apart at a glance:
+#   <app>-<variant>-v<versionName>-b<build number>-<YYYYMMDD-HHMMSS local>-<commit>.apk
+# e.g. apps-android-wikipedia-devDebug-v50616-dev-2026-11-11-b12-20261111-164210-57644dbeea.apk
+# The same commit built twice gives two files (different time), so a rebuild never
+# silently replaces the APK a test run used.
 mkdir -p "$OUT_DIR"
-BASE="${APP_NAME}-${VARIANT}-${COMMIT_SHORT}"
+STAMP="$(date +%Y%m%d-%H%M%S)"
+VERSION_SAFE="$(printf '%s' "${VERSION_NAME:-unknown}" | tr -c 'A-Za-z0-9._-' '_')"
+BUILD_ID="${STAMP}-${COMMIT_SHORT}"
+# Build number (#1, #2, ...): the CI's run number when there is one, else a counter in out/.build-number
+if [[ -n "${BUILD_NUMBER:-}" ]]; then :
+elif [[ -n "${GITHUB_RUN_NUMBER:-}" ]]; then BUILD_NUMBER="$GITHUB_RUN_NUMBER"
+elif [[ -n "${BITBUCKET_BUILD_NUMBER:-}" ]]; then BUILD_NUMBER="$BITBUCKET_BUILD_NUMBER"
+else
+  COUNTER_FILE="$OUT_DIR/.build-number"
+  LAST_NUMBER="$(tr -dc '0-9' < "$COUNTER_FILE" 2>/dev/null || true)"
+  BUILD_NUMBER=$(( ${LAST_NUMBER:-0} + 1 ))
+  echo "$BUILD_NUMBER" > "$COUNTER_FILE"
+fi
+BASE="${APP_NAME}-${VARIANT}-v${VERSION_SAFE}-b${BUILD_NUMBER}-${BUILD_ID}"
 FINAL_APK="$OUT_DIR/$BASE.apk"
 INFO_FILE="$OUT_DIR/$BASE.build-info.txt"
 
@@ -164,6 +184,8 @@ cp -f "$APK_PATH" "$FINAL_APK"
 SHA256="$(sha256sum "$FINAL_APK" | cut -d' ' -f1)"
 
 cat > "$INFO_FILE" <<EOF
+build_id=$BUILD_ID
+build_number=$BUILD_NUMBER
 app_name=$APP_NAME
 app_repo=$APP_REPO
 app_ref=$APP_REF
@@ -173,18 +195,31 @@ variant=$VARIANT
 gradle_task=$TASK
 application_id=$APPLICATION_ID
 version_name=$VERSION_NAME
+version_code=$VERSION_CODE
 apk_file=$(basename "$FINAL_APK")
 apk_sha256=$SHA256
 apk_bytes=$(wc -c < "$FINAL_APK" | tr -d ' ')
+built_at_local=$(date +%Y-%m-%dT%H:%M:%S%z)
 built_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 build_seconds=$BUILD_SECONDS
 built_on=$(uname -n)
 EOF
 
+# Keep only the newest KEEP_BUILDS builds (default 5): each debug APK is ~140 MB.
+KEEP_BUILDS="${KEEP_BUILDS:-5}"
+mapfile -t RECEIPTS < <(ls -1t "$OUT_DIR"/*.build-info.txt 2>/dev/null)
+if (( ${#RECEIPTS[@]} > KEEP_BUILDS )); then
+  for old in "${RECEIPTS[@]:KEEP_BUILDS}"; do
+    old_apk="$OUT_DIR/$(grep '^apk_file=' "$old" | cut -d= -f2-)"
+    rm -f "$old" "$old_apk" && log "Removed old build: $(basename "$old_apk")"
+  done
+fi
+
 # ---------------------------------------------------------------- 7. report
 log "Done."
+log "Build:      #$BUILD_NUMBER  $BUILD_ID   (version ${VERSION_NAME:-?}, code ${VERSION_CODE:-?})"
 log "APK:        $FINAL_APK"
 log "Build info: $INFO_FILE"
-log "Package:    $APPLICATION_ID   Version: $VERSION_NAME"
+log "Package:    $APPLICATION_ID"
 log "SHA-256:    $SHA256"
 exit 0

@@ -1,36 +1,56 @@
 import BasePage, { S } from './BasePage.js';
 
-// First-launch intro pages ("The Free Encyclopedia ...in over 300 languages", "New ways to explore", ...).
-// Ids from app/src/main/res/layout/fragment_onboarding_pager.xml in the app's repository.
+// First-launch intro. This app version uses a NEW intro written in Jetpack Compose
+// (app/src/main/java/org/wikipedia/onboarding/InitialOnboardingScreen.kt), seen on the
+// emulator on 11 Nov 2026:
+//   page 1 "All the world's knowledge"          (INTRO)
+//   page 2 "Data & Privacy"                       (DATA_PRIVACY)
+//   page 3 "Read in more than 300 languages"      (LANGUAGES)
+// There is NO Skip button: a single arrow (content-desc "Forward") moves to the next page,
+// and on the last page it finishes the intro. Compose has no resource-ids here, so the
+// selectors use the content-desc and visible titles.
+// The old view-based intro (ids fragment_onboarding_*) is kept as a fallback for older builds.
 const SEL = {
-  skip: S.id('fragment_onboarding_skip_button'),        // "Skip"
-  forward: S.id('fragment_onboarding_forward_button'),  // "Continue"
-  done: S.id('fragment_onboarding_done_button'),        // "Get started" (last page)
-  pager: S.id('fragment_onboarding_pager_container'),
+  forward: S.desc('Forward'),
+  introTitle: S.text("All the world's knowledge"),
+  privacyTitle: S.text('Data & Privacy'),
+  languagesTitle: S.text('Read in more than 300 languages'),
+  // old intro (fallback)
+  oldSkip: S.id('fragment_onboarding_skip_button'),
+  oldPager: S.id('fragment_onboarding_pager_container'),
 };
 
 class OnboardingPage extends BasePage {
   get anchors() {
-    return [SEL.skip, SEL.forward, SEL.pager];
+    return [SEL.forward, SEL.introTitle, SEL.oldSkip, SEL.oldPager];
   }
 
-  get skipButton() { return $(SEL.skip); }
-  get continueButton() { return $(SEL.forward); }
+  get forwardButton() { return $(SEL.forward); }
+  get introTitle() { return $(SEL.introTitle); }
 
-  async skip() {
-    await this.tap(SEL.skip);
+  /** Which intro page is showing: 'intro' | 'privacy' | 'languages' | 'old' | null. */
+  async currentPage() {
+    if (await this.anyDisplayed([SEL.introTitle])) return 'intro';
+    if (await this.anyDisplayed([SEL.privacyTitle])) return 'privacy';
+    if (await this.anyDisplayed([SEL.languagesTitle])) return 'languages';
+    if (await this.anyDisplayed([SEL.oldSkip, SEL.oldPager])) return 'old';
+    return null;
   }
 
-  /** Walk through every intro page with Continue, then Get started. */
-  async goThrough({ maxPages = 6 } = {}) {
+  /** Go through the whole intro: tap Forward until the intro is gone (or tap Skip on the old intro). */
+  async complete({ maxPages = 6 } = {}) {
     for (let i = 0; i < maxPages; i++) {
-      if (await this.anyDisplayed([SEL.done])) {
-        await this.tap(SEL.done);
+      if (await this.anyDisplayed([SEL.oldSkip])) {
+        await this.tap(SEL.oldSkip);
         return;
       }
+      if (!(await this.anyDisplayed([SEL.forward]))) return; // intro finished
       await this.tap(SEL.forward);
+      await driver.pause(600); // page change animation
     }
-    throw new Error('Onboarding: "Get started" never appeared');
+    if (await this.anyDisplayed([SEL.forward])) {
+      throw new Error(`Onboarding: still showing after ${maxPages} taps on Forward`);
+    }
   }
 }
 

@@ -1,0 +1,367 @@
+{
+  "screen": "ActivityTabOnboardingScreen",
+  "package": "org.wikipedia.dev",
+  "activity": "org.wikipedia.activitytab.ActivityTabOnboardingActivity",
+  "title": "",
+  "firstCaptured": "2026-11-11T16:49:43.210Z",
+  "elements": {
+    "actionBarRootView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/action_bar_root|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/action_bar_root",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/action_bar_root\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/action_bar_root",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "list": {
+      "key": "android.widget.ScrollView|xpath:/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.widget.ScrollView",
+        "clickable": false,
+        "scrollable": true,
+        "bounds": "[48,48][672,1072]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "introducingActivityText": {
+      "key": "android.widget.TextView|text:Introducing Activity",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Introducing Activity\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Introducing Activity\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Introducing Activity",
+        "clickable": false,
+        "bounds": "[48,48][672,72]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "readingPatternsText": {
+      "key": "android.widget.TextView|text:Reading patterns",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Reading patterns\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Reading patterns\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Reading patterns",
+        "clickable": false,
+        "bounds": "[120,136][372,184]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "seeHowMuchTimeText": {
+      "key": "android.widget.TextView|text:See how much time you've spent reading and which articles or",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[3]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "See how much time you've spent reading and which articles or topics you've explored over time.",
+        "clickable": false,
+        "bounds": "[120,192][672,312]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "impactHighlightsText": {
+      "key": "android.widget.TextView|text:Impact highlights",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Impact highlights\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Impact highlights\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[4]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Impact highlights",
+        "clickable": false,
+        "bounds": "[120,360][377,408]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "discoverInsightsAboutYourText": {
+      "key": "android.widget.TextView|text:Discover insights about your contributions and the reach of ",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[5]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Discover insights about your contributions and the reach of the knowledge you've shared.",
+        "clickable": false,
+        "bounds": "[120,416][672,536]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "moreWaysToEngageText": {
+      "key": "android.widget.TextView|text:More ways to engage",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"More ways to engage\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"More ways to engage\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[6]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "More ways to engage",
+        "clickable": false,
+        "bounds": "[120,584][434,632]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "exploreStatsForGamesText": {
+      "key": "android.widget.TextView|text:Explore stats for games, saved articles, and other activitie",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[7]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Explore stats for games, saved articles, and other activities that connect you more deeply with Wikipedia.",
+        "clickable": false,
+        "bounds": "[120,640][672,760]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "stayInControlText": {
+      "key": "android.widget.TextView|text:Stay in control",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Stay in control\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Stay in control\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[8]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Stay in control",
+        "clickable": false,
+        "bounds": "[120,808][334,856]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "chooseWhichModulesToText": {
+      "key": "android.widget.TextView|text:Choose which modules to display. All personal data stays pri",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.TextView[9]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.",
+        "clickable": false,
+        "bounds": "[120,864][672,1024]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "btn": {
+      "key": "android.view.View|xpath:/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.view.View",
+        "clickable": true,
+        "bounds": "[32,1104][336,1200]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "learnMoreText": {
+      "key": "android.widget.TextView|text:Learn more",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Learn more\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Learn more\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Learn more",
+        "clickable": false,
+        "bounds": "[111,1132][257,1172]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "btn2": {
+      "key": "android.view.View|xpath:/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.view.View",
+        "clickable": true,
+        "bounds": "[384,1104][688,1200]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    },
+    "continueText": {
+      "key": "android.widget.TextView|text:Continue",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Continue\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Continue\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.compose.ui.platform.ComposeView[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Continue",
+        "clickable": false,
+        "bounds": "[478,1132][594,1172]"
+      },
+      "firstSeen": "2026-11-11T16:49:43.210Z",
+      "lastSeen": "2026-11-11T16:49:43.210Z"
+    }
+  },
+  "lastCaptured": "2026-11-11T16:49:43.210Z",
+  "captures": 1
+}

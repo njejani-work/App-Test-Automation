@@ -1,12 +1,11 @@
 import BasePage, { S } from './BasePage.js';
-import HomePage from './HomePage.js';
+import SearchTabPage from './SearchTabPage.js';
 
 // Search screen (SearchActivity). The text box is a standard Android SearchView
 // (id search_cab_view), whose inner EditText has the id search_src_text.
 // Results are drawn with Jetpack Compose (SearchResultsScreen.kt) and have no ids,
 // so a result is found by its visible title.
 const SEL = {
-  searchBarOnTab: S.text('Search Wikipedia'),  // the bar at the top of the Search tab
   searchView: S.id('search_cab_view'),
   input: S.id('search_src_text'),
   anyInput: S.cls('android.widget.EditText'),   // fallback if the id ever changes
@@ -22,10 +21,8 @@ class SearchPage extends BasePage {
 
   /** From the main screen: Search tab -> tap the search bar -> search screen. */
   async openFromNav() {
-    await HomePage.openTab('search');
-    if (!(await this.isOpen(1500))) {
-      await this.tap(SEL.searchBarOnTab);
-    }
+    await SearchTabPage.open();
+    await SearchTabPage.openSearch();
     await this.waitForOpen();
   }
 

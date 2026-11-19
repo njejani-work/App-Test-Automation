@@ -1,0 +1,145 @@
+{
+  "_help": [
+    "Triage settings for the test dashboard (reports/index.html). Shared through git: edit, commit, push.",
+    "modules: the app's areas, who owns each, and areas deliberately not tested (shown as coverage gaps or exclusions).",
+    "tests: module and severity per test ID. A [P0]/[P1] tag in the test title also sets the severity. Default P2.",
+    "issues: per error signature: owner, ticket link, known issue. The dashboard's Assign / Ticket / Mark as known buttons",
+    "edit these in your browser; 'Download triage.json' then gives you this file with your changes, to replace it here.",
+    "ticket.newIssueUrl: where 'Create ticket' opens a pre-filled issue (GitHub style ?title=&body=).",
+    "knownApi: API problems that are understood and not a test failure; matched against the call's endpoint or URL. Shown grey, not red.",
+    "quarantine: tests whose failures do not count towards the verdict until a date: [{ test, reason, owner, until: 'YYYY-MM-DD', ticket, added }]. After 'until' the failure counts again and the verdict says the quarantine expired. The dashboard's Quarantine button adds entries (then Download triage.json).",
+    "categoryRules: your own rules for failure categories, checked before the built-in ones: [{ match: 'regular expression on the error message', category: 'product' | 'test' | 'environment' | 'infrastructure' | 'review', why: 'shown as the reason' }]. issues.<signature>.category overrides one failure by hand."
+  ],
+  "ticket": {
+    "newIssueUrl": "https://github.com/njejani-work/apps-android-wikipedia/issues/new",
+    "name": "GitHub issue"
+  },
+  "modules": {
+    "Launch": {
+      "owner": "Nishant"
+    },
+    "Onboarding": {
+      "owner": "Nishant"
+    },
+    "Navigation": {
+      "owner": "Nishant"
+    },
+    "Home feed": {
+      "owner": "Nishant"
+    },
+    "Saved / Reading lists": {
+      "owner": "Nishant"
+    },
+    "Search": {
+      "owner": "Nishant"
+    },
+    "Article": {
+      "owner": "Nishant"
+    },
+    "Activity": {
+      "owner": "Nishant"
+    },
+    "More menu": {
+      "owner": "Nishant"
+    },
+    "Settings": {
+      "owner": "Nishant"
+    },
+    "Places": {
+      "owner": ""
+    },
+    "Games": {
+      "owner": ""
+    },
+    "History": {
+      "owner": ""
+    },
+    "Login / Account": {
+      "owner": "",
+      "excluded": "Not tested on purpose: tests must not log in to the live Wikipedia site"
+    },
+    "Editing": {
+      "owner": "",
+      "excluded": "Not tested on purpose: tests must never edit the live Wikipedia site"
+    }
+  },
+  "tests": {
+    "SMK-01": {
+      "module": "Launch",
+      "severity": "P0"
+    },
+    "SMK-02": {
+      "module": "Onboarding",
+      "severity": "P0"
+    },
+    "SMK-03": {
+      "module": "Navigation",
+      "severity": "P0"
+    },
+    "SMK-04": {
+      "module": "Search",
+      "severity": "P0"
+    },
+    "SMK-05": {
+      "module": "Article",
+      "severity": "P0"
+    },
+    "SMK-06": {
+      "module": "Navigation",
+      "severity": "P1"
+    },
+    "SMK-07": {
+      "module": "Settings",
+      "severity": "P1"
+    },
+    "SMK-08": {
+      "module": "Launch",
+      "severity": "P0"
+    },
+    "TOUR-01": {
+      "module": "Onboarding",
+      "severity": "P0"
+    },
+    "TOUR-02": {
+      "module": "Home feed",
+      "severity": "P1"
+    },
+    "TOUR-03": {
+      "module": "Saved / Reading lists",
+      "severity": "P1"
+    },
+    "TOUR-04": {
+      "module": "Search",
+      "severity": "P1"
+    },
+    "TOUR-05": {
+      "module": "Activity",
+      "severity": "P2"
+    },
+    "TOUR-06": {
+      "module": "More menu",
+      "severity": "P2"
+    },
+    "TOUR-07": {
+      "module": "Saved / Reading lists",
+      "severity": "P1"
+    },
+    "TOUR-08": {
+      "module": "Launch",
+      "severity": "P1"
+    },
+    "SESSION": {
+      "module": "Launch",
+      "severity": "P0"
+    }
+  },
+  "issues": {},
+  "knownApi": [
+    {
+      "match": "meta.wikimedia.beta.wmcloud.org/w/api.php?action=streamconfigs",
+      "reason": "The dev build fetches its analytics settings from Wikimedia's test (beta) servers, which refuse it (403). Not caused by the tests; the prod build uses meta.wikimedia.org."
+    }
+  ],
+  "quarantine": [],
+  "categoryRules": []
+}

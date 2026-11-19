@@ -1,0 +1,481 @@
+{
+  "screen": "MainScreen4",
+  "package": "org.wikipedia.dev",
+  "activity": "org.wikipedia.main.MainActivity",
+  "title": "",
+  "firstCaptured": "2026-11-11T16:51:17.767Z",
+  "elements": {
+    "actionBarRootView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/action_bar_root|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/action_bar_root",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/action_bar_root\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/action_bar_root",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "containerView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/container",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "coordinatorView": {
+      "key": "android.view.ViewGroup|id:org.wikipedia.dev:id/coordinator|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/coordinator",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.ViewGroup[@resource-id=\"org.wikipedia.dev:id/coordinator\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.ViewGroup",
+        "resourceId": "org.wikipedia.dev:id/coordinator",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "touchOutsideBtn": {
+      "key": "android.view.View|id:org.wikipedia.dev:id/touch_outside|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/touch_outside",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.View[@resource-id=\"org.wikipedia.dev:id/touch_outside\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.View[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.View",
+        "resourceId": "org.wikipedia.dev:id/touch_outside",
+        "clickable": true,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "designBottomSheetView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/design_bottom_sheet|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/design_bottom_sheet",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/design_bottom_sheet\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/design_bottom_sheet",
+        "clickable": false,
+        "bounds": "[0,743][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerAccountContainerBtn": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/main_drawer_account_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_account_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/main_drawer_account_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_account_container",
+        "clickable": true,
+        "bounds": "[0,751][720,847]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerAccountAvatarImage": {
+      "key": "android.widget.ImageView|id:org.wikipedia.dev:id/main_drawer_account_avatar|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_account_avatar",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageView[@resource-id=\"org.wikipedia.dev:id/main_drawer_account_avatar\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.ImageView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageView",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_account_avatar",
+        "clickable": false,
+        "bounds": "[32,775][80,823]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerLoginText": {
+      "key": "android.widget.TextView|id:org.wikipedia.dev:id/main_drawer_login_button|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_login_button",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"Log in / join Wikipedia\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@resource-id=\"org.wikipedia.dev:id/main_drawer_login_button\" and @text=\"Log in / join Wikipedia\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_login_button",
+        "text": "Log in / join Wikipedia",
+        "clickable": false,
+        "bounds": "[128,751][442,847]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerGamesHubContainerBtn": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/main_drawer_games_hub_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_games_hub_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/main_drawer_games_hub_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_games_hub_container",
+        "clickable": true,
+        "bounds": "[0,848][720,944]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "gamesText": {
+      "key": "android.widget.TextView|text:Games",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Games\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Games\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Games",
+        "clickable": false,
+        "bounds": "[128,874][688,917]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerPlacesContainerBtn": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/main_drawer_places_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_places_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/main_drawer_places_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[3]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_places_container",
+        "clickable": true,
+        "bounds": "[0,944][720,1040]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "placesText": {
+      "key": "android.widget.TextView|text:Places",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Places\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Places\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[3]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Places",
+        "clickable": false,
+        "bounds": "[128,970][688,1013]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerSettingsContainerBtn": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/main_drawer_settings_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_settings_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/main_drawer_settings_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_settings_container",
+        "clickable": true,
+        "bounds": "[0,1040][720,1136]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "settingsText": {
+      "key": "android.widget.TextView|text:Settings",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Settings\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Settings\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Settings",
+        "clickable": false,
+        "bounds": "[128,1066][688,1109]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "mainDrawerDonateContainerBtn": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/main_drawer_donate_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/main_drawer_donate_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/main_drawer_donate_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[5]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/main_drawer_donate_container",
+        "clickable": true,
+        "bounds": "[0,1136][720,1232]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    },
+    "donateText": {
+      "key": "android.widget.TextView|text:Donate",
+      "primary": {
+        "strategy": "-android uiautomator",
+        "selector": "android=new UiSelector().text(\"Donate\")",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@text=\"Donate\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[5]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "text": "Donate",
+        "clickable": false,
+        "bounds": "[128,1162][688,1205]"
+      },
+      "firstSeen": "2026-11-11T16:51:17.767Z",
+      "lastSeen": "2026-11-11T16:51:31.921Z"
+    }
+  },
+  "lastCaptured": "2026-11-11T16:51:31.921Z",
+  "captures": 2
+}

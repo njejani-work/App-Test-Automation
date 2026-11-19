@@ -8,7 +8,17 @@
 //                      no resource-ids. Tests assume the device language is English.
 //   3. XPath         - not used: slow and breaks when layouts change.
 
+import { step } from '../support/report/recorder.js';
+
 const q = (s) => JSON.stringify(String(s));
+
+/** Human-readable name of a selector, for "steps to reproduce": id search_src_text, "Not now", ~Close */
+export function label(sel) {
+  const m = String(sel).match(/(resourceIdMatches|textContains|text|descriptionContains|description|className)\("((?:[^"\\]|\\.)*)"\)/);
+  if (!m) return String(sel);
+  const v = m[2].replace(/^\.\*:id\//, '');
+  return { resourceIdMatches: `id ${v}`, text: `"${v}"`, textContains: `text containing "${v}"`, description: `~${v}`, descriptionContains: `~…${v}…`, className: v }[m[1]];
+}
 
 /** Selector builders (strings usable with $ / $$). */
 export const S = {
@@ -62,6 +72,7 @@ export default class BasePage {
   async tap(sel, { timeout = 15000 } = {}) {
     const el = await $(sel);
     await el.waitForDisplayed({ timeout, timeoutMsg: `${this.name}: not displayed: ${sel}` });
+    step(`${this.name}: tap ${label(sel)}`);
     await el.click();
   }
 
@@ -69,6 +80,7 @@ export default class BasePage {
     const el = await $(sel);
     await el.waitForDisplayed({ timeoutMsg: `${this.name}: input not displayed: ${sel}` });
     if (clear) await el.clearValue().catch(() => {});
+    step(`${this.name}: type "${value}" into ${label(sel)}`);
     await el.setValue(String(value));
   }
 

@@ -1,11 +1,11 @@
 // SMOKE (~2-3 min): does the freshly compiled APK install, start, and do its core job?
-//   install + launch -> skip intro -> main screen + tabs -> search -> open an article
+//   install + launch -> go through the intro -> main screen + tabs -> search -> open an article
 //   -> back -> Settings -> app still running.
 // Read-only: no login, nothing saved or edited. Needs internet (articles come from wikipedia.org).
 // Starts from a clean app state (wdio.conf.js: noReset false). The tests run in order and
 // each one starts where the previous one ended, so run the whole file, not single tests.
 // Run: npm run test:smoke        (after npm run build:apk)
-import { OnboardingPage, HomePage, TABS, SearchPage, ArticlePage, SettingsPage, Dialogs } from '../../pageobjects/index.js';
+import { OnboardingPage, PersonalizationPage, HomePage, TABS, SearchPage, ArticlePage, SettingsPage, Dialogs } from '../../pageobjects/index.js';
 import { APP_ID, appInForeground, backToMain } from '../../support/app.js';
 import { SEARCH_TERM } from '../../data/searchTerms.js';
 
@@ -18,11 +18,12 @@ describe('Smoke: Wikipedia app built from source', () => {
     expect(await driver.isAppInstalled(APP_ID())).toBe(true);
   });
 
-  it('SMK-02 [P0] the intro can be skipped and the main screen opens', async () => {
+  it('SMK-02 [P0] the intro can be completed and the main screen opens', async () => {
     if (await OnboardingPage.isOpen(15000)) {
-      await expect(OnboardingPage.skipButton).toBeDisplayed();
-      await OnboardingPage.skip();
+      await expect(OnboardingPage.forwardButton).toBeDisplayed();
+      await OnboardingPage.complete();
     }
+    if (await PersonalizationPage.isOpen(10000)) await PersonalizationPage.skip();
     await Dialogs.dismissAll();
     await HomePage.waitForOpen(30000);
     await expect(HomePage.navBar).toBeDisplayed();

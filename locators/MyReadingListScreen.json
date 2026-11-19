@@ -1,0 +1,651 @@
+{
+  "screen": "MyReadingListScreen",
+  "package": "org.wikipedia.dev",
+  "activity": "org.wikipedia.readinglist.ReadingListActivity",
+  "title": "My reading list",
+  "firstCaptured": "2026-11-11T16:53:21.386Z",
+  "elements": {
+    "actionBarRootView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/action_bar_root|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/action_bar_root",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/action_bar_root\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/action_bar_root",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "fragmentContainerView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/fragment_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/fragment_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/fragment_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/fragment_container",
+        "clickable": false,
+        "bounds": "[0,0][720,1280]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "fragmentReadingListCoordinatorList": {
+      "key": "android.widget.ScrollView|id:org.wikipedia.dev:id/fragment_reading_list_coordinator|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/fragment_reading_list_coordinator",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ScrollView[@resource-id=\"org.wikipedia.dev:id/fragment_reading_list_coordinator\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ScrollView",
+        "resourceId": "org.wikipedia.dev:id/fragment_reading_list_coordinator",
+        "clickable": false,
+        "scrollable": true,
+        "bounds": "[0,48][720,1232]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListAppBarView": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/reading_list_app_bar|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_app_bar",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/reading_list_app_bar\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/reading_list_app_bar",
+        "clickable": false,
+        "bounds": "[0,48][720,528]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListToolbarContainerView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/reading_list_toolbar_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_toolbar_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/reading_list_toolbar_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/reading_list_toolbar_container",
+        "clickable": false,
+        "bounds": "[0,48][720,528]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListHeaderView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/reading_list_header|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_header",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/reading_list_header\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/reading_list_header",
+        "clickable": false,
+        "bounds": "[0,48][720,528]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListHeaderGradientView": {
+      "key": "android.view.View|id:org.wikipedia.dev:id/reading_list_header_image_gradient|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_header_image_gradient",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.View[@resource-id=\"org.wikipedia.dev:id/reading_list_header_image_gradient\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.View",
+        "resourceId": "org.wikipedia.dev:id/reading_list_header_image_gradient",
+        "clickable": false,
+        "bounds": "[0,48][720,528]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListHeaderEmptyImage": {
+      "key": "android.widget.ImageView|id:org.wikipedia.dev:id/reading_list_header_empty_image|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_header_empty_image",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageView[@resource-id=\"org.wikipedia.dev:id/reading_list_header_empty_image\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ImageView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageView",
+        "resourceId": "org.wikipedia.dev:id/reading_list_header_empty_image",
+        "clickable": false,
+        "bounds": "[264,192][456,384]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListToolbarView": {
+      "key": "android.view.ViewGroup|id:org.wikipedia.dev:id/reading_list_toolbar|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_toolbar",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.ViewGroup[@resource-id=\"org.wikipedia.dev:id/reading_list_toolbar\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.ViewGroup",
+        "resourceId": "org.wikipedia.dev:id/reading_list_toolbar",
+        "clickable": false,
+        "bounds": "[0,48][720,176]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "navigateUpBtn": {
+      "key": "android.widget.ImageButton|id:|desc:Navigate up",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~Navigate up",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageButton[@content-desc=\"Navigate up\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ImageButton[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageButton",
+        "contentDesc": "Navigate up",
+        "clickable": true,
+        "bounds": "[0,56][112,168]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "menuSearchListsBtn": {
+      "key": "android.widget.Button|id:org.wikipedia.dev:id/menu_search_lists|desc:Filter my lists",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~Filter my lists",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "id",
+          "selector": "id=org.wikipedia.dev:id/menu_search_lists",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.Button[@resource-id=\"org.wikipedia.dev:id/menu_search_lists\" and @content-desc=\"Filter my lists\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.Button[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.Button",
+        "resourceId": "org.wikipedia.dev:id/menu_search_lists",
+        "contentDesc": "Filter my lists",
+        "clickable": true,
+        "bounds": "[528,64][624,160]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "menuSortOptionsBtn": {
+      "key": "android.widget.Button|id:org.wikipedia.dev:id/menu_sort_options|desc:Sort",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~Sort",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "id",
+          "selector": "id=org.wikipedia.dev:id/menu_sort_options",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.Button[@resource-id=\"org.wikipedia.dev:id/menu_sort_options\" and @content-desc=\"Sort\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.Button[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.Button",
+        "resourceId": "org.wikipedia.dev:id/menu_sort_options",
+        "contentDesc": "Sort",
+        "clickable": true,
+        "bounds": "[624,64][720,160]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListSwipeRefreshView": {
+      "key": "android.view.ViewGroup|id:org.wikipedia.dev:id/reading_list_swipe_refresh|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_swipe_refresh",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.ViewGroup[@resource-id=\"org.wikipedia.dev:id/reading_list_swipe_refresh\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.ViewGroup",
+        "resourceId": "org.wikipedia.dev:id/reading_list_swipe_refresh",
+        "clickable": false,
+        "bounds": "[0,528][720,1232]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListRecyclerList": {
+      "key": "androidx.recyclerview.widget.RecyclerView|id:org.wikipedia.dev:id/reading_list_recycler_view|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_recycler_view",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"org.wikipedia.dev:id/reading_list_recycler_view\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "androidx.recyclerview.widget.RecyclerView",
+        "resourceId": "org.wikipedia.dev:id/reading_list_recycler_view",
+        "clickable": false,
+        "bounds": "[0,528][720,1232]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "view": {
+      "key": "android.view.ViewGroup|xpath:/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]",
+      "primary": {
+        "strategy": "xpath",
+        "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]",
+        "unique": true,
+        "note": "absolute: brittle, last resort"
+      },
+      "fallbacks": [],
+      "attributes": {
+        "class": "android.view.ViewGroup",
+        "clickable": false,
+        "bounds": "[0,529][720,801]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "itemTitleContainerView": {
+      "key": "android.view.ViewGroup|id:org.wikipedia.dev:id/item_title_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/item_title_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.view.ViewGroup[@resource-id=\"org.wikipedia.dev:id/item_title_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.view.ViewGroup",
+        "resourceId": "org.wikipedia.dev:id/item_title_container",
+        "clickable": false,
+        "bounds": "[32,569][688,623]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "itemTitleText": {
+      "key": "android.widget.TextView|id:org.wikipedia.dev:id/item_title|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/item_title",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"My reading list\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@resource-id=\"org.wikipedia.dev:id/item_title\" and @text=\"My reading list\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "resourceId": "org.wikipedia.dev:id/item_title",
+        "text": "My reading list",
+        "clickable": false,
+        "bounds": "[32,569][301,623]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "itemReadingListStatisticalDescriptionText": {
+      "key": "android.widget.TextView|id:org.wikipedia.dev:id/item_reading_list_statistical_description|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/item_reading_list_statistical_description",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"0 of 0 articles available offline\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@resource-id=\"org.wikipedia.dev:id/item_reading_list_statistical_description\" and @text=\"0 of 0 articles available offline\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "resourceId": "org.wikipedia.dev:id/item_reading_list_statistical_description",
+        "text": "0 of 0 articles available offline",
+        "clickable": false,
+        "bounds": "[32,635][688,673]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "itemShareBtn": {
+      "key": "android.widget.ImageView|id:org.wikipedia.dev:id/item_share_button|desc:Share…",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~Share…",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "id",
+          "selector": "id=org.wikipedia.dev:id/item_share_button",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageView[@resource-id=\"org.wikipedia.dev:id/item_share_button\" and @content-desc=\"Share…\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.ImageView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageView",
+        "resourceId": "org.wikipedia.dev:id/item_share_button",
+        "contentDesc": "Share…",
+        "clickable": true,
+        "bounds": "[8,673][104,769]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "itemOverflowMenuBtn": {
+      "key": "android.widget.ImageView|id:org.wikipedia.dev:id/item_overflow_menu|desc:More options",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~More options",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "id",
+          "selector": "id=org.wikipedia.dev:id/item_overflow_menu",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageView[@resource-id=\"org.wikipedia.dev:id/item_overflow_menu\" and @content-desc=\"More options\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/androidx.recyclerview.widget.RecyclerView[1]/android.view.ViewGroup[1]/android.widget.ImageView[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageView",
+        "resourceId": "org.wikipedia.dev:id/item_overflow_menu",
+        "contentDesc": "More options",
+        "clickable": true,
+        "bounds": "[104,673][200,769]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    },
+    "readingListEmptyText": {
+      "key": "android.widget.TextView|id:org.wikipedia.dev:id/reading_list_empty_text|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/reading_list_empty_text",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"You have no articles added to this list.\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@resource-id=\"org.wikipedia.dev:id/reading_list_empty_text\" and @text=\"You have no articles added to this list.\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "resourceId": "org.wikipedia.dev:id/reading_list_empty_text",
+        "text": "You have no articles added to this list.",
+        "clickable": false,
+        "bounds": "[0,1002][720,1109]"
+      },
+      "firstSeen": "2026-11-11T16:53:21.386Z",
+      "lastSeen": "2026-11-11T16:53:21.386Z"
+    }
+  },
+  "lastCaptured": "2026-11-11T16:53:21.386Z",
+  "captures": 1
+}

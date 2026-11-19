@@ -1,40 +1,41 @@
 import BasePage, { S } from './BasePage.js';
+import BottomNav, { TABS } from './components/BottomNav.js';
 
-// The main screen with the bottom navigation bar. The tabs are created in code
-// (app/src/main/java/org/wikipedia/navtab/NavTab.kt): each tab's view id is its menu id.
-export const TABS = {
-  home: { id: 'nav_tab_home', label: 'Home' },
-  saved: { id: 'nav_tab_reading_lists', label: 'Saved' },
-  search: { id: 'nav_tab_search', label: 'Search' },
-  activity: { id: 'nav_tab_edits', label: 'Activity' },
-  more: { id: 'nav_tab_more', label: 'More' },
-};
+export { TABS };
 
+// Home tab (MainActivity, Compose feed). Captured as locators/MainScreen.json.
+// Top: "Wikipedia" wordmark, sub-tabs "Community" / "For you", language button "EN".
+// Feed cards (Community): "Featured article", "In the news", "On this day", "Picture of the day"...
 const SEL = {
-  navBar: S.id('main_nav_tab_layout'),
-  tab: (key) => S.id(TABS[key].id),
+  community: S.text('Community'),
+  forYou: S.text('For you'),
+  language: S.text('EN'),
+  featuredArticle: S.text('Featured article'),
 };
 
 class HomePage extends BasePage {
   get anchors() {
-    return [SEL.navBar, SEL.tab('home')];
+    return [SEL.community, SEL.forYou];
   }
 
-  get navBar() { return $(SEL.navBar); }
+  get nav() { return BottomNav; }
+  get navBar() { return BottomNav.bar; }
+  get communityTab() { return $(SEL.community); }
+  get forYouTab() { return $(SEL.forYou); }
+  get languageButton() { return $(SEL.language); }
 
-  /** The tab's view, e.g. tab('search'). */
-  tab(key) {
-    return $(SEL.tab(key));
+  /** Bottom tab view, e.g. tab('search'). */
+  tab(key) { return BottomNav.tab(key); }
+  async openTab(key) { await BottomNav.open(key); }
+  async isTabSelected(key) { return BottomNav.isSelected(key); }
+
+  async open() {
+    await BottomNav.open('home');
+    await this.waitForOpen();
   }
 
-  async openTab(key) {
-    await this.tap(SEL.tab(key));
-  }
-
-  /** True when the tab is the selected one. */
-  async isTabSelected(key) {
-    return (await this.tab(key).getAttribute('selected')) === 'true';
-  }
+  async showCommunity() { await this.tap(SEL.community); }
+  async showForYou() { await this.tap(SEL.forYou); }
 }
 
 export default new HomePage();
