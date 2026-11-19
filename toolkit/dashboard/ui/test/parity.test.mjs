@@ -47,7 +47,7 @@ async function newPage(id) {
   return page.evaluate(() => ({
     verdict: document.querySelector('[data-testid=verdict]').textContent.trim(),
     why: document.querySelector('[data-testid=why]').textContent.trim(),
-    kpis: [...document.querySelectorAll('[data-kpi]')].map((n) => n.textContent.trim()),
+    kpis: [...document.querySelectorAll('[data-kpi]')].map((n) => n.dataset.value),
     groups: JSON.parse(document.querySelector('[data-testid=groups]').dataset.keys).sort(),
   }));
 }
@@ -79,7 +79,7 @@ for (const app of ['egenome', 'wikipedia', 'instagram']) {
         await page.goto(at('index.html', `#/triage?run=${r.id}&f=failures`)); await page.waitForSelector('.vbox');
         const a = await page.evaluate(() => ({ verdict: document.querySelector('.vbox .v').textContent.replace(/^[^A-Z]+/, '').trim(), why: document.querySelector('.vbox .why').textContent.trim(), kpis: [...document.querySelectorAll('.kpis .kpi .n')].map((n) => n.textContent.trim()) }));
         await page.goto(at('next.html', `#/overview?run=${r.id}`)); await page.waitForSelector('[data-testid=verdict]');
-        const b = await page.evaluate(() => ({ verdict: document.querySelector('[data-testid=verdict]').textContent.trim(), why: document.querySelector('[data-testid=why]').textContent.trim(), kpis: [...document.querySelectorAll('[data-kpi]')].map((n) => n.textContent.trim()) }));
+        const b = await page.evaluate(() => ({ verdict: document.querySelector('[data-testid=verdict]').textContent.trim(), why: document.querySelector('[data-testid=why]').textContent.trim(), kpis: [...document.querySelectorAll('[data-kpi]')].map((n) => n.dataset.value) }));
         t.diagnostic(`${r.id}: ${b.verdict} · ${b.why}`);
         assert.deepEqual(b, a, `run ${r.id}`);
       }

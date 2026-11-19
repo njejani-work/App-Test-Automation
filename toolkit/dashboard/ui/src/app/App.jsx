@@ -1,5 +1,6 @@
 // The page: sidebar, header, the current view, the command palette and the "Copied / Updated" messages.
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { MotionConfig } from 'motion/react';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
@@ -15,7 +16,7 @@ import { triageContext } from '@/logic/triage-settings.js';
 import { selectRun } from '@/logic/select.js';
 import { groupRows } from '@/logic/groups.js';
 import { Placeholder } from '@/views/Placeholder.jsx';
-import { LogicCheck } from '@/views/LogicCheck.jsx';
+import { Overview } from '@/views/Overview.jsx';
 
 export function App() {
   const [S, go] = useHashState();
@@ -32,6 +33,7 @@ export function App() {
   useEffect(() => { if (idx?.project) document.title = idx.project; }, [idx]);
 
   return (
+    <MotionConfig reducedMotion="user">
     <TooltipProvider delayDuration={300}>
       <SidebarProvider>
         <AppSidebar S={S} go={go} apps={data.apps} idx={idx} sel={sel} groups={groups} />
@@ -40,12 +42,14 @@ export function App() {
           <main className="flex-1 p-3 md:p-6">
             {!idx ? <p className="text-muted-foreground">Loading…</p>
               : !idx.runs.length ? <p className="text-muted-foreground">No test runs yet. Run a suite (for example <code>npm run test:smoke</code>); this page fills in by itself.</p>
-              : <Placeholder tab={S.tab}>{S.tab === 'overview' && <LogicCheck sel={sel} groups={groups} />}</Placeholder>}
+              : S.tab === 'overview' ? <Overview sel={sel} groups={groups} runs={idx.runs} go={go} />
+              : <Placeholder tab={S.tab} />}
           </main>
         </SidebarInset>
       </SidebarProvider>
       <CommandPalette open={palette} setOpen={setPalette} S={S} go={go} sel={sel} apps={data.apps} data={data} toggleTheme={toggleTheme} />
       <Toaster theme={theme} position="bottom-right" />
     </TooltipProvider>
+    </MotionConfig>
   );
 }
