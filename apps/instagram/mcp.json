@@ -1,0 +1,16 @@
+{
+  "_help": "What the MCP server (app-tests/mcp, started with MCP_APP=instagram) needs to know about this app: its name and package, the .env key of the device id, the device suites the assistant may start (npm run test:<suite>) and what a run does to the device. The assistant shows 'effects' to the user before a run starts.",
+  "name": "Instagram",
+  "package": "com.instagram.android",
+  "deviceVar": "UDID",
+  "suites": {
+    "smoke": { "minutes": "3-6", "what": "login with valid and invalid credentials, then log in and out again (3 tests)" },
+    "home": { "minutes": "3-6", "what": "the Home feed after login (3 tests)" },
+    "profile": { "minutes": "4-8", "what": "the profile screen after login (5 tests)" },
+    "menu": { "minutes": "3-6", "what": "the profile menu after login (4 tests)" }
+  },
+  "effects": [
+    "The tests use the REAL Instagram app and log in to Instagram with the account in .env (a wrong-password attempt is part of the login tests).",
+    "Instagram is restarted for the run; its data is not cleared."
+  ]
+}

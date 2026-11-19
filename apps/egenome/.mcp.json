@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "egenome-tests": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["mcp/server.mjs"]
-    }
-  }
-}

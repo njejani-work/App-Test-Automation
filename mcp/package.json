@@ -1,0 +1,23 @@
+{
+  "name": "app-tests-mcp",
+  "version": "0.4.0",
+  "private": true,
+  "description": "MCP server for the app tests (one server per app: MCP_APP=egenome | instagram | wikipedia): lets an AI assistant read runs, failures, unit tests and the device status, run the unit tests, and start device suites after a confirmation.",
+  "type": "module",
+  "main": "server.mjs",
+  "bin": {
+    "app-tests-mcp": "server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "inspect": "npx @modelcontextprotocol/inspector node server.mjs",
+    "test": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=@apptest/toolkit/dashboard/unit-report.mjs --test-reporter-destination=stdout \"test/**/*.test.mjs\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  }
+}

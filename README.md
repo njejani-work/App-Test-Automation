@@ -5,6 +5,7 @@ Android app tests for several apps, sharing one toolkit.
 ```
 app-tests/
 ├─ toolkit/        shared tooling (@apptest/toolkit), one copy for every app
+├─ mcp/            MCP server for AI assistants, one server per app (MCP_APP); see mcp/README.md
 └─ apps/<id>/      one folder per app: its config, page objects, specs, data and settings
 ```
 

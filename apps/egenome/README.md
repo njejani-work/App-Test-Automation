@@ -363,20 +363,12 @@ format (used by `npm run deliverables` and CI).
 
 ## MCP server (AI assistant access)
 
-`mcp/` holds a small **Model Context Protocol** server that lets an AI assistant (Claude / Cowork, Claude Code, VS Code)
-read the test results – runs and verdicts, failures with their causes and history, one test in full, the unit tests,
-code meanings, the connected phone – the same data as the dashboard. It can also run the unit tests and start a device
-suite **only after you confirm** (it clears the app's data), one run at a time with time limits. It has its own `package.json`
-(the MCP packages are not added to the test project or CI).
-
-```bash
-npm run mcp:install    # once
-npm run mcp:test       # its tests
-npm run mcp:inspect    # try it in MCP Inspector
-```
-
-Claude Code and VS Code find it through `.mcp.json` / `.vscode/mcp.json`; Claude Desktop / Cowork: install the extension file `mcp/egenome-tests.mcpb` (Settings → Extensions), see
-[`mcp/README.md`](mcp/README.md). Then ask e.g. *"Triage the latest smoke run"*.
+The **Model Context Protocol** server is shared by all apps: `app-tests/mcp/`, one server per app (`MCP_APP=egenome`
+for this one). It lets an AI assistant (Claude / Cowork, Claude Code, VS Code) read the test results – runs and
+verdicts, failures with their causes and history, one test in full, the unit tests, code meanings, the connected phone –
+and run the unit tests or start a device suite **only after you confirm**. What it knows about eGenome (package, suites,
+what a run does to the device) is in [`mcp.json`](mcp.json). Setup and the Claude config:
+[`../../mcp/README.md`](../../mcp/README.md). Then ask e.g. *"Triage the latest eGenome smoke run"*.
 
 ## Capturing locators
 
@@ -426,8 +418,7 @@ Navigate the app; each screen is saved to `locators/<Screen>.json` with a screen
 │   ├── triage.json · budgets.json · api-formats.json   dashboard settings (shared through git)
 │   ├── dashboard/               the dashboard's own tests: unit/ page/ fixtures.mjs (demo runs)
 │   └── unit/                    unit tests of the project code: *.test.mjs · helpers/fake-device.mjs · fixtures/ (real screens)
-├── mcp/                         MCP server for AI assistants: server.mjs · runner.mjs · test/ · extension/ · own package.json
-├── .mcp.json · .vscode/mcp.json  connect Claude Code / VS Code to the MCP server
+├── mcp.json                     what the shared MCP server (app-tests/mcp) knows about this app
 ├── scripts/
 │   ├── locator-capture/         capture tool
 │   ├── layout/                  generate.mjs · accept.mjs

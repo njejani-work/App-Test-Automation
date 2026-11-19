@@ -1,0 +1,34 @@
+{
+  "servers": {
+    "app-tests-egenome": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/mcp/server.mjs"
+      ],
+      "env": {
+        "MCP_APP": "egenome"
+      }
+    },
+    "app-tests-instagram": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/mcp/server.mjs"
+      ],
+      "env": {
+        "MCP_APP": "instagram"
+      }
+    },
+    "app-tests-wikipedia": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/mcp/server.mjs"
+      ],
+      "env": {
+        "MCP_APP": "wikipedia"
+      }
+    }
+  }
+}

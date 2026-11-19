@@ -1,0 +1,14 @@
+{
+  "_help": "What the MCP server (app-tests/mcp, started with MCP_APP=wikipedia) needs to know about this app: its name and package, the .env key of the device id, the device suites the assistant may start (npm run test:<suite>) and what a run does to the device. The assistant shows 'effects' to the user before a run starts.",
+  "name": "Wikipedia",
+  "package": "org.wikipedia.dev",
+  "deviceVar": "DEVICE_UDID",
+  "suites": {
+    "smoke": { "minutes": "2-4", "what": "install and start the built APK, intro, tabs, search, an article, Settings (8 tests)" },
+    "tour": { "minutes": "3-5", "what": "every bottom-bar screen and a new reading list (8 tests)" }
+  },
+  "effects": [
+    "Appium installs the newest APK built in out/ every run (npm run build:apk is NOT run) and CLEARS the Wikipedia app's data: every run starts like a fresh install.",
+    "No login; the tests need internet and only read Wikipedia (nothing is edited)."
+  ]
+}

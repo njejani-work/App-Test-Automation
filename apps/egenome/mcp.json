@@ -1,0 +1,15 @@
+{
+  "_help": "What the MCP server (app-tests/mcp, started with MCP_APP=egenome) needs to know about this app: its name and package, the .env key of the device id, the device suites the assistant may start (npm run test:<suite>) and what a run does to the device. The assistant shows 'effects' to the user before a run starts.",
+  "name": "eGenome.ai",
+  "package": "com.egenome.app",
+  "deviceVar": "DEVICE_UDID",
+  "suites": {
+    "smoke": { "minutes": "5-10", "what": "the 8 most important tests: login, Home, Reports, Premium, Settings, sign out" },
+    "regression": { "minutes": "20-45", "what": "every P0 / P1 flow (6 spec files)" },
+    "layout": { "minutes": "10-20", "what": "visits 15 screens and checks their layout" }
+  },
+  "effects": [
+    "The eGenome app's data on this device is CLEARED first: the test account is logged out and any app data there is lost.",
+    "The tests log in with the test account from .env and go through the app."
+  ]
+}

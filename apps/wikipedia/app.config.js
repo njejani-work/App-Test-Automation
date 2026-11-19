@@ -54,6 +54,9 @@ export default {
     'appium:deviceName': env.DEVICE_NAME || 'Android Emulator',
     'appium:udid': env.DEVICE_UDID || undefined, // empty = the only connected device
     'appium:app': apk.path, // Appium installs this APK
+    // ...every time: every build has the same version code (50616), and with the same code Appium kept the build already
+    // on the device (19 Nov 2026: the emulator had the 2026-11-05 build while runs reported the 2026-11-11 APK)
+    'appium:enforceAppInstall': true,
     'appium:appWaitActivity': '*', // the app may open onboarding first; any screen is fine
     'appium:autoLaunch': false, // install (and clear) only: the before hook switches on API logging, then opens the app
     'appium:noReset': false, // clear app data per session: every run starts like a fresh install

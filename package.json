@@ -11,6 +11,9 @@
     "node": ">=22"
   },
   "scripts": {
-    "test:unit": "npm run test:unit --workspaces --if-present"
+    "test:unit": "npm run test:unit --workspaces --if-present",
+    "mcp:install": "npm --prefix mcp install",
+    "mcp:test": "npm --prefix mcp test",
+    "mcp:inspect": "npm --prefix mcp run inspect"
   }
 }
