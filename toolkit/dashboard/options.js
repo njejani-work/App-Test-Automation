@@ -6,8 +6,13 @@ import path from 'node:path';
 // folder the command runs in (apps/<id> for every npm script). Its reports/, .env, test/triage.json, budgets.json and
 // layout specs are used.
 export const PROJECT_ROOT = path.resolve(process.env.DASHBOARD_PROJECT_ROOT || process.cwd());
-/** The Android app under test (DASHBOARD_APP_PACKAGE): its version, its log lines and its API calls are read. */
-export const APP_PACKAGE = process.env.DASHBOARD_APP_PACKAGE || 'com.egenome.app';
+/**
+ * The Android app under test (DASHBOARD_APP_PACKAGE): its version, its log lines and its API calls are read.
+ * createConfig() sets it from the app's app.config.js (setAppPackage): this module may be imported before that (an
+ * app's hooks import the recorder), so it is a live value, read when used, never copied at import.
+ */
+export let APP_PACKAGE = process.env.DASHBOARD_APP_PACKAGE || 'com.egenome.app';
+export function setAppPackage(pkg) { if (pkg) APP_PACKAGE = pkg; }
 
 const env = process.env;
 const num = (v, d) => (v != null && v !== '' && !Number.isNaN(Number(v)) ? Number(v) : d);
@@ -33,6 +38,6 @@ export const options = {
   get udid() { return env.DEVICE_UDID || ''; },
   /** DASHBOARD_TITLE: name in the dashboard header. */
   get projectName() { return env.DASHBOARD_TITLE || 'eGenome.ai App Tests'; },
-  /** The shared list of apps for the switcher at the top left (DASHBOARD_APPS; default: ../Test Dashboard/apps.json). */
-  get appsFile() { return env.DASHBOARD_APPS ? path.resolve(PROJECT_ROOT, env.DASHBOARD_APPS) : path.resolve(PROJECT_ROOT, '..', 'Test Dashboard', 'apps.json'); },
+  /** The list of apps for the App filter (DASHBOARD_APPS; default: the workspace's dashboard/apps.json, from apps/<id>). */
+  get appsFile() { return env.DASHBOARD_APPS ? path.resolve(PROJECT_ROOT, env.DASHBOARD_APPS) : path.resolve(PROJECT_ROOT, '..', '..', 'dashboard', 'apps.json'); },
 };

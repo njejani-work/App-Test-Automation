@@ -3,20 +3,21 @@
 import { step } from '../dashboard/recorder.js';
 import { APP_PACKAGE } from '../dashboard/options.js';
 
-export const APP_ID = APP_PACKAGE;
+/** The app's package (a live value: set by createConfig()). */
+export { APP_PACKAGE as APP_ID } from '../dashboard/options.js';
 
 /** Clear the app's data (logged out, intro shows again) and relaunch it. */
 export const freshInstallState = () =>
   step('Clear app data and relaunch', async () => {
-    await driver.execute('mobile: clearApp', { appId: APP_ID });
-    await driver.activateApp(APP_ID);
+    await driver.execute('mobile: clearApp', { appId: APP_PACKAGE });
+    await driver.activateApp(APP_PACKAGE);
   });
 
 /** Kill and relaunch the app without clearing data. */
 export const restartApp = () =>
   step('Restart the app', async () => {
-    await driver.terminateApp(APP_ID);
-    await driver.activateApp(APP_ID);
+    await driver.terminateApp(APP_PACKAGE);
+    await driver.activateApp(APP_PACKAGE);
   });
 
 /** Send the app to the background for a few seconds, then bring it back. */
@@ -29,7 +30,7 @@ export const setNetwork = (on) =>
 
 /** True while the app under test is in the foreground (i.e. it hasn't crashed or left the app). */
 export async function appInForeground() {
-  try { return (await driver.getCurrentPackage()) === APP_ID; } catch { return false; }
+  try { return (await driver.getCurrentPackage()) === APP_PACKAGE; } catch { return false; }
 }
 
 /** Wait, then report whether a screen opened (used to assert that something did NOT happen). */

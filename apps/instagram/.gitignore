@@ -1,4 +1,3 @@
-@"
 node_modules/
 reports/
 allure-results/
@@ -7,4 +6,3 @@ locators/
 handover/
 .env
 *.log
-"@ | Set-Content -Encoding utf8 .gitignore

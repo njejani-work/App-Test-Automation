@@ -127,7 +127,7 @@ export function installLogging() {
         pushLog('error', `${cmd}${what} → ${this.selector} FAILED: ${err.message}`);
         throw err;
       }
-    }, true);
+    }, { attachToElement: true }); // WebdriverIO 10.2: an options object (a bare true was removed)
   }
 }
 

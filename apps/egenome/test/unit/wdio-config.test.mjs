@@ -15,6 +15,7 @@ test('eGenome: its package, activity and suites over the shared defaults', async
   assert.equal(caps['appium:udid'], 'emulator-5556', 'device from the environment');
   assert.deepEqual(Object.keys(c.suites), ['smoke', 'regression', 'layout', 'extended']);
   assert.equal(c.mochaOpts.timeout, 180000);
+  assert.equal(c.strictSelectors, false, '$() takes the first match, as WebdriverIO 10.1 did');
   assert.ok(c.onPrepare && c.afterTest, 'the dashboard hooks are added');
 });
 
@@ -37,4 +38,15 @@ test('its own hooks run after the toolkit\'s; replace drops the toolkit\'s hook 
 
 test('a missing required setting says which one', async () => {
   await assert.rejects(createConfig({ id: 'x', name: 'X' }, { env: env() }), /app.config.js is missing: package, activity, specs/);
+});
+
+test('capabilities and settings can come from the environment (a function), and undefined leaves a default out', async () => {
+  const c = await createConfig({
+    ...app,
+    capabilities: (e) => ({ 'appium:udid': e.UDID || undefined, 'appium:waitForIdleTimeout': undefined }),
+    wdio: (e) => ({ logLevel: e.LOG_LEVEL || 'warn' }),
+  }, { env: { LOG_LEVEL: 'debug' } });
+  assert.equal('appium:udid' in c.capabilities[0], false, 'no UDID: no udid capability at all');
+  assert.equal('appium:waitForIdleTimeout' in c.capabilities[0], false, 'a default left out');
+  assert.equal(c.logLevel, 'debug');
 });

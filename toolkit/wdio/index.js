@@ -6,7 +6,8 @@
 // everything else (Appium service, reporters, timeouts, the dashboard recording) is the same for every app.
 //
 // Overrides: anything in app.wdio wins over the defaults below; app.capabilities merge key by key over the default
-// capabilities. createConfig(app, { hooks }) adds hooks that run AFTER the toolkit's own (WebdriverIO accepts a list
+// capabilities (a key set to undefined leaves that default out). Either may be a function (env) => ({...}), called
+// after .env is loaded, for values that come from the environment. createConfig(app, { hooks }) adds hooks that run AFTER the toolkit's own (WebdriverIO accepts a list
 // per hook). createConfig(app, { replace: ['afterTest'] }) drops the toolkit's own hook of that name first.
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -59,6 +60,10 @@ function defaults(env) {
       framework: 'mocha',
       reporters: ['spec', ['allure', { outputDir: 'allure-results' }]],
       mochaOpts: { ui: 'bdd', timeout: 180000 },
+      // WebdriverIO 10.2 throws when $() finds more than one element ("strict mode"); 10.1, which the page objects
+      // were written for, took the first one. Many selectors match lists (stories, feed posts, error texts), so keep
+      // the 10.1 behaviour. Use $$() when you mean several elements.
+      strictSelectors: false,
     },
     hooks: {
       // a screenshot of the failed test for the spec / Allure reporters
@@ -81,8 +86,13 @@ export async function createConfig(app, { hooks = {}, replace = [], env = proces
   // the shared dashboard records this app (read when its modules load, so set before they are imported)
   env.DASHBOARD_APP_PACKAGE ||= app.package;
   if (app.dashboard?.title) env.DASHBOARD_TITLE ||= app.dashboard.title;
+  // the dashboard modules may already be loaded (an app's hooks import the recorder): tell them too (19 Nov 2026: the
+  // Instagram run was recorded as com.egenome.app, the default)
+  if (env === process.env) (await import('../dashboard/options.js')).setAppPackage(env.DASHBOARD_APP_PACKAGE);
 
   const d = defaults(env);
+  const valueOf = (v) => (typeof v === 'function' ? v(env) : v || {});
+  const strip = (o) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined));
   const config = {
     runner: d.runner,
     port: d.port,
@@ -90,9 +100,9 @@ export async function createConfig(app, { hooks = {}, replace = [], env = proces
     suites: app.suites || {},
     exclude: app.exclude || [],
     maxInstances: d.maxInstances,
-    capabilities: [{ ...d.capabilities, 'appium:appPackage': app.package, 'appium:appActivity': app.activity, ...(app.capabilities || {}) }],
+    capabilities: [strip({ ...d.capabilities, 'appium:appPackage': app.package, 'appium:appActivity': app.activity, ...valueOf(app.capabilities) })],
     ...d.wdio,
-    ...(app.wdio || {}),
+    ...valueOf(app.wdio),
   };
   for (const [name, fn] of Object.entries(d.hooks)) if (!replace.includes(name)) config[name] = fn;
   for (const [name, fn] of Object.entries(hooks)) config[name] = config[name] ? [...[].concat(config[name]), ...[].concat(fn)] : fn;

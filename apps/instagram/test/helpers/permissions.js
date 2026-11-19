@@ -7,16 +7,19 @@
 
 import { snapshot } from './evidence.js';
 
-const PC = 'com.android.permissioncontroller:id/';
+// The popup's ids, matched by their ending: emulators with Google Play / Google APIs use
+// com.google.android.permissioncontroller, others com.android.permissioncontroller (19 Nov 2026: only the latter was
+// matched, so on a Google APIs emulator the popup was never denied and every wait behind it timed out).
+const pc = (id) => $(`android=new UiSelector().resourceIdMatches(".*permissioncontroller:id/${id}")`);
 
 export const PermissionPopup = {
-  get dialog()     { return $(`id=${PC}grant_dialog`); },
-  get message()    { return $(`id=${PC}permission_message`); },
-  get allowBtn()   { return $(`id=${PC}permission_allow_button`); },
+  get dialog()     { return pc('grant_dialog'); },
+  get message()    { return pc('permission_message'); },
+  get allowBtn()   { return pc('permission_allow_button'); },
   // First request shows "Don't allow" with id permission_deny_button,
   // later requests use permission_deny_and_dont_ask_again_button (as in screen 10).
-  get denyAgainBtn() { return $(`id=${PC}permission_deny_and_dont_ask_again_button`); },
-  get denyBtn()      { return $(`id=${PC}permission_deny_button`); },
+  get denyAgainBtn() { return pc('permission_deny_and_dont_ask_again_button'); },
+  get denyBtn()      { return pc('permission_deny_button'); },
   get denyByText()   { return $('android=new UiSelector().className("android.widget.Button").textMatches("(?i)(don.?t allow|deny)")'); },
 };
 
@@ -32,7 +35,9 @@ export async function denyPermissionPopupIfShown({ only = options.only } = {}) {
   if (busy) return false;
   busy = true;
   try {
-    if (!(await PermissionPopup.dialog.isDisplayed())) return false;
+    // the dialog by its id, or else by its "Don't allow" button (in case a build names the dialog differently)
+    const shown = (await PermissionPopup.dialog.isDisplayed()) || (await PermissionPopup.denyByText.isDisplayed());
+    if (!shown) return false;
 
     const msg = (await PermissionPopup.message.isExisting())
       ? (await PermissionPopup.message.getText()) : '';
@@ -84,5 +89,7 @@ export function installPermissionGuard({ only = /notif/i, throttleMs = 1000 } = 
   };
 
   browser.overwriteCommand('waitUntil', wrapped);         // browser.waitUntil(...)
-  browser.overwriteCommand('waitUntil', wrapped, true);   // element.waitUntil / waitForDisplayed / ...
+  // element.waitUntil / waitForDisplayed / ... (WebdriverIO 10.2 wants an options object; a bare true was removed and
+  // threw, so neither this guard nor the click / typing log was installed: 19 Nov 2026)
+  browser.overwriteCommand('waitUntil', wrapped, { attachToElement: true });
 }
