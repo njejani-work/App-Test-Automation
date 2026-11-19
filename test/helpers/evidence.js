@@ -120,6 +120,8 @@ export function installLogging() {
       try {
         const r = await orig(...args);
         pushLog('action', `${cmd}${what} → ${this.selector} (${Date.now() - t0} ms)`);
+        // shared dashboard: the tap / typing shows under its step (passwords masked)
+        try { globalThis.DASHBOARD_ACTION?.(cmd === 'click' ? 'tap' : cmd, String(this.selector), cmd === 'setValue' || cmd === 'addValue' ? mask(args[0]) : undefined); } catch {}
         return r;
       } catch (err) {
         pushLog('error', `${cmd}${what} → ${this.selector} FAILED: ${err.message}`);
@@ -237,6 +239,17 @@ async function finishStep(s, status, err, t0) {
  * @param {number}   opts.settleTimeout
  */
 export async function step(name, action, { waitFor, settle = true, settleTimeout = 4000 } = {}) {
+  // Shared test dashboard on (wdio.conf.js): it records the step, its screenshot and its error
+  if (globalThis.DASHBOARD_STEP) {
+    return globalThis.DASHBOARD_STEP(mask(name), async () => {
+      await denyPermissionPopupIfShown();                 // popup would block the action
+      const result = action ? await action() : undefined;
+      if (waitFor) await waitFor(result);
+      if (settle) await waitForUiIdle({ timeout: settleTimeout });
+      await denyPermissionPopupIfShown();                 // popup appeared as a result of the action
+      return result;
+    });
+  }
   if (!currentTest || currentStep) {          // not in a test, or nested step → just run it
     const r = action ? await action() : undefined;
     if (waitFor) await waitFor(r);
@@ -272,6 +285,7 @@ export const checkpoint = (name, opts) => step(name, null, opts);
  * Throws outside a test so callers can ignore it.
  */
 export async function snapshot(name) {
+  if (globalThis.DASHBOARD_STEP) return globalThis.DASHBOARD_STEP(name, async () => {}); // its own step + screenshot
   if (!currentTest) throw new Error('No test running');
   if (capturing) return;
   const parent = currentStep;

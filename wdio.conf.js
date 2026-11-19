@@ -10,12 +10,39 @@ import {
 } from './test/helpers/evidence.js';
 import { buildDashboard } from './tools/build-dashboard.mjs';
 import { users } from './test/data/users.js';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const env = process.env;
 const KEEP_RUNS = Number(env.KEEP_RUNS || 30);       // run history shown in the dashboard
-const LOG_DIR = path.join(RUN_DIR, 'logs');
 
-export const config = {
+// ---------------------------------------------------------------------------
+// Shared test dashboard (the same one as the eGenome.ai tests; switch apps in its App filter).
+// Its recorder lives in the eGenome.ai project; DASHBOARD_LIB points to it (default: ../eGenome.ai next to this
+// project). It records every step(...) of the specs with a screenshot, the app's Android log, the device, memory and
+// frames, and writes reports/index.html. Without it (folder missing, or DASHBOARD=off) the old recording below is used:
+// reports/dashboard/index.html.
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const DASHBOARD_LIB = path.resolve(HERE, env.DASHBOARD_LIB || '../eGenome.ai/test/support/dashboard');
+let shared = null;
+if (env.DASHBOARD !== 'off' && fs.existsSync(path.join(DASHBOARD_LIB, 'hooks.js'))) {
+  env.DASHBOARD_PROJECT_ROOT = HERE;                        // reports/, test/triage.json, test/budgets.json of THIS project
+  env.DASHBOARD_APP_PACKAGE ||= 'com.instagram.android';
+  env.DASHBOARD_TITLE ||= 'Instagram App Tests';
+  env.DEVICE_UDID ||= env.UDID || '';                       // the device adb reads from (empty = the only one)
+  env.DASHBOARD_VIDEO ||= 'failed';
+  try {
+    const lib = (f) => import(pathToFileURL(path.join(DASHBOARD_LIB, f)).href);
+    shared = { ...(await lib('hooks.js')), recorder: await lib('recorder.js') };
+  } catch (e) {
+    console.warn(`[dashboard] shared dashboard not loaded (${e.message}); using the Instagram project's own report.`);
+  }
+}
+// Per-run WebdriverIO, Appium and JUnit logs. With the shared dashboard they go to reports/wdio/<run>/, so that
+// reports/runs/ only holds the dashboard's runs.
+const LOG_BASE = shared ? path.join(HERE, 'reports', 'wdio', RUN_ID) : RUN_DIR;
+const LOG_DIR = path.join(LOG_BASE, 'logs');
+
+const baseConfig = {
   // ====================
   // Runner / Appium
   // ====================
@@ -96,7 +123,7 @@ export const config = {
   reporters: [
     'spec',
     ['junit', {
-      outputDir: path.join(RUN_DIR, 'junit'),
+      outputDir: path.join(LOG_BASE, 'junit'),
       outputFileFormat: ({ cid }) => `results-${cid}.xml`,
     }],
     ['allure', {
@@ -196,3 +223,26 @@ export const config = {
     console.log('Open it:    npm run dashboard\n');
   },
 };
+
+// Shared dashboard on: its hooks record the tests, so the old recording hooks are left out (the permission guard,
+// the app launch and the password masking stay).
+const OLD_RECORDING = ['afterTest', 'afterHook', 'afterCommand', 'after', 'onComplete'];
+function withSharedDashboard(cfg) {
+  const own = { ...cfg };
+  for (const k of OLD_RECORDING) delete own[k];
+  own.onPrepare = function () {                             // only the parts that are not about the old report
+    fs.rmSync('./allure-results', { recursive: true, force: true });
+    fs.mkdirSync(LOG_DIR, { recursive: true });
+  };
+  own.beforeTest = async function () { await denyPermissionPopupIfShown(); };
+  const before = cfg.before;
+  own.before = async function (...args) {
+    // the specs' step('...') and the typed / tapped elements go to the shared recorder (test/helpers/evidence.js)
+    globalThis.DASHBOARD_STEP = shared.recorder.step;
+    globalThis.DASHBOARD_ACTION = shared.recorder.logAction;
+    return before.apply(this, args);
+  };
+  return shared.withDashboard(own);
+}
+
+export const config = shared ? withSharedDashboard(baseConfig) : baseConfig;

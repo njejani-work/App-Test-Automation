@@ -90,7 +90,7 @@ $p = [Environment]::GetEnvironmentVariable("Path", "User")
 |---|---|
 | `npm run dashboard` | rebuild + open the dashboard |
 | `npm run dashboard:build` | rebuild only (CI, or after copying run folders) |
-| `npm run dashboard:open` | open without rebuilding |
+| `npm run dashboard:old` | the previous report (runs before 18 Nov 2026) |
 | `npm run report:allure` | Allure report of the last run (needs Java) |
 
 ### Locators, deliverables, handover
@@ -147,7 +147,8 @@ All test cases with their steps and expected results: [deliverables/03-test-case
 ├─ tools/
 │  ├─ setup.mjs                   npm run setup
 │  ├─ check.mjs                   npm run check
-│  ├─ build-dashboard.mjs         npm run dashboard[:build]
+│  ├─ dashboard.mjs               npm run dashboard[:build] (the shared dashboard)
+│  ├─ build-dashboard.mjs         npm run dashboard:old
 │  ├─ open-report.mjs             npm run dashboard:open
 │  ├─ find-locators.mjs           npm run locators / locators:file
 │  ├─ export-locators.mjs         npm run locators:catalog
@@ -155,7 +156,7 @@ All test cases with their steps and expected results: [deliverables/03-test-case
 │  └─ make-handover.mjs           npm run handover
 ├─ deliverables/                  generated documentation for testers (npm run deliverables)
 ├─ locators/                      screen dumps from npm run locators (git-ignored)
-└─ reports/                       runs/ + dashboard/ (generated, git-ignored)
+└─ reports/                       index.html + data/ + runs/ (generated, git-ignored)
 ```
 
 ## How a test step works
@@ -177,20 +178,25 @@ Tests are started and finished by the hooks in `wdio.conf.js`; specs only call `
 
 ## Reports & dashboard
 
+Results go to the **shared test dashboard**, the same one as the eGenome.ai tests: its **App** filter switches between the
+apps, and the logo and name at the top left show the current one (list: `../Test Dashboard/apps.json`; `../Test Dashboard/index.html` lists them too).
+
 ```
 reports/
-├─ dashboard/index.html           open with: npm run dashboard
-└─ runs/<YYYY-MM-DD_HH-mm-ss>/     one folder per run
-   ├─ run.json                    command, device, timing, result
-   ├─ logs/                       wdio worker logs + appium.log
-   ├─ junit/                      JUnit XML (CI / test-management import)
-   └─ <suite>/<test>/NN-step.png  screenshot of every step (+ .xml for failed steps)
+├─ index.html                     the dashboard: npm run dashboard
+├─ data/                          its data (rebuilt after every test)
+├─ runs/<YYYYMMDD-HHmmss>/        one folder per run: steps + screenshots, the app's Android log, video of failed tests
+└─ wdio/<run>/                    WebdriverIO + Appium logs, JUnit XML (CI / test-management import)
 ```
 
-- **Overview:** last run, pass rate, duration trend, pass/fail bar per run, test stability (last 10 results, *flaky* flag), list of runs.
-- **Run page:** device, command, log files; every test with every step – screenshot (click to enlarge, ← → to browse), status, duration, step log, and for failures the error, stack trace and page source.
-- History keeps the newest 30 runs (`KEEP_RUNS`). Passwords are masked (`••••••`) everywhere.
-- The dashboard is a static page – zip `reports/` to share it, or publish it from CI.
+- **How:** `wdio.conf.js` loads the dashboard's recorder from the eGenome.ai project (`DASHBOARD_LIB`, default
+  `../eGenome.ai/test/support/dashboard`) with this project's folder and app (`com.instagram.android`). Every
+  `step('...')` in the specs is a step on the dashboard with its screenshot; taps and typing show under it (passwords
+  masked). The permission-popup guard works as before.
+- **Settings for this app:** `test/triage.json` (modules, owners, known log lines) and `test/budgets.json` (limits), as in
+  eGenome.ai; without them the defaults are used.
+- **Old report:** `DASHBOARD=off` in `.env` goes back to the previous recording (`reports/dashboard/`,
+  `npm run dashboard:old`); the runs recorded before 18 Nov 2026 are there.
 
 ## Configuration
 
