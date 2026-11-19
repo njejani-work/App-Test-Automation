@@ -1,0 +1,29 @@
+# ---- Dependencies
+node_modules/
+
+# ---- Local settings (copy .env.example to .env)
+.env
+.env.*
+!.env.example
+
+# ---- Step 1 output: the app's source and the built APKs
+app-src/
+out/
+
+# ---- Step 2 output: test results
+reports/
+allure-results/
+allure-report/
+*.log
+
+# ---- Editors and OS
+.vscode/*
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dashboard demo data and the dashboard's own test output
+reports-demo/
+.dashboard-test/

@@ -1,0 +1,1125 @@
+{
+  "screens": {
+    "InitialOnboardingScreen": {
+      "file": "InitialOnboardingScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.onboarding.InitialOnboardingActivity",
+      "title": "",
+      "signature": [
+        "desc:Forward",
+        "desc:Wikipedia",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "t:Learn more about Wikipedia"
+      ],
+      "elementCount": 8,
+      "firstCaptured": "2026-11-11T16:42:41.349Z",
+      "lastCaptured": "2026-11-11T16:42:41.349Z"
+    },
+    "InitialOnboardingScreen2": {
+      "file": "InitialOnboardingScreen2.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.onboarding.InitialOnboardingActivity",
+      "title": "",
+      "signature": [
+        "desc:Data & Privacy",
+        "desc:Forward",
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 5,
+      "firstCaptured": "2026-11-11T16:44:52.732Z",
+      "lastCaptured": "2026-11-11T16:44:52.732Z"
+    },
+    "InitialOnboardingScreen3": {
+      "file": "InitialOnboardingScreen3.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.onboarding.InitialOnboardingActivity",
+      "title": "",
+      "signature": [
+        "desc:Forward",
+        "desc:Read in more than 300 languages",
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 10,
+      "firstCaptured": "2026-11-11T16:44:59.174Z",
+      "lastCaptured": "2026-11-11T16:44:59.174Z"
+    },
+    "PersonalizationScreen": {
+      "file": "PersonalizationScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.feed.personalization.PersonalizationActivity",
+      "title": "",
+      "signature": [
+        "desc:Follow your curiosity",
+        "desc:Next",
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 54,
+      "firstCaptured": "2026-11-11T16:45:08.598Z",
+      "lastCaptured": "2026-11-11T16:46:03.559Z"
+    },
+    "PersonalizationScreen2": {
+      "file": "PersonalizationScreen2.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.feed.personalization.PersonalizationActivity",
+      "title": "",
+      "signature": [
+        "desc:Next",
+        "desc:Search Wikipedia",
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 54,
+      "firstCaptured": "2026-11-11T16:45:11.616Z",
+      "lastCaptured": "2026-11-11T16:46:00.350Z"
+    },
+    "SearchScreen": {
+      "file": "SearchScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.search.SearchActivity",
+      "title": "",
+      "signature": [
+        "desc:Navigate up",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/add_languages_button",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/fragment_search_results",
+        "id:org.wikipedia.dev:id/langCodeText",
+        "id:org.wikipedia.dev:id/namespaceText",
+        "id:org.wikipedia.dev:id/namespacesContainer",
+        "id:org.wikipedia.dev:id/namespaces_recycler",
+        "id:org.wikipedia.dev:id/recent_searches_container",
+        "id:org.wikipedia.dev:id/search_bar",
+        "id:org.wikipedia.dev:id/search_cab_view",
+        "id:org.wikipedia.dev:id/search_container",
+        "id:org.wikipedia.dev:id/search_edit_frame",
+        "id:org.wikipedia.dev:id/search_empty_container",
+        "id:org.wikipedia.dev:id/search_empty_image",
+        "id:org.wikipedia.dev:id/search_empty_message",
+        "id:org.wikipedia.dev:id/search_lang_button",
+        "id:org.wikipedia.dev:id/search_lang_button_container",
+        "id:org.wikipedia.dev:id/search_panel_recent",
+        "id:org.wikipedia.dev:id/search_plate",
+        "id:org.wikipedia.dev:id/search_src_text",
+        "id:org.wikipedia.dev:id/search_toolbar"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:45:36.904Z",
+      "lastCaptured": "2026-11-11T16:45:43.251Z"
+    },
+    "YourLanguagesScreen": {
+      "file": "YourLanguagesScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.languages.WikipediaLanguagesActivity",
+      "title": "Your languages",
+      "signature": [
+        "desc:Navigate up",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/langCodeText",
+        "id:org.wikipedia.dev:id/section_header_text",
+        "id:org.wikipedia.dev:id/toolbar",
+        "id:org.wikipedia.dev:id/wiki_language_code",
+        "id:org.wikipedia.dev:id/wiki_language_order",
+        "id:org.wikipedia.dev:id/wiki_language_title",
+        "id:org.wikipedia.dev:id/wikipedia_languages_recycler"
+      ],
+      "elementCount": 14,
+      "firstCaptured": "2026-11-11T16:45:40.804Z",
+      "lastCaptured": "2026-11-11T16:45:40.805Z"
+    },
+    "ExploreFeedBuildingScreen": {
+      "file": "ExploreFeedBuildingScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity",
+      "title": "",
+      "signature": [
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 2,
+      "firstCaptured": "2026-11-11T16:46:12.955Z",
+      "lastCaptured": "2026-11-11T16:46:12.955Z"
+    },
+    "MainScreen": {
+      "file": "MainScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "",
+      "signature": [
+        "desc:<!--Nov 8-->In stock car racing, <a rel=\"mw:WikiLink\" href=\"./Kyle_Larson\" title=\"Kyle Larson\" id=\"mwBg\">Kyle Larson</a> <i id=\"mwBw\"></i> wins <b id=\"mwCA\"><a rel=\"mw:WikiLink\" href=\"./2026_NASCAR_Cup_Series\" title=\"2026 NASCAR Cup Series\" id=\"mwCQ\">the NASCAR Cup Series</a></b>.",
+        "desc:<span lang=\"en\" dir=\"ltr\"><span class=\"mw-page-title-main\">U.S. Route 101</span></span>",
+        "desc:Download",
+        "desc:File:Kościelec view 2.jpg",
+        "desc:More did you know",
+        "desc:More on this day",
+        "desc:More options",
+        "desc:Save",
+        "desc:Share",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/empty",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/fragment_main_coordinator",
+        "id:org.wikipedia.dev:id/main_nav_tab_border",
+        "id:org.wikipedia.dev:id/main_nav_tab_container",
+        "id:org.wikipedia.dev:id/main_nav_tab_layout",
+        "id:org.wikipedia.dev:id/main_toolbar",
+        "id:org.wikipedia.dev:id/main_view_pager",
+        "id:org.wikipedia.dev:id/menu_filter_reading_lists_articles",
+        "id:org.wikipedia.dev:id/menu_overflow_button",
+        "id:org.wikipedia.dev:id/menu_search_lists",
+        "id:org.wikipedia.dev:id/nav_tab_edits",
+        "id:org.wikipedia.dev:id/nav_tab_home",
+        "id:org.wikipedia.dev:id/nav_tab_more",
+        "id:org.wikipedia.dev:id/nav_tab_overlay_dot",
+        "id:org.wikipedia.dev:id/nav_tab_reading_lists",
+        "id:org.wikipedia.dev:id/nav_tab_search",
+        "id:org.wikipedia.dev:id/navigation_bar_item_active_indicator_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_content_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_icon_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_icon_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_inner_content_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_labels_group",
+        "id:org.wikipedia.dev:id/navigation_bar_item_large_label_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_small_label_view",
+        "id:org.wikipedia.dev:id/snackbar_text"
+      ],
+      "elementCount": 125,
+      "firstCaptured": "2026-11-11T16:46:15.394Z",
+      "lastCaptured": "2026-11-11T16:53:44.715Z"
+    },
+    "MainScreen2": {
+      "file": "MainScreen2.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "",
+      "signature": [
+        "id:android:id/button1",
+        "id:android:id/button2",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/buttonPanel",
+        "id:org.wikipedia.dev:id/custom",
+        "id:org.wikipedia.dev:id/customPanel",
+        "id:org.wikipedia.dev:id/parentPanel",
+        "id:org.wikipedia.dev:id/secondary_text_input",
+        "id:org.wikipedia.dev:id/secondary_text_input_container",
+        "id:org.wikipedia.dev:id/text_input",
+        "id:org.wikipedia.dev:id/text_input_container",
+        "id:org.wikipedia.dev:id/text_input_error_icon",
+        "id:org.wikipedia.dev:id/textinput_error"
+      ],
+      "elementCount": 13,
+      "firstCaptured": "2026-11-11T16:47:39.416Z",
+      "lastCaptured": "2026-11-11T16:53:38.824Z"
+    },
+    "CreateAccountScreen": {
+      "file": "CreateAccountScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.createaccount.CreateAccountActivity",
+      "title": "",
+      "signature": [
+        "desc:Navigate up",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/create_account_email",
+        "id:org.wikipedia.dev:id/create_account_login_button",
+        "id:org.wikipedia.dev:id/create_account_password_input",
+        "id:org.wikipedia.dev:id/create_account_password_repeat",
+        "id:org.wikipedia.dev:id/create_account_primary_container",
+        "id:org.wikipedia.dev:id/create_account_submit_button",
+        "id:org.wikipedia.dev:id/create_account_username",
+        "id:org.wikipedia.dev:id/email_recommendation_text",
+        "id:org.wikipedia.dev:id/footer_container",
+        "id:org.wikipedia.dev:id/forgot_password_link",
+        "id:org.wikipedia.dev:id/hCaptchaDisclaimer",
+        "id:org.wikipedia.dev:id/privacy_policy_link",
+        "id:org.wikipedia.dev:id/text_input_end_icon",
+        "id:org.wikipedia.dev:id/text_input_error_icon",
+        "id:org.wikipedia.dev:id/textinput_error",
+        "id:org.wikipedia.dev:id/toolbar",
+        "t:Email (Optional)",
+        "t:Password",
+        "t:Repeat password",
+        "t:Username",
+        "t:aaaa",
+        "t:uehbc"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:47:49.019Z",
+      "lastCaptured": "2026-11-11T16:51:05.539Z"
+    },
+    "MainScreen3": {
+      "file": "MainScreen3.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "",
+      "signature": [
+        "desc:Close",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/container",
+        "id:org.wikipedia.dev:id/coordinator",
+        "id:org.wikipedia.dev:id/design_bottom_sheet",
+        "id:org.wikipedia.dev:id/touch_outside"
+      ],
+      "elementCount": 11,
+      "firstCaptured": "2026-11-11T16:48:59.681Z",
+      "lastCaptured": "2026-11-11T16:48:59.681Z"
+    },
+    "QuickstepAddItemScreen": {
+      "file": "QuickstepAddItemScreen.json",
+      "package": "com.google.android.apps.nexuslauncher",
+      "activity": "com.android.launcher3.QuickstepAddItemActivity",
+      "title": "",
+      "signature": [
+        "desc:4 wide by 1 high",
+        "desc:Wikipedia search",
+        "id:com.android.launcher3.widgetpicker:id/pin_widgets_catalog",
+        "id:com.android.launcher3.widgetpicker:id/widget_details",
+        "id:com.android.launcher3.widgetpicker:id/widget_preview",
+        "id:com.google.android.apps.nexuslauncher:id/add_item_drag_layer"
+      ],
+      "elementCount": 14,
+      "firstCaptured": "2026-11-11T16:49:15.648Z",
+      "lastCaptured": "2026-11-11T16:49:15.648Z"
+    },
+    "HistoryScreen": {
+      "file": "HistoryScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "History",
+      "signature": [
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/fragment_main_coordinator",
+        "id:org.wikipedia.dev:id/history_empty_container",
+        "id:org.wikipedia.dev:id/history_empty_image",
+        "id:org.wikipedia.dev:id/history_empty_message",
+        "id:org.wikipedia.dev:id/history_empty_title",
+        "id:org.wikipedia.dev:id/history_list",
+        "id:org.wikipedia.dev:id/history_title",
+        "id:org.wikipedia.dev:id/main_nav_tab_border",
+        "id:org.wikipedia.dev:id/main_nav_tab_container",
+        "id:org.wikipedia.dev:id/main_nav_tab_layout",
+        "id:org.wikipedia.dev:id/main_toolbar",
+        "id:org.wikipedia.dev:id/main_view_pager",
+        "id:org.wikipedia.dev:id/nav_tab_edits",
+        "id:org.wikipedia.dev:id/nav_tab_home",
+        "id:org.wikipedia.dev:id/nav_tab_more",
+        "id:org.wikipedia.dev:id/nav_tab_overlay_dot",
+        "id:org.wikipedia.dev:id/nav_tab_reading_lists",
+        "id:org.wikipedia.dev:id/nav_tab_search",
+        "id:org.wikipedia.dev:id/navigation_bar_item_active_indicator_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_content_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_icon_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_icon_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_inner_content_container",
+        "id:org.wikipedia.dev:id/navigation_bar_item_labels_group",
+        "id:org.wikipedia.dev:id/navigation_bar_item_large_label_view",
+        "id:org.wikipedia.dev:id/navigation_bar_item_small_label_view",
+        "id:org.wikipedia.dev:id/search_card",
+        "id:org.wikipedia.dev:id/search_icon",
+        "id:org.wikipedia.dev:id/search_text_view",
+        "id:org.wikipedia.dev:id/voice_search_button"
+      ],
+      "elementCount": 37,
+      "firstCaptured": "2026-11-11T16:49:19.314Z",
+      "lastCaptured": "2026-11-11T16:49:19.314Z"
+    },
+    "ActivityTabOnboardingScreen": {
+      "file": "ActivityTabOnboardingScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.activitytab.ActivityTabOnboardingActivity",
+      "title": "",
+      "signature": [
+        "id:org.wikipedia.dev:id/action_bar_root"
+      ],
+      "elementCount": 15,
+      "firstCaptured": "2026-11-11T16:49:43.212Z",
+      "lastCaptured": "2026-11-11T16:49:43.212Z"
+    },
+    "CustomizeScreen": {
+      "file": "CustomizeScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "Customize",
+      "signature": [
+        "id:org.wikipedia.dev:id/content",
+        "id:org.wikipedia.dev:id/icon",
+        "id:org.wikipedia.dev:id/title"
+      ],
+      "elementCount": 12,
+      "firstCaptured": "2026-11-11T16:51:13.751Z",
+      "lastCaptured": "2026-11-11T16:51:13.751Z"
+    },
+    "MainScreen4": {
+      "file": "MainScreen4.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "",
+      "signature": [
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/container",
+        "id:org.wikipedia.dev:id/coordinator",
+        "id:org.wikipedia.dev:id/design_bottom_sheet",
+        "id:org.wikipedia.dev:id/main_drawer_account_avatar",
+        "id:org.wikipedia.dev:id/main_drawer_account_container",
+        "id:org.wikipedia.dev:id/main_drawer_donate_container",
+        "id:org.wikipedia.dev:id/main_drawer_games_hub_container",
+        "id:org.wikipedia.dev:id/main_drawer_login_button",
+        "id:org.wikipedia.dev:id/main_drawer_places_container",
+        "id:org.wikipedia.dev:id/main_drawer_settings_container",
+        "id:org.wikipedia.dev:id/touch_outside"
+      ],
+      "elementCount": 16,
+      "firstCaptured": "2026-11-11T16:51:17.767Z",
+      "lastCaptured": "2026-11-11T16:51:31.922Z"
+    },
+    "GamesHubScreen": {
+      "file": "GamesHubScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.games.GamesHubActivity",
+      "title": "",
+      "signature": [
+        "desc:Navigate up",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/empty",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 17,
+      "firstCaptured": "2026-11-11T16:51:22.547Z",
+      "lastCaptured": "2026-11-11T16:51:22.547Z"
+    },
+    "GeneralScreen": {
+      "file": "GeneralScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "General",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 26,
+      "firstCaptured": "2026-11-11T16:51:38.138Z",
+      "lastCaptured": "2026-11-11T16:53:00.249Z"
+    },
+    "PreferOfflineContentScreen": {
+      "file": "PreferOfflineContentScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "Prefer offline content",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/right_icon",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:51:40.382Z",
+      "lastCaptured": "2026-11-11T16:52:05.012Z"
+    },
+    "ShowLinkPreviewsScreen": {
+      "file": "ShowLinkPreviewsScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "Show link previews",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 27,
+      "firstCaptured": "2026-11-11T16:51:49.675Z",
+      "lastCaptured": "2026-11-11T16:51:49.675Z"
+    },
+    "AppThemeScreen": {
+      "file": "AppThemeScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "App theme",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 27,
+      "firstCaptured": "2026-11-11T16:51:53.457Z",
+      "lastCaptured": "2026-11-11T16:51:53.457Z"
+    },
+    "ClearDonationHistoryScreen": {
+      "file": "ClearDonationHistoryScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "Clear donation history",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 25,
+      "firstCaptured": "2026-11-11T16:51:57.774Z",
+      "lastCaptured": "2026-11-11T16:51:57.774Z"
+    },
+    "DownloadOnlyOverWiFiScreen": {
+      "file": "DownloadOnlyOverWiFiScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.SettingsActivity",
+      "title": "Download only over Wi-Fi",
+      "signature": [
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/developer_settings",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/right_icon",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:52:01.743Z",
+      "lastCaptured": "2026-11-11T16:52:01.743Z"
+    },
+    "AnnouncementsScreen": {
+      "file": "AnnouncementsScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "Announcements",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 30,
+      "firstCaptured": "2026-11-11T16:52:10.335Z",
+      "lastCaptured": "2026-11-11T16:52:10.335Z"
+    },
+    "RestbaseAccessScreen": {
+      "file": "RestbaseAccessScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "RESTBase access",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 29,
+      "firstCaptured": "2026-11-11T16:52:14.610Z",
+      "lastCaptured": "2026-11-11T16:52:14.610Z"
+    },
+    "OverrideEventPlatformIntakeBaseUriScreen": {
+      "file": "OverrideEventPlatformIntakeBaseUriScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "Override Event Platform intake base URI",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 32,
+      "firstCaptured": "2026-11-11T16:52:18.171Z",
+      "lastCaptured": "2026-11-11T16:52:18.171Z"
+    },
+    "FindArticleWithMissingDescriptionScreen": {
+      "file": "FindArticleWithMissingDescriptionScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "findArticleWithMissingDescription",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 29,
+      "firstCaptured": "2026-11-11T16:52:21.941Z",
+      "lastCaptured": "2026-11-11T16:52:21.941Z"
+    },
+    "LastAnonEditTimeScreen": {
+      "file": "LastAnonEditTimeScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "lastAnonEditTime",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 30,
+      "firstCaptured": "2026-11-11T16:52:26.075Z",
+      "lastCaptured": "2026-11-11T16:52:26.075Z"
+    },
+    "ClearLastLocationAndZoomLevelScreen": {
+      "file": "ClearLastLocationAndZoomLevelScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "clearLastLocationAndZoomLevel",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 32,
+      "firstCaptured": "2026-11-11T16:52:31.657Z",
+      "lastCaptured": "2026-11-11T16:52:31.657Z"
+    },
+    "CrashedBeforeActivityCreatedScreen": {
+      "file": "CrashedBeforeActivityCreatedScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "crashedBeforeActivityCreated",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 30,
+      "firstCaptured": "2026-11-11T16:52:37.058Z",
+      "lastCaptured": "2026-11-11T16:52:37.058Z"
+    },
+    "FeedCustomizeOnboardingCardEnabledScreen": {
+      "file": "FeedCustomizeOnboardingCardEnabledScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "feedCustomizeOnboardingCardEnabled",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 31,
+      "firstCaptured": "2026-11-11T16:52:41.829Z",
+      "lastCaptured": "2026-11-11T16:52:41.829Z"
+    },
+    "EditNoticesTooltipShownScreen": {
+      "file": "EditNoticesTooltipShownScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "editNoticesTooltipShown",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 30,
+      "firstCaptured": "2026-11-11T16:52:45.303Z",
+      "lastCaptured": "2026-11-11T16:52:45.303Z"
+    },
+    "TempAccountDialogShownScreen": {
+      "file": "TempAccountDialogShownScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "tempAccountDialogShown",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:52:51.772Z",
+      "lastCaptured": "2026-11-11T16:52:51.772Z"
+    },
+    "NotificationFrequencySimulatorScreen": {
+      "file": "NotificationFrequencySimulatorScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "Notification frequency Simulator",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 30,
+      "firstCaptured": "2026-11-11T16:52:54.615Z",
+      "lastCaptured": "2026-11-11T16:52:54.615Z"
+    },
+    "ReadAloudLastPlayedDateScreen": {
+      "file": "ReadAloudLastPlayedDateScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.settings.dev.DeveloperSettingsActivity",
+      "title": "readAloudLastPlayedDate",
+      "signature": [
+        "desc:More options",
+        "desc:Navigate up",
+        "id:android:id/list_container",
+        "id:android:id/summary",
+        "id:android:id/title",
+        "id:android:id/widget_frame",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/menu_search",
+        "id:org.wikipedia.dev:id/recycler_view",
+        "id:org.wikipedia.dev:id/switchWidget",
+        "id:org.wikipedia.dev:id/toolbar"
+      ],
+      "elementCount": 28,
+      "firstCaptured": "2026-11-11T16:52:57.059Z",
+      "lastCaptured": "2026-11-11T16:52:57.059Z"
+    },
+    "ReadingListScreen": {
+      "file": "ReadingListScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.readinglist.ReadingListActivity",
+      "title": "",
+      "signature": [
+        "id:org.wikipedia.dev:id/balloon",
+        "id:org.wikipedia.dev:id/balloon_arrow",
+        "id:org.wikipedia.dev:id/balloon_card",
+        "id:org.wikipedia.dev:id/balloon_content",
+        "id:org.wikipedia.dev:id/balloon_wrapper",
+        "id:org.wikipedia.dev:id/buttonView",
+        "id:org.wikipedia.dev:id/textView"
+      ],
+      "elementCount": 7,
+      "firstCaptured": "2026-11-11T16:53:19.389Z",
+      "lastCaptured": "2026-11-11T16:53:19.389Z"
+    },
+    "MyReadingListScreen": {
+      "file": "MyReadingListScreen.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.readinglist.ReadingListActivity",
+      "title": "My reading list",
+      "signature": [
+        "desc:Navigate up",
+        "id:org.wikipedia.dev:id/action_bar_root",
+        "id:org.wikipedia.dev:id/fragment_container",
+        "id:org.wikipedia.dev:id/fragment_reading_list_coordinator",
+        "id:org.wikipedia.dev:id/item_overflow_menu",
+        "id:org.wikipedia.dev:id/item_reading_list_statistical_description",
+        "id:org.wikipedia.dev:id/item_share_button",
+        "id:org.wikipedia.dev:id/item_title",
+        "id:org.wikipedia.dev:id/item_title_container",
+        "id:org.wikipedia.dev:id/menu_search_lists",
+        "id:org.wikipedia.dev:id/menu_sort_options",
+        "id:org.wikipedia.dev:id/reading_list_app_bar",
+        "id:org.wikipedia.dev:id/reading_list_empty_text",
+        "id:org.wikipedia.dev:id/reading_list_header",
+        "id:org.wikipedia.dev:id/reading_list_header_empty_image",
+        "id:org.wikipedia.dev:id/reading_list_header_image_gradient",
+        "id:org.wikipedia.dev:id/reading_list_recycler_view",
+        "id:org.wikipedia.dev:id/reading_list_swipe_refresh",
+        "id:org.wikipedia.dev:id/reading_list_toolbar",
+        "id:org.wikipedia.dev:id/reading_list_toolbar_container"
+      ],
+      "elementCount": 21,
+      "firstCaptured": "2026-11-11T16:53:21.389Z",
+      "lastCaptured": "2026-11-11T16:53:21.389Z"
+    },
+    "MainScreen5": {
+      "file": "MainScreen5.json",
+      "package": "org.wikipedia.dev",
+      "activity": "org.wikipedia.main.MainActivity",
+      "title": "",
+      "signature": [
+        "id:org.wikipedia.dev:id/reading_lists_overflow_card_container",
+        "id:org.wikipedia.dev:id/reading_lists_overflow_create_new_list",
+        "id:org.wikipedia.dev:id/reading_lists_overflow_import_list",
+        "id:org.wikipedia.dev:id/reading_lists_overflow_refresh",
+        "id:org.wikipedia.dev:id/reading_lists_overflow_select",
+        "id:org.wikipedia.dev:id/reading_lists_overflow_sort_by"
+      ],
+      "elementCount": 7,
+      "firstCaptured": "2026-11-11T16:53:28.840Z",
+      "lastCaptured": "2026-11-11T16:53:28.840Z"
+    }
+  },
+  "transitions": [
+    {
+      "from": "InitialOnboardingScreen",
+      "to": "InitialOnboardingScreen2",
+      "via": "manual"
+    },
+    {
+      "from": "InitialOnboardingScreen2",
+      "to": "InitialOnboardingScreen3",
+      "via": "manual"
+    },
+    {
+      "from": "InitialOnboardingScreen3",
+      "to": "PersonalizationScreen",
+      "via": "manual"
+    },
+    {
+      "from": "PersonalizationScreen",
+      "to": "PersonalizationScreen2",
+      "via": "manual"
+    },
+    {
+      "from": "PersonalizationScreen2",
+      "to": "PersonalizationScreen",
+      "via": "manual"
+    },
+    {
+      "from": "PersonalizationScreen2",
+      "to": "SearchScreen",
+      "via": "manual"
+    },
+    {
+      "from": "SearchScreen",
+      "to": "YourLanguagesScreen",
+      "via": "manual"
+    },
+    {
+      "from": "YourLanguagesScreen",
+      "to": "SearchScreen",
+      "via": "manual"
+    },
+    {
+      "from": "SearchScreen",
+      "to": "PersonalizationScreen2",
+      "via": "manual"
+    },
+    {
+      "from": "PersonalizationScreen",
+      "to": "ExploreFeedBuildingScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ExploreFeedBuildingScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "MainScreen2",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen2",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "CreateAccountScreen",
+      "via": "manual"
+    },
+    {
+      "from": "CreateAccountScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "MainScreen3",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen3",
+      "to": "QuickstepAddItemScreen",
+      "via": "manual"
+    },
+    {
+      "from": "QuickstepAddItemScreen",
+      "to": "HistoryScreen",
+      "via": "manual"
+    },
+    {
+      "from": "HistoryScreen",
+      "to": "ActivityTabOnboardingScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ActivityTabOnboardingScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "CustomizeScreen",
+      "via": "manual"
+    },
+    {
+      "from": "CustomizeScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "MainScreen4",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen4",
+      "to": "GamesHubScreen",
+      "via": "manual"
+    },
+    {
+      "from": "GamesHubScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen4",
+      "to": "GeneralScreen",
+      "via": "manual"
+    },
+    {
+      "from": "GeneralScreen",
+      "to": "PreferOfflineContentScreen",
+      "via": "manual"
+    },
+    {
+      "from": "PreferOfflineContentScreen",
+      "to": "GeneralScreen",
+      "via": "manual"
+    },
+    {
+      "from": "GeneralScreen",
+      "to": "ShowLinkPreviewsScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ShowLinkPreviewsScreen",
+      "to": "AppThemeScreen",
+      "via": "manual"
+    },
+    {
+      "from": "AppThemeScreen",
+      "to": "ClearDonationHistoryScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ClearDonationHistoryScreen",
+      "to": "DownloadOnlyOverWiFiScreen",
+      "via": "manual"
+    },
+    {
+      "from": "DownloadOnlyOverWiFiScreen",
+      "to": "PreferOfflineContentScreen",
+      "via": "manual"
+    },
+    {
+      "from": "GeneralScreen",
+      "to": "AnnouncementsScreen",
+      "via": "manual"
+    },
+    {
+      "from": "AnnouncementsScreen",
+      "to": "RestbaseAccessScreen",
+      "via": "manual"
+    },
+    {
+      "from": "RestbaseAccessScreen",
+      "to": "OverrideEventPlatformIntakeBaseUriScreen",
+      "via": "manual"
+    },
+    {
+      "from": "OverrideEventPlatformIntakeBaseUriScreen",
+      "to": "FindArticleWithMissingDescriptionScreen",
+      "via": "manual"
+    },
+    {
+      "from": "FindArticleWithMissingDescriptionScreen",
+      "to": "LastAnonEditTimeScreen",
+      "via": "manual"
+    },
+    {
+      "from": "LastAnonEditTimeScreen",
+      "to": "ClearLastLocationAndZoomLevelScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ClearLastLocationAndZoomLevelScreen",
+      "to": "CrashedBeforeActivityCreatedScreen",
+      "via": "manual"
+    },
+    {
+      "from": "CrashedBeforeActivityCreatedScreen",
+      "to": "FeedCustomizeOnboardingCardEnabledScreen",
+      "via": "manual"
+    },
+    {
+      "from": "FeedCustomizeOnboardingCardEnabledScreen",
+      "to": "EditNoticesTooltipShownScreen",
+      "via": "manual"
+    },
+    {
+      "from": "EditNoticesTooltipShownScreen",
+      "to": "TempAccountDialogShownScreen",
+      "via": "manual"
+    },
+    {
+      "from": "TempAccountDialogShownScreen",
+      "to": "NotificationFrequencySimulatorScreen",
+      "via": "manual"
+    },
+    {
+      "from": "NotificationFrequencySimulatorScreen",
+      "to": "ReadAloudLastPlayedDateScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ReadAloudLastPlayedDateScreen",
+      "to": "GeneralScreen",
+      "via": "manual"
+    },
+    {
+      "from": "GeneralScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "ReadingListScreen",
+      "via": "manual"
+    },
+    {
+      "from": "ReadingListScreen",
+      "to": "MyReadingListScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MyReadingListScreen",
+      "to": "MainScreen",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen",
+      "to": "MainScreen5",
+      "via": "manual"
+    },
+    {
+      "from": "MainScreen5",
+      "to": "MainScreen2",
+      "via": "manual"
+    }
+  ]
+}

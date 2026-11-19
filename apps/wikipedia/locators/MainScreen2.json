@@ -1,0 +1,428 @@
+{
+  "screen": "MainScreen2",
+  "package": "org.wikipedia.dev",
+  "activity": "org.wikipedia.main.MainActivity",
+  "title": "",
+  "firstCaptured": "2026-11-11T16:47:39.414Z",
+  "elements": {
+    "actionBarRootView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/action_bar_root|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/action_bar_root",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/action_bar_root\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/action_bar_root",
+        "clickable": false,
+        "bounds": "[66,398][654,882]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "parentPanelView": {
+      "key": "androidx.appcompat.widget.LinearLayoutCompat|id:org.wikipedia.dev:id/parentPanel|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/parentPanel",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"org.wikipedia.dev:id/parentPanel\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "androidx.appcompat.widget.LinearLayoutCompat",
+        "resourceId": "org.wikipedia.dev:id/parentPanel",
+        "clickable": false,
+        "bounds": "[66,398][654,882]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "customPanelView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/customPanel|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/customPanel",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/customPanel\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/customPanel",
+        "clickable": false,
+        "bounds": "[66,398][654,730]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "customView": {
+      "key": "android.widget.FrameLayout|id:org.wikipedia.dev:id/custom|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/custom",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.FrameLayout[@resource-id=\"org.wikipedia.dev:id/custom\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.FrameLayout",
+        "resourceId": "org.wikipedia.dev:id/custom",
+        "clickable": false,
+        "bounds": "[66,398][654,730]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "containerView": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/text_input_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/text_input_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/text_input_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/text_input_container",
+        "clickable": false,
+        "bounds": "[98,430][622,587]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "myReadingListInput": {
+      "key": "android.widget.EditText|id:org.wikipedia.dev:id/text_input|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/text_input",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"a\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.EditText[@resource-id=\"org.wikipedia.dev:id/text_input\" and @text=\"a\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.EditText[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.EditText",
+        "resourceId": "org.wikipedia.dev:id/text_input",
+        "text": "a",
+        "hint": "Name of this list",
+        "clickable": true,
+        "input": true,
+        "bounds": "[98,430][622,541]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "secondaryContainerView": {
+      "key": "android.widget.LinearLayout|id:org.wikipedia.dev:id/secondary_text_input_container|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/secondary_text_input_container",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.LinearLayout[@resource-id=\"org.wikipedia.dev:id/secondary_text_input_container\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.LinearLayout",
+        "resourceId": "org.wikipedia.dev:id/secondary_text_input_container",
+        "clickable": false,
+        "bounds": "[98,587][622,698]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "secondaryInput": {
+      "key": "android.widget.EditText|id:org.wikipedia.dev:id/secondary_text_input|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/secondary_text_input",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"Description (optional)\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.EditText[@resource-id=\"org.wikipedia.dev:id/secondary_text_input\" and @text=\"Description (optional)\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.FrameLayout[1]/android.widget.EditText[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.EditText",
+        "resourceId": "org.wikipedia.dev:id/secondary_text_input",
+        "text": "Description (optional)",
+        "hint": "Description (optional)",
+        "clickable": true,
+        "input": true,
+        "bounds": "[98,587][622,698]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "panelList": {
+      "key": "android.widget.ScrollView|id:org.wikipedia.dev:id/buttonPanel|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/buttonPanel",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ScrollView[@resource-id=\"org.wikipedia.dev:id/buttonPanel\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.ScrollView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ScrollView",
+        "resourceId": "org.wikipedia.dev:id/buttonPanel",
+        "clickable": false,
+        "bounds": "[66,730][654,882]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "button2Btn": {
+      "key": "android.widget.Button|id:android:id/button2|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=android:id/button2",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"Cancel\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.Button[@resource-id=\"android:id/button2\" and @text=\"Cancel\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.Button[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.Button",
+        "resourceId": "android:id/button2",
+        "text": "Cancel",
+        "clickable": true,
+        "bounds": "[298,758][462,854]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "button1Btn": {
+      "key": "android.widget.Button|id:android:id/button1|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=android:id/button1",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"OK\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.Button[@resource-id=\"android:id/button1\" and @text=\"OK\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.Button[2]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.Button",
+        "resourceId": "android:id/button1",
+        "text": "OK",
+        "clickable": true,
+        "bounds": "[478,758][606,854]"
+      },
+      "firstSeen": "2026-11-11T16:47:39.414Z",
+      "lastSeen": "2026-11-11T16:53:38.822Z"
+    },
+    "errorIconBtn": {
+      "key": "android.widget.ImageButton|id:org.wikipedia.dev:id/text_input_error_icon|desc:Error",
+      "primary": {
+        "strategy": "accessibility id",
+        "selector": "~Error",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "id",
+          "selector": "id=org.wikipedia.dev:id/text_input_error_icon",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.ImageButton[@resource-id=\"org.wikipedia.dev:id/text_input_error_icon\" and @content-desc=\"Error\"]",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ImageButton[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.ImageButton",
+        "resourceId": "org.wikipedia.dev:id/text_input_error_icon",
+        "contentDesc": "Error",
+        "clickable": false,
+        "bounds": "[526,420][622,516]"
+      },
+      "firstSeen": "2026-11-11T16:53:33.908Z",
+      "lastSeen": "2026-11-11T16:53:33.908Z"
+    },
+    "textinputErrorText": {
+      "key": "android.widget.TextView|id:org.wikipedia.dev:id/textinput_error|desc:",
+      "primary": {
+        "strategy": "id",
+        "selector": "id=org.wikipedia.dev:id/textinput_error",
+        "unique": true
+      },
+      "fallbacks": [
+        {
+          "strategy": "-android uiautomator",
+          "selector": "android=new UiSelector().text(\"Reading list \\\"My reading list\\\" already exists.\")",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "//android.widget.TextView[@resource-id=\"org.wikipedia.dev:id/textinput_error\" and @text='Reading list \"My reading list\" already exists.']",
+          "unique": true
+        },
+        {
+          "strategy": "xpath",
+          "selector": "/hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/androidx.appcompat.widget.LinearLayoutCompat[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]",
+          "unique": true,
+          "note": "absolute: brittle, last resort"
+        }
+      ],
+      "attributes": {
+        "class": "android.widget.TextView",
+        "resourceId": "org.wikipedia.dev:id/textinput_error",
+        "text": "Reading list \"My reading list\" already exists.",
+        "clickable": false,
+        "bounds": "[130,532][590,603]"
+      },
+      "firstSeen": "2026-11-11T16:53:33.908Z",
+      "lastSeen": "2026-11-11T16:53:33.908Z"
+    }
+  },
+  "lastCaptured": "2026-11-11T16:53:38.822Z",
+  "captures": 4
+}

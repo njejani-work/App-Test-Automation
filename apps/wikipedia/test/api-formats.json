@@ -1,0 +1,94 @@
+{
+  "_help": [
+    "Response format rules for the APIs the app calls: the fields the app relies on, and their types. Shared through git.",
+    "Each rule: match = part of the API name on the dashboard (API tab, 'By API'); status = the status these rules apply to (other statuses are not checked); fields = { 'path': 'type' }.",
+    "Paths: a.b = field b inside a; a[] = every item of list a (the first 50 are checked); a[].b = field b in every item.",
+    "Types: string, number, boolean, object, array, any. Add ? for a field that may be missing (e.g. 'string?'); a field that is there must still have the type.",
+    "nonEmpty: lists that must have at least one item.",
+    "A problem is shown on the call (API tab) as a failure with the path, what was expected and what came, and counted on the run as a warning.",
+    "Environment variable DASHBOARD_FORMATS_FILE points to another file (used by the dashboard's own tests)."
+  ],
+  "rules": [
+    {
+      "name": "Featured content feed (Explore / Home)",
+      "match": "/api/rest_v1/feed/featured/",
+      "status": 200,
+      "fields": {
+        "tfa": "object?",
+        "tfa.title": "string",
+        "tfa.extract": "string?",
+        "mostread": "object?",
+        "mostread.articles": "array",
+        "mostread.articles[].title": "string",
+        "mostread.articles[].views": "number?",
+        "image": "object?",
+        "image.title": "string",
+        "image.thumbnail.source": "string",
+        "news": "array?",
+        "news[].story": "string",
+        "news[].links": "array",
+        "onthisday": "array?",
+        "onthisday[].text": "string",
+        "onthisday[].year": "number"
+      }
+    },
+    {
+      "name": "On this day: events",
+      "match": "/api/rest_v1/feed/onthisday/events/",
+      "status": 200,
+      "fields": {
+        "events": "array",
+        "events[].text": "string",
+        "events[].year": "number",
+        "events[].pages": "array",
+        "events[].pages[].title": "string",
+        "events[].pages[].extract": "string?",
+        "events[].pages[].thumbnail.source": "string?"
+      },
+      "nonEmpty": ["events"]
+    },
+    {
+      "name": "Feed configuration (remote settings)",
+      "match": "/api/rest_v1/feed/configuration",
+      "status": 200,
+      "fields": {
+        "androidv1": "object",
+        "androidv1.semanticSearchEnabledv2": "boolean?",
+        "androidv1.yirMinAppVersion": "number?"
+      }
+    },
+    {
+      "name": "Random articles (Action API)",
+      "match": "/w/api.php?action=query&generator=random",
+      "status": 200,
+      "fields": {
+        "query": "object",
+        "query.pages": "array",
+        "query.pages[].pageid": "number",
+        "query.pages[].title": "string",
+        "query.pages[].extract": "string?",
+        "query.pages[].thumbnail.source": "string?"
+      },
+      "nonEmpty": ["query.pages"]
+    },
+    {
+      "name": "Page search (Action API)",
+      "match": "/w/api.php?action=query&list=search",
+      "status": 200,
+      "fields": {
+        "query.search": "array",
+        "query.search[].title": "string"
+      }
+    },
+    {
+      "name": "Page summary",
+      "match": "/api/rest_v1/page/summary/",
+      "status": 200,
+      "fields": {
+        "title": "string",
+        "extract": "string?",
+        "content_urls": "object?"
+      }
+    }
+  ]
+}

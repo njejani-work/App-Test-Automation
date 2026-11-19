@@ -1,0 +1,92 @@
+# =====================================================================================
+#  Capture locators from the real app screens, on GitHub's emulator.
+#  Run it by hand: Actions tab > "Capture locators" > Run workflow.
+#
+#  What it does: compile the APK > start an emulator > install the app > run the
+#  locator-capture crawler (it taps through the app, skipping anything in the config's
+#  denylist) > upload locators/ (one JSON + screenshot + generated page class per screen).
+#  Download the "locators" artifact and copy its contents into the project's locators/ folder.
+# =====================================================================================
+name: Capture locators
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_minutes:
+        description: 'Crawl time limit (minutes)'
+        default: '25'
+      max_depth:
+        description: 'How many taps deep to explore'
+        default: '5'
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CI: 'true'
+      GRADLE_ARGS: -Dorg.gradle.jvmargs=-Xmx3g --max-workers=2
+      CRAWL_MAX_MINUTES: ${{ github.event.inputs.max_minutes }}
+      CRAWL_MAX_DEPTH: ${{ github.event.inputs.max_depth }}
+      SAVE_RAW_XML: 'true'
+      DEVICE_UDID: emulator-5554
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Cache Gradle downloads
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-devDebug-v1
+
+      - name: Compile the APK
+        run: bash scripts/build-apk.sh devDebug
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install libraries and the Appium Android driver
+        run: |
+          npm install --no-audit --no-fund
+          npx appium driver install uiautomator2 || true
+
+      - name: Enable KVM for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Start emulator, install the app, crawl
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: |
+            adb install -r "$(ls -t out/*.apk | head -1)"
+            (npx appium --log-level error > appium.log 2>&1 &)
+            sleep 8
+            npm run locators:crawl || echo "Crawler stopped with an error; uploading what it captured."
+
+      - name: Upload the captured locators
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: locators
+          path: |
+            locators/
+            appium.log
+          retention-days: 14
+          if-no-files-found: warn

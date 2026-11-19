@@ -1,0 +1,25 @@
+{
+  "_help": [
+    "Performance and API budgets for the test dashboard (reports/index.html). Shared through git: edit, commit, push.",
+    "Going over a budget gives a WARNING, never a failed run: emulator timings vary too much to fail on them.",
+    "api.default: limits for every API the app calls. p95Ms = 95 out of 100 calls answer faster than this (time to the response headers); slowCallMs = one call slower than this gets a warning; maxKb = one response bigger than this gets a warning.",
+    "api.endpoints: limits for one API, by its name on the dashboard (API tab, 'By API'), e.g. 'GET en.wikipedia.org/api/rest_v1/feed/featured/{yyyy}/{mm}/{dd}'. Only the limits you set there replace the defaults.",
+    "app: launchMs = time from opening the app to its first screen (Android's 'Displayed' line); memoryMb = the most memory (PSS) the app used after any test; jankyPct = share of slow frames. null = not checked (frame timing on an emulator says little about a real phone).",
+    "tests: durationMs per test ID; 'default' for all others. Replaces DASHBOARD_SLOW_MS when set.",
+    "trend: compare this run with earlier runs on the same device and Android version that had no failed tests. A value counts as slower when it is more than slowerPct % above the median of the last lastRuns such runs AND more than the minimum difference (minMs for APIs and launch, minTestMs for test durations, minMb for memory), and at least minRuns earlier runs exist.",
+    "APIs listed under knownApi in test/triage.json are shown with their numbers but never give a budget or trend warning.",
+    "Environment variable DASHBOARD_BUDGETS_FILE points to another file (used by the dashboard's own tests)."
+  ],
+  "api": {
+    "default": { "p95Ms": 2000, "slowCallMs": 2000, "maxKb": 500 },
+    "endpoints": {
+      "GET en.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}": { "maxKb": 600, "_why": "A full day of 'On this day' events with page summaries is normally 400-450 KB." }
+    }
+  },
+  "app": { "launchMs": 5000, "memoryMb": 300, "jankyPct": null },
+  "tests": {
+    "default": { "durationMs": 45000 },
+    "TOUR-07": { "durationMs": 60000, "_why": "Creates a reading list: more steps than the other tour tests." }
+  },
+  "trend": { "slowerPct": 50, "lastRuns": 10, "minRuns": 3, "minMs": 300, "minTestMs": 5000, "minMb": 30 }
+}

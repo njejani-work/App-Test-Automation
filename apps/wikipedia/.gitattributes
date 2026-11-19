@@ -1,0 +1,10 @@
+# Keep Linux line endings for scripts and CI files, so they run in Linux CI containers
+* text=auto
+*.sh   text eol=lf
+*.yml  text eol=lf
+*.mjs  text eol=lf
+*.js   text eol=lf
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+*.apk  binary
+*.png  binary
