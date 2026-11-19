@@ -1,5 +1,5 @@
-// Locator capture configuration for the Wikipedia app (copied from the eGenome.ai tool,
-// only this file changed). Values can be overridden with environment variables.
+// Locator capture settings for the Wikipedia app (used by @apptest/toolkit/locators when run from apps/wikipedia).
+// Values can be overridden with environment variables.
 //
 // Before capturing, install the APK you built:  adb install -r out/<newest>.apk
 // (npm run test:smoke also installs it). The capture tool starts the installed app.

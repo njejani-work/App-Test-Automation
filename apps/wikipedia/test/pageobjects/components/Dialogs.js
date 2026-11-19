@@ -4,7 +4,7 @@
 //   Search tab: bottom sheet "A Faster way to Search" (Add / ~Close)       -> locators/MainScreen3.json
 //   Reading list: balloon "Share this reading list with others ... Got it" -> locators/ReadingListScreen.json
 import { S } from '../BasePage.js';
-import { note, step } from '../../support/report/recorder.js';
+import { logAction } from '@apptest/toolkit/dashboard/recorder.js';
 
 const CLOSE_BUTTONS = [
   S.text('Not now'),
@@ -25,9 +25,9 @@ class Dialogs {
       const button = await this.#findOne(timeout);
       if (!button) break;
       const label = (await button.getText().catch(() => '')) || (await button.getAttribute('content-desc').catch(() => '')) || 'button';
-      step(`Pop-up: tap "${label}"`);
+      logAction('tap', `Pop-up "${label}"`);
       await button.click();
-      note(`Closed a pop-up with "${label}"`); // shown on the dashboard
+      logAction('note', `Closed a pop-up with "${label}"`); // shown on the dashboard
       closed++;
       await driver.pause(500);
     }

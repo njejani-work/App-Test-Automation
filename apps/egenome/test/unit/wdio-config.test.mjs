@@ -50,3 +50,12 @@ test('capabilities and settings can come from the environment (a function), and 
   assert.equal('appium:waitForIdleTimeout' in c.capabilities[0], false, 'a default left out');
   assert.equal(c.logLevel, 'debug');
 });
+
+test('an app can say which build is tested (dashboard.appInfo, e.g. Wikipedia\'s APK receipt)', async () => {
+  const dash = await import('@apptest/toolkit/dashboard/options.js');
+  const appInfo = () => ({ application_id: 'org.example', version_name: '1.0' });
+  await createConfig({ ...app, dashboard: { ...app.dashboard, appInfo } }, { env: process.env });
+  assert.equal(dash.APP_INFO, appInfo, 'used instead of reading the installed app');
+  await createConfig(app, { env: process.env });
+  assert.equal(dash.APP_INFO, null, 'without one, the installed app is read');
+});

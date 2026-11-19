@@ -13,6 +13,13 @@ export const PROJECT_ROOT = path.resolve(process.env.DASHBOARD_PROJECT_ROOT || p
  */
 export let APP_PACKAGE = process.env.DASHBOARD_APP_PACKAGE || 'com.egenome.app';
 export function setAppPackage(pkg) { if (pkg) APP_PACKAGE = pkg; }
+/**
+ * Optional: the app's own way to say which build is tested (app.config.js dashboard.appInfo, a function returning
+ * { application_id, version_name, version_code, apk_sha256, build_id }). Without it, the version is read from the app
+ * installed on the device. Wikipedia needs it: Appium installs its APK when the session starts, after the run begins.
+ */
+export let APP_INFO = null;
+export function setAppInfo(fn) { APP_INFO = typeof fn === 'function' ? fn : null; }
 
 const env = process.env;
 const num = (v, d) => (v != null && v !== '' && !Number.isNaN(Number(v)) ? Number(v) : d);

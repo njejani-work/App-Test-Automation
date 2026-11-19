@@ -8,7 +8,7 @@
 //                      no resource-ids. Tests assume the device language is English.
 //   3. XPath         - not used: slow and breaks when layouts change.
 
-import { step } from '../support/report/recorder.js';
+import { logAction } from '@apptest/toolkit/dashboard/recorder.js'; // shared dashboard: actions inside the current step
 
 const q = (s) => JSON.stringify(String(s));
 
@@ -72,7 +72,7 @@ export default class BasePage {
   async tap(sel, { timeout = 15000 } = {}) {
     const el = await $(sel);
     await el.waitForDisplayed({ timeout, timeoutMsg: `${this.name}: not displayed: ${sel}` });
-    step(`${this.name}: tap ${label(sel)}`);
+    logAction('tap', label(sel));
     await el.click();
   }
 
@@ -80,7 +80,7 @@ export default class BasePage {
     const el = await $(sel);
     await el.waitForDisplayed({ timeoutMsg: `${this.name}: input not displayed: ${sel}` });
     if (clear) await el.clearValue().catch(() => {});
-    step(`${this.name}: type "${value}" into ${label(sel)}`);
+    logAction('type', label(sel), value);
     await el.setValue(String(value));
   }
 

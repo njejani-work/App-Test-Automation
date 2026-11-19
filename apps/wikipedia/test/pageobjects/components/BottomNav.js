@@ -1,4 +1,4 @@
-import { step } from '../../support/report/recorder.js';
+import { logAction } from '@apptest/toolkit/dashboard/recorder.js';
 // The bottom navigation bar on the main screen (MainActivity).
 // Captured in: locators/HistoryScreen.json and MainScreen.json (11 Nov 2026).
 // Each tab has a resource-id AND a content-desc equal to its label, e.g.
@@ -29,7 +29,7 @@ class BottomNav {
   async open(key) {
     const el = await this.tab(key);
     await el.waitForDisplayed({ timeoutMsg: `Bottom tab "${TABS[key].label}" not displayed` });
-    step(`Bottom bar: tap "${TABS[key].label}"`);
+    logAction('tap', `Bottom bar "${TABS[key].label}"`);
     await el.click();
   }
 

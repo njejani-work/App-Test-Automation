@@ -2,6 +2,7 @@
   "about": "The apps that share the test dashboard. Each app keeps its own dashboard in apps/<id>/reports/; the App filter at the top of every dashboard switches between them, and the logo and name at the top left follow it. \"project\" and \"logo\" are relative to this file. Logo: an image file, or else a badge with \"badge\" text on \"color\".",
   "apps": [
     { "id": "egenome", "name": "eGenome.ai", "project": "../apps/egenome", "color": "#6d4bd8", "badge": "eG" },
-    { "id": "instagram", "name": "Instagram", "project": "../apps/instagram", "color": "#d6336c", "badge": "IG" }
+    { "id": "instagram", "name": "Instagram", "project": "../apps/instagram", "color": "#d6336c", "badge": "IG" },
+    { "id": "wikipedia", "name": "Wikipedia", "project": "../apps/wikipedia", "color": "#3a3a3a", "badge": "W" }
   ]
 }

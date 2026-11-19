@@ -12,7 +12,7 @@ import { buildRun, buildIndex, printSummary } from './builder.js';
 import * as dev from './device-recorder.js';
 import { runDetails } from './lib/run-details.js';
 import { appInfo, clockOffsetMs, deviceDetails, listDevices } from './lib/device.js';
-import { PROJECT_ROOT } from './options.js';
+import { PROJECT_ROOT, APP_INFO } from './options.js';
 import { APP_PACKAGE } from './egenome-run.js';
 
 const RECORDER_VERSION = 1; // 1 = app log, API calls, performance, video, app version (13 Nov 2026)
@@ -86,7 +86,7 @@ export function createHooks() {
       fs.writeFileSync(CURRENT(), id);
       const startedAt = Date.now();
       // The app on the device: version and a fingerprint of the installed APK (tells app changes from test changes)
-      const app = await appInfo(options.udid, APP_PACKAGE);
+      const app = APP_INFO ? await APP_INFO() : await appInfo(options.udid, APP_PACKAGE); // app.config.js dashboard.appInfo, if given
       let details = null;
       try { details = runDetails(PROJECT_ROOT); } catch {}
       fs.writeFileSync(

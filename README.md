@@ -8,4 +8,6 @@ app-tests/
 └─ apps/<id>/      one folder per app: its config, page objects, specs, data and settings
 ```
 
+Apps: `apps/egenome` (eGenome.ai), `apps/instagram` (Instagram), `apps/wikipedia` (Wikipedia, built from source into `out/`).
+
 Install once at this folder's root: `npm install`. Run an app's scripts with `-w`, e.g. `npm run test:smoke -w apps/egenome`.

@@ -4,12 +4,12 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { percentile, withDefaults, runMetrics, checkBudgets, checkTrends, apiLimits, testLimitMs } from '../../support/report/budgets.js';
-import { checkBody, checkCall, ruleFor } from '../../support/report/formats.js';
-import { NetworkLog, issuesOf, LOG_LINE_MAX_BYTES } from '../../support/report/network.js';
-import { launchTimesIn } from '../../support/report/logcat.js';
+import { percentile, withDefaults, runMetrics, checkBudgets, checkTrends, apiLimits, testLimitMs } from '@apptest/toolkit/dashboard/lib/budgets.js';
+import { checkBody, checkCall, ruleFor } from '@apptest/toolkit/dashboard/lib/formats.js';
+import { NetworkLog, issuesOf, LOG_LINE_MAX_BYTES } from '@apptest/toolkit/dashboard/lib/network.js';
+import { launchTimesIn } from '@apptest/toolkit/dashboard/lib/logcat.js';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const B = withDefaults(JSON.parse(readFileSync(path.join(ROOT, 'test', 'budgets.json'), 'utf8')));
 const RULES = JSON.parse(readFileSync(path.join(ROOT, 'test', 'api-formats.json'), 'utf8')).rules;
 

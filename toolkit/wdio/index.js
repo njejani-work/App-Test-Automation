@@ -88,7 +88,11 @@ export async function createConfig(app, { hooks = {}, replace = [], env = proces
   if (app.dashboard?.title) env.DASHBOARD_TITLE ||= app.dashboard.title;
   // the dashboard modules may already be loaded (an app's hooks import the recorder): tell them too (19 Nov 2026: the
   // Instagram run was recorded as com.egenome.app, the default)
-  if (env === process.env) (await import('../dashboard/options.js')).setAppPackage(env.DASHBOARD_APP_PACKAGE);
+  if (env === process.env) {
+    const dash = await import('../dashboard/options.js');
+    dash.setAppPackage(env.DASHBOARD_APP_PACKAGE);
+    dash.setAppInfo(app.dashboard?.appInfo); // the app's own version reader, if it has one (Wikipedia: its built APK)
+  }
 
   const d = defaults(env);
   const valueOf = (v) => (typeof v === 'function' ? v(env) : v || {});

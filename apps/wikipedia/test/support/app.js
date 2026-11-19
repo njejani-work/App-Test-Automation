@@ -1,5 +1,5 @@
 // App-level helpers shared by the suites.
-import { OnboardingPage, PersonalizationPage, HomePage, Dialogs } from '../pageobjects/index.js';
+import { OnboardingPage, PersonalizationPage, HomePage, BottomNav, Dialogs } from '../pageobjects/index.js';
 
 /** Package of the APK under test (set by wdio.conf.js from the build receipt). */
 export const APP_ID = () => process.env.APP_ID || 'org.wikipedia.dev';
@@ -25,11 +25,17 @@ export async function getToMainScreen() {
   await HomePage.waitForOpen(30000);
 }
 
-/** Press back until the main screen shows (max `tries` times). */
+/**
+ * Back to the main screen (Home tab), at most `tries` moves. On a screen with the bottom bar (another tab, e.g. Search
+ * after a search) it taps Home: Back there leaves the app (19 Nov 2026: SMK-06 ended on the Android launcher).
+ * Elsewhere (article, search screen) it presses Back.
+ */
 export async function backToMain(tries = 4) {
   for (let i = 0; i < tries; i++) {
     if (await HomePage.isOpen(1000)) return;
-    await driver.back();
+    const bar = await BottomNav.bar;
+    if ((await bar.isExisting()) && (await bar.isDisplayed())) await BottomNav.open('home');
+    else await driver.back();
   }
   await HomePage.waitForOpen();
 }
