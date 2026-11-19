@@ -1,0 +1,175 @@
+/* The dashboard's theme: eGenome's colours (sampled from apps/egenome/locators/screenshots, 19 Nov 2026) as shadcn
+   tokens. Dark is the default, like the app; light uses the same roles. Every text colour passes WCAG AA (4.5:1) on its
+   background; the ratios are in ui/PLAN.md section 5. Only this file defines colours. */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.875rem;
+  /* light */
+  --background: #f5f4f8;
+  --foreground: #1b1530;
+  --card: #ffffff;
+  --card-foreground: #1b1530;
+  --popover: #ffffff;
+  --popover-foreground: #1b1530;
+  --primary: #842890;            /* eGenome purple: buttons, selection */
+  --primary-foreground: #ffffff;
+  --brand-from: #842890;         /* the app's gradient, "Complete Payment" */
+  --brand-to: #ac3aba;
+  --link: #842890;               /* purple used as text */
+  --secondary: #eeebf4;
+  --secondary-foreground: #1b1530;
+  --muted: #eeebf4;
+  --muted-foreground: #5e5672;
+  --accent: #ece6f4;             /* shadcn: hover / highlighted rows (not the teal) */
+  --accent-foreground: #1b1530;
+  --border: #e6e3ee;
+  --input: #ddd8e7;
+  --ring: #842890;
+  /* statuses: colour + icon + word, never colour alone */
+  --good: #067a75;               /* PASS, fixed (eGenome teal, darkened for text) */
+  --good-fill: #089890;
+  --warn: #9a5a00;               /* FLAKY, warnings, UNSTABLE ("ACTION NEEDED" amber, darkened for text) */
+  --warn-fill: #fe9800;
+  --destructive: #c4271d;        /* FAIL, BLOCKED, NEW, REGRESSION */
+  --bad-fill: #fe3c30;
+  --crash: #8f1515;
+  --known: #6d4bd8;
+  --skipped: #77708a;
+  --chart-1: #842890;
+  --chart-2: #089890;
+  --chart-3: #fe9800;
+  --chart-4: #c4271d;
+  --chart-5: #5a3ca8;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1b1530;
+  --sidebar-primary: #842890;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1ecf7;
+  --sidebar-accent-foreground: #1b1530;
+  --sidebar-border: #e6e3ee;
+  --sidebar-ring: #842890;
+  --glow-1: rgba(132, 40, 144, 0.10);
+  --glow-2: rgba(30, 54, 96, 0.06);
+}
+
+.dark {
+  --background: #100a20;         /* the app's near-black violet */
+  --foreground: #f4f1fa;
+  --card: #1a1430;               /* the app's translucent cards, flattened (white 5% over the background) */
+  --card-foreground: #f4f1fa;
+  --popover: #1d1636;
+  --popover-foreground: #f4f1fa;
+  --primary: #ac3aba;
+  --primary-foreground: #ffffff;
+  --link: #c77dff;
+  --secondary: #241c3e;
+  --secondary-foreground: #f4f1fa;
+  --muted: #211a39;
+  --muted-foreground: #a9a1bd;
+  --accent: #2a2147;
+  --accent-foreground: #f4f1fa;
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #c77dff;
+  --good: #2cc4b8;
+  --warn: #fe9800;
+  --destructive: #ff6b60;
+  --crash: #ff8a80;
+  --known: #a99bff;
+  --skipped: #9a93ad;
+  --chart-1: #ac3aba;
+  --chart-2: #2cc4b8;
+  --chart-3: #fe9800;
+  --chart-4: #ff6b60;
+  --chart-5: #7c6be0;
+  --sidebar: #130c26;
+  --sidebar-foreground: #e9e4f5;
+  --sidebar-primary: #ac3aba;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #241c3e;
+  --sidebar-accent-foreground: #f4f1fa;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #c77dff;
+  --glow-1: rgba(90, 60, 168, 0.28);   /* the app's violet and indigo glows */
+  --glow-2: rgba(30, 54, 96, 0.30);
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora Variable", "Inter Variable", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: calc(var(--radius) - 2px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-good: var(--good);
+  --color-good-fill: var(--good-fill);
+  --color-warn: var(--warn);
+  --color-warn-fill: var(--warn-fill);
+  --color-bad-fill: var(--bad-fill);
+  --color-crash: var(--crash);
+  --color-known: var(--known);
+  --color-skipped: var(--skipped);
+  --color-brand-from: var(--brand-from);
+  --color-brand-to: var(--brand-to);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    /* the app's soft glows behind everything */
+    background-image: radial-gradient(60rem 40rem at 85% -10%, var(--glow-1), transparent 60%),
+      radial-gradient(50rem 36rem at -10% 110%, var(--glow-2), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+  code, kbd, .font-mono { font-variant-numeric: tabular-nums; }
+}
+
+@utility tabular { font-variant-numeric: tabular-nums; }
+@utility bg-brand { background-image: linear-gradient(135deg, var(--brand-from), var(--brand-to)); }
+
+/* No motion at all when the computer asks for less (Magic UI, NumberFlow and shadcn's open / close animations) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+}

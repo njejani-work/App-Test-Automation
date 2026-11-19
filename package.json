@@ -14,6 +14,10 @@
     "test:unit": "npm run test:unit --workspaces --if-present",
     "mcp:install": "npm --prefix mcp install",
     "mcp:test": "npm --prefix mcp test",
-    "mcp:inspect": "npm --prefix mcp run inspect"
+    "mcp:inspect": "npm --prefix mcp run inspect",
+    "dashboard:ui:install": "npm --prefix toolkit/dashboard/ui install",
+    "dashboard:ui:dev": "npm --prefix toolkit/dashboard/ui run dev",
+    "dashboard:ui:build": "npm --prefix toolkit/dashboard/ui run build",
+    "dashboard:ui:test": "npm --prefix toolkit/dashboard/ui test"
   }
 }

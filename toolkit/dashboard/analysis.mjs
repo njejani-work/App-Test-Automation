@@ -45,6 +45,9 @@ const BUDGETS_FILE = process.env.DASHBOARD_BUDGETS_FILE ? path.resolve(process.e
 const FORMATS_FILE = process.env.DASHBOARD_FORMATS_FILE ? path.resolve(process.env.DASHBOARD_FORMATS_FILE) : path.join(PROJECT_ROOT, 'test', 'api-formats.json');
 const TRIAGE_FILE = process.env.DASHBOARD_TRIAGE_FILE ? path.resolve(process.env.DASHBOARD_TRIAGE_FILE) : path.join(PROJECT_ROOT, 'test', 'triage.json');
 const TEMPLATE_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'template', 'index.html');
+// The redesigned page (toolkit/dashboard/ui, built into template/next/index.html) while it is being made: written next to
+// the current page as reports/next.html, so both can be opened on the same data. Removed when it replaces index.html.
+const NEXT_TEMPLATE_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'template', 'next', 'index.html');
 
 const readJson = (f) => { try { return JSON.parse(readFileSync(f, 'utf8')); } catch { return null; } };
 
@@ -638,6 +641,7 @@ export function buildDashboard({ all = false } = {}) {
   writeAtomic(path.join(cfg.dataDir, 'codes.js'), codesScript());
   const file = path.join(cfg.reportsDir, 'index.html');
   writeAtomic(file, readFileSync(TEMPLATE_FILE, 'utf8'));
+  if (existsSync(NEXT_TEMPLATE_FILE)) writeAtomic(path.join(cfg.reportsDir, 'next.html'), readFileSync(NEXT_TEMPLATE_FILE, 'utf8'));
   writeAtomic(path.join(cfg.dataDir, 'latest.js'), asScript('window.DASH_LATEST=', { schemaVersion: SCHEMA_VERSION, generatedAt, runId: runs[0]?.id || null, status: runs[0]?.summary.status || null }));
   return { file, runs };
 }
