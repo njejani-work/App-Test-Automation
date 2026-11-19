@@ -38,7 +38,6 @@ jobs:
       secrets-needed: TEST_PHONE,TEST_OTP
       apk-release: staging-apk
       apk-url-secret: STAGING_APK_URL
-      # warn until the layout specs are re-recorded with the system bars (18 Nov 2026): CI's Android 14 emulator has a
-      # shorter status bar than the Android 17 emulator the specs come from. Then back to 'on'.
-      layout-checks: warn
+      # 'on': layout differences fail the run. Was 'warn' until the specs were re-recorded with the system bars (18 Nov 2026).
+      layout-checks: 'on'
     secrets: inherit
