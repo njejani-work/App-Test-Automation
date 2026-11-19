@@ -794,8 +794,6 @@ Confirm these first when a related step fails (capture the screen with «npm run
 | «check.mjs» | «npm run check» | syntax-checks every spec / page object / helper / tool and lists missing project files |
 | «find-locators.mjs» | «npm run locators» / «locators:file» | live locator finder; offline from a saved XML |
 | «export-locators.mjs» | «npm run locators:catalog» | locator catalogue from the page objects, cross-checked with dumps |
-| «build-dashboard.mjs» | «npm run dashboard:build» | dashboard from «reports/runs/» (runs automatically after a test run) |
-| «open-report.mjs» | «npm run dashboard:open» | opens the dashboard (or a file passed as argument) |
 | «build-deliverables.mjs» | «npm run deliverables» | regenerates this whole folder |
 | «make-handover.mjs» | «npm run handover» | deliverables + zip without node_modules / reports / .env / credentials |
 

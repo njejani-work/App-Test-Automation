@@ -1,0 +1,23 @@
+{
+  "_help": [
+    "Performance budgets for the Instagram tests on the shared dashboard (format: see the toolkit README and apps/egenome/test/budgets.json).",
+    "Going over a budget gives a WARNING, never a failed run: emulator timings vary too much to fail on them.",
+    "Set on 19 Nov 2026 from the first smoke runs on the Android 17 emulator: login 85-93 s, login to logout 57-79 s, cold start 10-14 s, memory 500-545 MB. Adjust after a few more runs."
+  ],
+  "api": {
+    "default": { "p95Ms": 2000, "slowCallMs": 2000, "maxKb": 500 },
+    "endpoints": {}
+  },
+  "app": {
+    "launchMs": 15000,
+    "memoryMb": 700,
+    "jankyPct": null,
+    "_why": "Instagram is a large app that loads its feed, stories and video players at start: 10-14 s and 500-545 MB on the emulator."
+  },
+  "tests": {
+    "default": {
+      "durationMs": 120000,
+      "_why": "Every test logs in over the network (or checks the session), and each step waits for the UI to settle: 57-93 s seen."
+    }
+  }
+}

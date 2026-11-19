@@ -90,7 +90,6 @@ $p = [Environment]::GetEnvironmentVariable("Path", "User")
 |---|---|
 | `npm run dashboard` | rebuild + open the dashboard |
 | `npm run dashboard:build` | rebuild only (CI, or after copying run folders) |
-| `npm run dashboard:old` | the previous report (runs before 18 Nov 2026) |
 | `npm run report:allure` | Allure report of the last run (needs Java) |
 
 ### Locators, deliverables, handover
@@ -147,9 +146,6 @@ All test cases with their steps and expected results: [deliverables/03-test-case
 ├─ tools/
 │  ├─ setup.mjs                   npm run setup
 │  ├─ check.mjs                   npm run check
-│  ├─ dashboard.mjs               npm run dashboard[:build] (the shared dashboard)
-│  ├─ build-dashboard.mjs         npm run dashboard:old
-│  ├─ open-report.mjs             npm run dashboard:open
 │  ├─ find-locators.mjs           npm run locators / locators:file
 │  ├─ export-locators.mjs         npm run locators:catalog
 │  ├─ build-deliverables.mjs      npm run deliverables
@@ -178,8 +174,9 @@ Tests are started and finished by the hooks in `wdio.conf.js`; specs only call `
 
 ## Reports & dashboard
 
-Results go to the **shared test dashboard**, the same one as the eGenome.ai tests: its **App** filter switches between the
-apps, and the logo and name at the top left show the current one (list: `../Test Dashboard/apps.json`; `../Test Dashboard/index.html` lists them too).
+This app is part of the **app-tests** workspace (`apps/instagram`). Its results go to the **shared test dashboard**,
+the same one as the eGenome.ai tests: the **App** filter switches between the apps (list: `dashboard/apps.json` at the
+workspace root).
 
 ```
 reports/
@@ -189,14 +186,13 @@ reports/
 └─ wdio/<run>/                    WebdriverIO + Appium logs, JUnit XML (CI / test-management import)
 ```
 
-- **How:** `wdio.conf.js` loads the dashboard's recorder from the eGenome.ai project (`DASHBOARD_LIB`, default
-  `../eGenome.ai/test/support/dashboard`) with this project's folder and app (`com.instagram.android`). Every
-  `step('...')` in the specs is a step on the dashboard with its screenshot; taps and typing show under it (passwords
-  masked). The permission-popup guard works as before.
-- **Settings for this app:** `test/triage.json` (modules, owners, known log lines) and `test/budgets.json` (limits), as in
-  eGenome.ai; without them the defaults are used.
-- **Old report:** `DASHBOARD=off` in `.env` goes back to the previous recording (`reports/dashboard/`,
-  `npm run dashboard:old`); the runs recorded before 18 Nov 2026 are there.
+- **How:** `wdio.conf.js` is the shared config (`@apptest/toolkit`, `createConfig()`) with this app's settings
+  (`app.config.js`) and hooks (`test/helpers/hooks.js`). Every `step('...')` in the specs is a dashboard step with
+  its screenshot; taps and typing show under it (passwords masked). The notification-popup guard denies the popup during
+  every wait.
+- **Settings for this app:** `test/triage.json` (known log lines) and `test/budgets.json` (limits).
+- The report this project made itself (`reports/dashboard/`, `suite.json` per run) was retired on 19 Nov 2026; the runs
+  recorded with it are still in the original Instagram project folder.
 
 ## Configuration
 

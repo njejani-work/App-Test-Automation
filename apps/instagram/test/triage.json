@@ -1,0 +1,20 @@
+{
+  "_help": [
+    "Settings for the Instagram tests on the shared dashboard (format: as apps/egenome/test/triage.json).",
+    "knownLogLines: Android log lines from the app that are known and harmless. They are listed on the dashboard but not counted as app errors. 'match' is a regular expression."
+  ],
+  "knownLogLines": [
+    {
+      "match": "SlowAppComponent: (\\d+ms: \\w+ instantiating|Main thread was blocked for \\d+ms)",
+      "reason": "Instagram's own start-up timing log: a component took long to create, or the main thread was busy while it started. Expected on an emulator (slow CPU). Not an error the test causes."
+    },
+    {
+      "match": "HeliumCrashReporter: Pending crash path .* is not a directory",
+      "reason": "Instagram's embedded-browser crash reporter finds no crash folder yet (nothing has crashed). Harmless."
+    },
+    {
+      "match": "lacrima: (Error while sending report|java\\.io\\.IOException: No such file or directory|\\s+at )",
+      "reason": "Instagram's own crash/analytics reporter (lacrima) could not write or send a report file on the emulator. Not an app crash: the tests ran on. If it ever comes with an AndroidRuntime FATAL line, that is a real crash."
+    }
+  ]
+}
