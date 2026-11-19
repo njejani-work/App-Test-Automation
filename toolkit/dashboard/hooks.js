@@ -54,7 +54,7 @@ function deviceFrom(caps = {}) {
 }
 
 /** describe/it titles from a spec file, used to list tests mocha skipped. */
-function specTests(file) {
+export function specTests(file) {
   try {
     const src = fs.readFileSync(file, 'utf8');
     const out = [];
@@ -62,7 +62,13 @@ function specTests(file) {
     const re = /\b(describe|it)(?:\.only|\.skip)?\(\s*(['"`])((?:\\.|(?!\2).)*)\2/g;
     for (let m; (m = re.exec(src)); ) {
       if (m[1] === 'describe') suite = m[3];
-      else out.push({ suite, title: m[3], file: path.relative(process.cwd(), file).split(path.sep).join('/') });
+      else {
+        const t = { suite, title: m[3], file: path.relative(process.cwd(), file).split(path.sep).join('/') };
+        // a `...${SEARCH_TERM}...` title: its real text is only known when it runs, so it is matched as a pattern
+        // (19 Nov 2026: Wikipedia's SMK-04 showed up twice, once run and once "skipped")
+        if (m[2] === '`' && m[3].includes('${')) t.pattern = new RegExp(`^${m[3].split(/\$\{[^}]*\}/).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('.*')}$`);
+        out.push(t);
+      }
     }
     return out;
   } catch {

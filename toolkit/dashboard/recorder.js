@@ -205,6 +205,7 @@ export function recordSkipped(tests) {
   const seen = new Set(state.entries.map((e) => `${e.suite}›${e.title}`));
   for (const t of tests) {
     if (seen.has(`${t.suite}›${t.title}`)) continue;
+    if (t.pattern && state.entries.some((e) => e.suite === t.suite && t.pattern.test(e.title))) continue; // ran under its real title
     state.entries.push({
       id: `${state.cid}-${pad(++state.testCounter, 3)}`, index: state.testCounter, type: 'test',
       title: t.title, suite: t.suite, file: t.file || state.specs[0] || '', status: 'skipped', start: now(), durationMs: 0, steps: [],
